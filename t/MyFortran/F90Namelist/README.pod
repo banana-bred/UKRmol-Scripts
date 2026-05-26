@@ -1,0 +1,5 @@
+=head1 MyFortran::F90Namelist::Group
+
+This contains a modified version of the Fortran::F90Namelist::Group module to 
+allow it to handle the repeated wfngrp namelists in congen input. It is only 
+used for running tests against the ukrmol+ test suite at the moment. 

@@ -1,0 +1,111 @@
+&rmt_interface_inp
+   nfdm    = 18,
+   delta_r = 0.08,
+   lutarg  = 24,
+   lunp1   = 667,
+   n_symmetries = 8,
+/
+&swintfin                 ! used by SW_INTERF (see docs/swinterf)
+  name = 'e + H2+ - singlet ',
+  mgvn = 0,               ! symmetry, 0 = A1, as in CONGEN
+  stot = 1,               ! spin multiplicity 2*S+1
+  ntarg = 1,              ! number of target states
+  idtarg = 1,             ! mapping of target states from order by target congen inputs to energy order as in unit LUTARG = 24 (output of denprop)
+  rmatr = 10,           ! R-matrix radius
+  ismax = 2,              ! maximum multipole to be retained in expansion of long range potentials
+  luamp = 16,
+  lutarg = 24,
+  luci = 25,
+  nciset = 1,
+/
+&swintfin                 ! used by SW_INTERF (see docs/swinterf)
+  name = 'e + H2+ - singlet ',
+  mgvn = 1,               ! symmetry, 0 = A1, as in CONGEN
+  stot = 1,               ! spin multiplicity 2*S+1
+  ntarg = 1,              ! number of target states
+  idtarg = 1,             ! mapping of target states from order by target congen inputs to energy order as in unit LUTARG = 24 (output of denprop)
+  rmatr = 10,           ! R-matrix radius
+  ismax = 2,              ! maximum multipole to be retained in expansion of long range potentials
+  luamp = 16,
+  lutarg = 24,
+  luci = 25,
+  nciset = 2,
+/
+&swintfin                 ! used by SW_INTERF (see docs/swinterf)
+  name = 'e + H2+ - singlet ',
+  mgvn = 2,               ! symmetry, 0 = A1, as in CONGEN
+  stot = 1,               ! spin multiplicity 2*S+1
+  ntarg = 1,              ! number of target states
+  idtarg = 1,             ! mapping of target states from order by target congen inputs to energy order as in unit LUTARG = 24 (output of denprop)
+  rmatr = 10,           ! R-matrix radius
+  ismax = 2,              ! maximum multipole to be retained in expansion of long range potentials
+  luamp = 16,
+  lutarg = 24,
+  luci = 25,
+  nciset = 3,
+/
+&swintfin                 ! used by SW_INTERF (see docs/swinterf)
+  name = 'e + H2+ - singlet ',
+  mgvn = 3,               ! symmetry, 0 = A1, as in CONGEN
+  stot = 1,               ! spin multiplicity 2*S+1
+  ntarg = 1,              ! number of target states
+  idtarg = 1,             ! mapping of target states from order by target congen inputs to energy order as in unit LUTARG = 24 (output of denprop)
+  rmatr = 10,           ! R-matrix radius
+  ismax = 2,              ! maximum multipole to be retained in expansion of long range potentials
+  luamp = 16,
+  lutarg = 24,
+  luci = 25,
+  nciset = 4,
+/
+&swintfin                 ! used by SW_INTERF (see docs/swinterf)
+  name = 'e + H2+ - singlet ',
+  mgvn = 4,               ! symmetry, 0 = A1, as in CONGEN
+  stot = 1,               ! spin multiplicity 2*S+1
+  ntarg = 1,              ! number of target states
+  idtarg = 1,             ! mapping of target states from order by target congen inputs to energy order as in unit LUTARG = 24 (output of denprop)
+  rmatr = 10,           ! R-matrix radius
+  ismax = 2,              ! maximum multipole to be retained in expansion of long range potentials
+  luamp = 16,
+  lutarg = 24,
+  luci = 25,
+  nciset = 5,
+/
+&swintfin                 ! used by SW_INTERF (see docs/swinterf)
+  name = 'e + H2+ - singlet ',
+  mgvn = 5,               ! symmetry, 0 = A1, as in CONGEN
+  stot = 1,               ! spin multiplicity 2*S+1
+  ntarg = 1,              ! number of target states
+  idtarg = 1,             ! mapping of target states from order by target congen inputs to energy order as in unit LUTARG = 24 (output of denprop)
+  rmatr = 10,           ! R-matrix radius
+  ismax = 2,              ! maximum multipole to be retained in expansion of long range potentials
+  luamp = 16,
+  lutarg = 24,
+  luci = 25,
+  nciset = 6,
+/
+&swintfin                 ! used by SW_INTERF (see docs/swinterf)
+  name = 'e + H2+ - singlet ',
+  mgvn = 6,               ! symmetry, 0 = A1, as in CONGEN
+  stot = 1,               ! spin multiplicity 2*S+1
+  ntarg = 1,              ! number of target states
+  idtarg = 1,             ! mapping of target states from order by target congen inputs to energy order as in unit LUTARG = 24 (output of denprop)
+  rmatr = 10,           ! R-matrix radius
+  ismax = 2,              ! maximum multipole to be retained in expansion of long range potentials
+  luamp = 16,
+  lutarg = 24,
+  luci = 25,
+  nciset = 7,
+/
+&swintfin                 ! used by SW_INTERF (see docs/swinterf)
+  name = 'e + H2+ - singlet ',
+  mgvn = 7,               ! symmetry, 0 = A1, as in CONGEN
+  stot = 1,               ! spin multiplicity 2*S+1
+  ntarg = 1,              ! number of target states
+  idtarg = 1,             ! mapping of target states from order by target congen inputs to energy order as in unit LUTARG = 24 (output of denprop)
+  rmatr = 10,           ! R-matrix radius
+  ismax = 2,              ! maximum multipole to be retained in expansion of long range potentials
+  luamp = 16,
+  lutarg = 24,
+  luci = 25,
+  nciset = 8,
+/

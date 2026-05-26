@@ -1,0 +1,185 @@
++-------------------------------------------------------------------------+
+|              _              |                                           |
+| || || ||//  | \          |  | University College London (C) 1994 - 2020 |
+| || || ||    | / |/\/\ /\ |  | Open University           (C) 2007 - 2020 |
+| \\_// ||\\  | \ | | | \/ |  |                                           |
+|                             |                                           |
++-------------------------------------------------------------------------+
+| Last revision: 3.2                                                      |
+| Last author:   Jimena Gorfinkiel                                        |
+| Last date:     Tue Dec 21 17:59:46 2021 +0000                           |
++-------------------------------------------------------------------------+
+
+
+ PROGRAM SCATCI (19 Oct 2009) : 
+
+                         DATE = 20230416
+
+                         TIME = 152940.628
+
+
+ CONGEN: e + H2O - doublet App                                                                                                   
+ SCATCI: e + H2O - doublet App                                                                                                   
+ MGVN =         1     S    =  0.5
+ NELT =        11     SZ   =  0.5
+ IDIAG=         2     R    =  0.0
+ THRES=   0.1D-09     NSYM =    2
+ MEGUL=721, NOCSF=        63
+ NPFLG         0   0   0   0   0   0
+ in rdnfto-gt: nctgt=                     1
+ NOB  =       192 114
+ NOB0 =         9   1
+ NOBC =         0  58
+ NDTRF=         1   2   3   4   5   6   7   8   9  10 385
+ NSRB=  612    LNDOF=       717    LCDOF=       123
+ nfte =  821        nfti =    16       lembf=  5000       iodr =   1
+ MOLECULE SYMMETRY CASE,  SYMTYP = 2
+
+ Prototype CSF option requested
+
+ CI target option requested,
+ Vectors to be read from unit NFTG = 26
+ Phases for target vectors read in from CONGEN
+
+ Number of target symmetries in expansion,   NTGSYM =    1
+ Number of continuum orbitals for each state, NOTGT =   56
+ Number of CI components for each state,      NCTGT =         1
+ Number of target states of each symmetry,   NUMTGT =    1
+ Continuum M projection  for each state,      MCONT =    1
+
+ Diagonalisation of Hamiltonian matrix requested
+ SCATCI will expand NOCSF =     63 prototype CSFs
+               into MXCSF =    117 actual configurations
+               and  MOCSF =    117 dimension final Hamiltonian
+
+ Number of last continuum CSF, NCONT =     56
+     ENERGY EXPRESSIONS COMPUTED FOR MOLECULE SYMMETRY CASE - SYMTYP=  2
+ All IIII blocks of integrals
+                     1                     0                     0
+                     0                     0
+                     2                     1                     1
+                     1                     1
+ All IJIJ blocks
+                     3                     1                     0
+                     1                     0
+ The IIJJ blocks of integrals
+                     4                     1                     1
+                     0                     0
+ NOBE =        96        57
+ MBAS =         0         6
+ NBASH=         1      4657      6310
+   Read wavefunctions from CONGEN and load integrals
+ GIVEN NSRBD=                   612
+ CALCULATED NSRB=                   612
+
+          Assuming UKRMol+ integrals on input.
+MPI startup(): PMI server not found. Please set I_MPI_PMI_LIBRARY variable if it is not a singleton case.
+
+ On input SCATCI expects:
+ 1-electron integrals, NINT1e =0
+ 2-electron integrals, NINT2e =0
+
+One electron integrals read-in.
+Recomputing the 1-particle Hamiltonian integrals for the positron case...
+...done
+
+Two electron integrals read-in.
+
+ UKRMol+ integrals read successfully:
+ 1-electron integrals, NINT1e =11781
+ 2-electron integrals, NINT2e =865707
+
+          Nuclear repulsion energy =       9.1891961
+
+          Finished reading UKRMol+ integrals.
+   Load CI target and construct matrix elements
+
+ TRANSFORMATION VECTOR   1 FROM SET  1 STATE  1
+ SET   1    H2O CI calculation - singlet Ap                                                                                         
+          NOCSF=    1    NSTAT=    1    NNUC =    4
+
+ Nuclear data     X         Y         Z       Charge
+   O  1        0.000000  0.000000  0.124011  8.000000
+   H  2        0.000000  1.430955 -0.984352  1.000000
+   H  3        0.000000 -1.430955 -0.984352  1.000000
+   sc 4        0.000000  0.000000  0.000000  0.000000
+          EIGEN-ENERGIES OF THE REQ. STATES
+                      -76.0267703423
+     MXCORB SET TO:       100000000
+
+
+ TOTAL H Matrix     ELEMENTS      =      6903
+ NON-ZERO ELEMENTS evaluated      =      3991
+ Total    prototype ELEMENTS      =      2016
+ Non-zero prototype ELEMENTS      =      1414
+
+ Number (prototype) integrals     =      6999
+ Compressed (prototype) integrals =      6999
+ Number integrals evaluated       =     20193
+ ===================================================
+  inside subroutine --> 'dgmain' --> begins. 
+ 
+
+  ************************************************************************************************************************
+
+ MATRIX DIAGONALIZATION SECTION
+ (RUN)     H2O CI calculation - doublet App                                                                                        
+  DATA SET FILE NUMBERS AND LENGTH SPECIFICATIONS :
+      NFTE =821      NFTW =     25
+
+ NPFLG :      0     0
+ NCISET:      1
+
+ NPCVC =    1
+ THRHM = 0.10D-14
+
+
+ (EMX)     e + H2O - doublet App                                                                                                   
+
+   117 Eigenvectors to be computed for
+   117 dimensional final Hamiltonian matrix
+
+      3991 Hamiltonian elements read from unit NFTE =821
+ CI data stored as set number  1
+
+ SET   1    H2O CI calculation - doublet App                                                                                        
+
+ MGVN = 1    s =   0.5    sz =   0.5    NELT =   11    NNUC =  4
+
+ Nuclear data     X         Y         Z       Charge
+   O  1        0.000000  0.000000  0.124011  8.000000
+   H  2        0.000000  1.430955 -0.984352  1.000000
+   H  3        0.000000 -1.430955 -0.984352  1.000000
+   sc 4        0.000000  0.000000  0.000000  0.000000
+
+ NOCSF=  117    NSTAT=  117    EN   =        9.1891960750
+
+ NTGSYM=   1
+  I   MCONT  NOTGT
+  1      1     56
+
+ EIGEN-ENERGIES
+                      -75.9923939945      -75.9528451271      -75.9524664974      -75.9041723292      -75.9030719395
+                      -75.9030512167      -75.8468763895      -75.8436687020      -75.8431951430      -75.8423710387
+                      -75.8423469729      -75.7529261523      -75.7507932747      -75.6491140810      -75.6457124687
+                      -75.6456996118      -75.5926726805      -75.5314935613      -75.5298070750      -75.5279331098
+                      -75.5277444806      -75.4808815738      -75.4550304433      -75.4545328192      -75.4448675790
+                      -75.2993377805      -75.2987036836      -75.2929753874      -75.2923833304      -75.2800341511
+                      -75.2270792654      -75.1298260857      -75.1262951785      -75.1235386511      -75.1227808108
+                      -75.0514865840      -75.0446510201      -74.9624217857      -74.9374310770      -74.8299735727
+                      -74.8200848278      -74.8188647999      -74.8094739187      -74.7823134512      -74.6881586351
+                      -74.6639600029      -74.6332081330      -74.6014620207      -74.5905017926      -74.5806442122
+                      -74.5768975159      -74.5728262828      -74.5580270451      -74.4707973062      -74.4558256498
+                      -74.2015296451      -74.1364249421      -74.1326376877      -74.1115216499      -74.1062539016
+                      -73.9818967320      -73.4328464329      -73.3821628302      -73.2245052677      -73.0945677638
+                      -73.0786029605      -73.0744311926      -73.0728204327      -73.0714557522      -73.0614999149
+                      -73.0417700010      -73.0291411426      -73.0287605374      -72.9753605160      -72.9153503731
+                      -72.6427126676      -72.6381189285      -72.6335814883      -72.6167104262      -72.5804620678
+                      -72.3506551454      -71.9683346653      -71.8792436156      -71.4355502847      -71.4037861142
+                      -71.2690169386      -71.2506447209      -71.1948850902      -71.1687121305      -71.0292905629
+                      -70.9340187733      -70.8850236608      -70.7317081971      -70.6971516778      -70.6467227936
+                      -70.6227892055      -70.5014923663      -70.4748416188      -70.4304885669      -70.3896735511
+                      -70.3878403680      -70.3499063141      -70.2629338913      -69.9327702256      -69.8976492612
+                      -69.7766466899      -67.4318497597      -67.3380994906      -66.9618371273      -66.8801227483
+                      -66.8749156801      -66.7432323327        2.7037411137        2.8284874216        3.2558796341
+                        3.3668934141        3.4644351699

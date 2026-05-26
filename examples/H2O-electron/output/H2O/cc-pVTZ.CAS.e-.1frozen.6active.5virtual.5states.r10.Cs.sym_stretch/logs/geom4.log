@@ -1,0 +1,342 @@
+
+Geometry #4:
+===========
+
+Target calculations:
+
+Running molpro ...
+Reading molpro output ...
+Looking for NATURAL ORBITALS in MOLPRO output...
+  Found NATURAL ORBITALS...
+  Occupancy and energy of the first 10 molecular orbitals: in X.Y  X stands for IR and Y counts MOs
+    1.1    2.000000    -20.4941
+    2.1    1.999353    -0.5012
+    1.2    1.998741    -1.1929
+    1.3    1.969835    -0.7317
+    1.4    1.968401    -0.6527
+    1.5    0.032128    0.6176
+    1.6    0.031543    0.6095
+    1.7    0.000000    0.3123
+    1.8    0.000000    0.3300
+    1.9    0.000000    0.6374
+    1.10    0.000000    0.7035
+  Frozen orbitals: 1,0
+  Active orbitals: 5,1
+  Target  orbitals: 6,1
+  Virtual orbitals: 4,1
+  Used    orbitals: 10,2
+  Reference orbitals: 9,1
+ ... done.
+Running scatci_integrals ...
+Running command "mv log_file.0 outputs/target.scatci_integrals.out" ...
+Running command "rm inp" ...
+Reading scatci_integrals output ...
+Final number of orbitals for target: 10, 2, 
+Final number of orbitals for PCOs: 0, 0, 
+Final number of orbitals for TGT+PCOs: 10, 2, 
+Final number of orbitals for continuum: 87, 56, 
+Number of molecular orbitals in each irreducible representation: 97, 58, 
+  Cont used orbitals: 87,56
+  All  used orbitals: 97,58
+ ... done.
+Target MAS:
+Method: ORMAS
+Space 0: [1,0,0,0,0,0,0,0], [2,2], closed
+Space 1: [5,1,0,0,0,0,0,0], [8,8], active
+L^2 MAS:
+Method: ORMAS
+Space 0: [1,0,0,0,0,0,0,0], [2,2], closed
+Space 1: [5,1,0,0,0,0,0,0], [8,9], active
+Space 2: [5,0,0,0,0,0,0,0], [0,1], active
+
+Searching for reference orbitals for singlet Ap state.
+Putting 10 electrons into (9,1) orbitals
+Reference orbitals found:
+0,1,10,0,0
+
+Running congen for singlet Ap ...
+Reading congen output ...
+  Total number of CSF's generated is 65
+.
+ ... done.
+Running scatci for singlet Ap ...
+Reading scatci output ...
+:
+  1.0.1 -> -76.0969731990
+  1.0.2 -> -75.3679222327
+ ... done.
+
+Searching for reference orbitals for triplet Ap state.
+Putting 10 electrons into (9,1) orbitals
+Reference orbitals found:
+0,1,9,0,0, 0,6,1,0,0
+
+Running congen for triplet Ap ...
+Reading congen output ...
+  Total number of CSF's generated is 55
+.
+ ... done.
+Running scatci for triplet Ap ...
+Reading scatci output ...
+:
+  3.0.1 -> -75.5125584059
+ ... done.
+
+Searching for reference orbitals for singlet App state.
+Putting 10 electrons into (9,1) orbitals
+Reference orbitals found:
+0,1,9,0,0, 1,1,1,1,0
+
+Running congen for singlet App ...
+Reading congen output ...
+  Total number of CSF's generated is 40
+.
+ ... done.
+Running scatci for singlet App ...
+Reading scatci output ...
+:
+  1.1.1 -> -75.5259921979
+ ... done.
+
+Searching for reference orbitals for triplet App state.
+Putting 10 electrons into (9,1) orbitals
+Reference orbitals found:
+0,1,9,0,0, 1,1,1,0,0
+
+Running congen for triplet App ...
+Reading congen output ...
+  Total number of CSF's generated is 50
+.
+ ... done.
+Running scatci for triplet App ...
+Reading scatci output ...
+:
+  3.1.1 -> -75.5666161635
+ ... done.
+
+MAS Analysis: Comparison of qchem and target states:
+  Energy difference = target energy - qchem energy
+   ---------------------------------------------------
+    State  Spin.Sym  Energy diff.  No. CSFs  No. CSFs
+     No.                 (Ha)       (qchem)  (target)
+   ---------------------------------------------------
+       1      1.0    -2.009983e-10        65        65
+       2      3.1    0.000000e+00         0        50
+       3      1.1    0.000000e+00         0        40
+       4      3.0    0.000000e+00         0        55
+       5      1.0    0.000000e+00        65        65
+   ---------------------------------------------------
+  Max. energy difference: -2.009983e-10 for state 1
+
+Running denprop ...
+Reading denprop output ...
+  Target states:
+    No. 1 - Singlet(1)  A'(0)  -0.760969731990D+02
+    No. 2 - Triplet(3)  A"(1)  -0.755666161635D+02
+    No. 3 - Singlet(1)  A"(1)  -0.755259921979D+02
+    No. 4 - Triplet(3)  A'(0)  -0.755125584059D+02
+    No. 5 - Singlet(1)  A'(0)  -0.753679222327D+02
+  Dipole moment (in a.u.) of the ground state:
+   z component: 0.7410119268
+   x component: 0.0000000000
+   y component: 0.0000000021
+ ... done.
+Running command "cp fort.24 prop.out" ...
+
+Scattering calculations with CAS model:
+
+
+Searching for reference orbitals for doublet Ap state.
+Putting 11 electrons into (9,1) orbitals
+Reference orbitals found:
+0,1,11,0,0
+
+Running congen for doublet Ap ...
+Reading congen output ...
+  Total number of CSF's generated is 1065
+.
+ ... done.
+Running scatci for doublet Ap ...
+Reading scatci output ...
+, printing first 10 energies:
+  2.0.1 -> -76.0874293027
+  2.0.2 -> -76.0617867049
+  2.0.3 -> -76.0560029039
+  2.0.4 -> -76.0246715103
+  2.0.5 -> -76.0242700660
+  2.0.6 -> -76.0208609452
+  2.0.7 -> -75.9778610329
+  2.0.8 -> -75.9747304672
+  2.0.9 -> -75.9735685782
+  2.0.10 -> -75.9732495356
+LCONT = 0
+ ... done.
+Running swinterf for doublet Ap ...
+Running rsolve for doublet Ap ...
+Running eigenp for doublet Ap ...
+Running tmatrx for doublet Ap ...
+Running ixsecs for doublet Ap ...
+Running reson for doublet Ap ...
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Execution of "/work/utf/ukrmol/ukrmol-in-3.2/build_oneapi_central/bin/reson < /home/houfek/ukrmol-scripts/examples/H2O-electron/my_output/H2O/cc-pVTZ.CAS.e-.1frozen.6active.5virtual.5states.r10.Cs.sym_stretch/geom4/inputs/scattering.reson.doublet.Ap.inp 1> /home/houfek/ukrmol-scripts/examples/H2O-electron/my_output/H2O/cc-pVTZ.CAS.e-.1frozen.6active.5virtual.5states.r10.Cs.sym_stretch/geom4/outputs/scattering.reson.doublet.Ap.out 2> /home/houfek/ukrmol-scripts/examples/H2O-electron/my_output/H2O/cc-pVTZ.CAS.e-.1frozen.6active.5virtual.5states.r10.Cs.sym_stretch/geom4/outputs/scattering.reson.doublet.Ap.err" failed
+Error output follows:
+--------------------------------------------------------------------------------
+ ***ERROR AND WARNING MESSAGE COUNTS FOR RANK:     0
+ NUMBER OF WARNING MESSAGES: 0
+ NUMBER OF ERROR MESSAGES: 0
+ THE MESSAGES CAN BE FOUND INSPECTING THE STDOUT UNIT FOR THIS RANK.
+[utf-asus3:524348:0:524348] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid: 524348) ====
+ 0 0x0000000000012ce0 __funlockfile()  :0
+ 1 0x000000000015a49f rml::internal::FreeBlock::rightNeig()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.cpp:228
+ 2 0x000000000015a49f rml::internal::GuardedSize::tryLock()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.cpp:176
+ 3 0x000000000015a49f rml::internal::FreeBlock::trySetLeftUsed()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.cpp:241
+ 4 0x000000000015a49f rml::internal::Backend::doCoalesc()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.cpp:1072
+ 5 0x000000000015a102 rml::internal::Backend::coalescAndPutList()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.cpp:1122
+ 6 0x000000000015bea2 rml::internal::Backend::genericPutBlock()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.cpp:900
+ 7 0x000000000015bea2 std::__atomic_base<long>::operator++()  /usr/include/c++/4.8.2/bits/atomic_base.h:388
+ 8 0x000000000015bea2 rml::internal::BackendSync::blockReleased()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.h:41
+ 9 0x000000000015bea2 rml::internal::Backend::genericPutBlock()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.cpp:901
+10 0x000000000014872a rml::internal::TLSData::release()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/frontend.cpp:1800
+11 0x0000000000148538 rml::internal::MemoryPool::onThreadShutdown()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/frontend.cpp:1162
+12 0x00000000001481fd doThreadShutdownNotification()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/frontend.cpp:2869
+13 0x0000000000148b2e __TBB_mallocProcessShutdownNotification()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/frontend.cpp:2905
+14 0x0000000000148b2e rml::internal::ShutdownSync::processExit()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/frontend.cpp:1981
+15 0x0000000000148b2e __TBB_mallocProcessShutdownNotification()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/frontend.cpp:2913
+16 0x00000000000c2ba8 _INTERNAL07dfff89::__kmp_fini_allocator()  /nfs/site/proj/openmp/promo/20211013/tmp/lin_32e-rtl_int_5_nor_dyn.rel.c0.s0.t1..h1.w1-fxilab153/../../src/kmp_runtime.cpp:666
+17 0x00000000000c2ba8 __kmp_internal_end_library()  /nfs/site/proj/openmp/promo/20211013/tmp/lin_32e-rtl_int_5_nor_dyn.rel.c0.s0.t1..h1.w1-fxilab153/../../src/kmp_runtime.cpp:6738
+18 0x00000000000151e6 _dl_fini()  /usr/src/debug/glibc-2.28-189.5.el8_6.x86_64/elf/dl-fini.c:138
+19 0x000000000005123c __run_exit_handlers()  :0
+20 0x0000000000051370 __GI_exit()  :0
+21 0x00000000007244cc for_stop_core_quiet()  ???:0
+22 0x00000000005cd8d5 mpi_gbl_mp_mpi_mod_finalize_()  ???:0
+23 0x00000000004058a4 MAIN__()  ???:0
+24 0x0000000000405822 main()  ???:0
+25 0x000000000003acf3 __libc_start_main()  ???:0
+26 0x000000000040572e _start()  ???:0
+=================================
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+reson              00000000006EB8BA  Unknown               Unknown  Unknown
+libpthread-2.28.s  00001546D620BCE0  Unknown               Unknown  Unknown
+libiomp5.so        00001546D99D049F  Unknown               Unknown  Unknown
+libiomp5.so        00001546D99D0102  Unknown               Unknown  Unknown
+libiomp5.so        00001546D99D1EA2  Unknown               Unknown  Unknown
+libiomp5.so        00001546D99BE72A  Unknown               Unknown  Unknown
+libiomp5.so        00001546D99BE538  Unknown               Unknown  Unknown
+libiomp5.so        00001546D99BE1FD  Unknown               Unknown  Unknown
+libiomp5.so        00001546D99BEB2E  Unknown               Unknown  Unknown
+libiomp5.so        00001546D9938BA8  Unknown               Unknown  Unknown
+ld-2.28.so         00001546E22F31E6  Unknown               Unknown  Unknown
+libc-2.28.so       00001546D5E8523C  Unknown               Unknown  Unknown
+libc-2.28.so       00001546D5E85370  on_exit               Unknown  Unknown
+reson              00000000007244CC  Unknown               Unknown  Unknown
+reson              00000000005CD8D5  Unknown               Unknown  Unknown
+reson              00000000004058A4  Unknown               Unknown  Unknown
+reson              0000000000405822  Unknown               Unknown  Unknown
+libc-2.28.so       00001546D5E6ECF3  __libc_start_main     Unknown  Unknown
+reson              000000000040572E  Unknown               Unknown  Unknown
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Reading reson output ...
+  Warning: there is no resonance in output of reson: file /home/houfek/ukrmol-scripts/examples/H2O-electron/my_output/H2O/cc-pVTZ.CAS.e-.1frozen.6active.5virtual.5states.r10.Cs.sym_stretch/geom4/outputs/scattering.reson.doublet.Ap.out !
+ ... done.
+Running command "cp fort.1020 ../eigenph.doublet.Ap" ...
+Running command "cp fort.1220 ../xsec.doublet.Ap" ...
+
+Searching for reference orbitals for doublet App state.
+Putting 11 electrons into (9,1) orbitals
+Reference orbitals found:
+0,1,10,0,0, 1,1,1,0,0
+
+Running congen for doublet App ...
+Reading congen output ...
+  Total number of CSF's generated is 895
+.
+ ... done.
+Running scatci for doublet App ...
+Reading scatci output ...
+, printing first 10 energies:
+  2.1.1 -> -76.0565341492
+  2.1.2 -> -76.0229301571
+  2.1.3 -> -76.0206928505
+  2.1.4 -> -75.9738947423
+  2.1.5 -> -75.9733528637
+  2.1.6 -> -75.9718563226
+  2.1.7 -> -75.9135680924
+  2.1.8 -> -75.9133600839
+  2.1.9 -> -75.9125489354
+  2.1.10 -> -75.9115135499
+LCONT = 0
+ ... done.
+Running swinterf for doublet App ...
+Running rsolve for doublet App ...
+Running eigenp for doublet App ...
+Running tmatrx for doublet App ...
+Running ixsecs for doublet App ...
+Running reson for doublet App ...
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Execution of "/work/utf/ukrmol/ukrmol-in-3.2/build_oneapi_central/bin/reson < /home/houfek/ukrmol-scripts/examples/H2O-electron/my_output/H2O/cc-pVTZ.CAS.e-.1frozen.6active.5virtual.5states.r10.Cs.sym_stretch/geom4/inputs/scattering.reson.doublet.App.inp 1> /home/houfek/ukrmol-scripts/examples/H2O-electron/my_output/H2O/cc-pVTZ.CAS.e-.1frozen.6active.5virtual.5states.r10.Cs.sym_stretch/geom4/outputs/scattering.reson.doublet.App.out 2> /home/houfek/ukrmol-scripts/examples/H2O-electron/my_output/H2O/cc-pVTZ.CAS.e-.1frozen.6active.5virtual.5states.r10.Cs.sym_stretch/geom4/outputs/scattering.reson.doublet.App.err" failed
+Error output follows:
+--------------------------------------------------------------------------------
+ ***ERROR AND WARNING MESSAGE COUNTS FOR RANK:     0
+ NUMBER OF WARNING MESSAGES: 0
+ NUMBER OF ERROR MESSAGES: 0
+ THE MESSAGES CAN BE FOUND INSPECTING THE STDOUT UNIT FOR THIS RANK.
+[utf-asus3:524390:0:524390] Caught signal 11 (Segmentation fault: Sent by the kernel at address (nil))
+==== backtrace (tid: 524390) ====
+ 0 0x0000000000012ce0 __funlockfile()  :0
+ 1 0x000000000015a49f rml::internal::FreeBlock::rightNeig()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.cpp:228
+ 2 0x000000000015a49f rml::internal::GuardedSize::tryLock()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.cpp:176
+ 3 0x000000000015a49f rml::internal::FreeBlock::trySetLeftUsed()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.cpp:241
+ 4 0x000000000015a49f rml::internal::Backend::doCoalesc()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.cpp:1072
+ 5 0x000000000015a102 rml::internal::Backend::coalescAndPutList()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.cpp:1122
+ 6 0x000000000015bea2 rml::internal::Backend::genericPutBlock()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.cpp:900
+ 7 0x000000000015bea2 std::__atomic_base<long>::operator++()  /usr/include/c++/4.8.2/bits/atomic_base.h:388
+ 8 0x000000000015bea2 rml::internal::BackendSync::blockReleased()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.h:41
+ 9 0x000000000015bea2 rml::internal::Backend::genericPutBlock()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/backend.cpp:901
+10 0x000000000014872a rml::internal::TLSData::release()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/frontend.cpp:1800
+11 0x0000000000148538 rml::internal::MemoryPool::onThreadShutdown()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/frontend.cpp:1162
+12 0x00000000001481fd doThreadShutdownNotification()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/frontend.cpp:2869
+13 0x0000000000148b2e __TBB_mallocProcessShutdownNotification()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/frontend.cpp:2905
+14 0x0000000000148b2e rml::internal::ShutdownSync::processExit()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/frontend.cpp:1981
+15 0x0000000000148b2e __TBB_mallocProcessShutdownNotification()  /nfs/site/proj/openmp/promo/tbb/oneTBB-20210907/src/tbbmalloc/frontend.cpp:2913
+16 0x00000000000c2ba8 _INTERNAL07dfff89::__kmp_fini_allocator()  /nfs/site/proj/openmp/promo/20211013/tmp/lin_32e-rtl_int_5_nor_dyn.rel.c0.s0.t1..h1.w1-fxilab153/../../src/kmp_runtime.cpp:666
+17 0x00000000000c2ba8 __kmp_internal_end_library()  /nfs/site/proj/openmp/promo/20211013/tmp/lin_32e-rtl_int_5_nor_dyn.rel.c0.s0.t1..h1.w1-fxilab153/../../src/kmp_runtime.cpp:6738
+18 0x00000000000151e6 _dl_fini()  /usr/src/debug/glibc-2.28-189.5.el8_6.x86_64/elf/dl-fini.c:138
+19 0x000000000005123c __run_exit_handlers()  :0
+20 0x0000000000051370 __GI_exit()  :0
+21 0x00000000007244cc for_stop_core_quiet()  ???:0
+22 0x00000000005cd8d5 mpi_gbl_mp_mpi_mod_finalize_()  ???:0
+23 0x00000000004058a4 MAIN__()  ???:0
+24 0x0000000000405822 main()  ???:0
+25 0x000000000003acf3 __libc_start_main()  ???:0
+26 0x000000000040572e _start()  ???:0
+=================================
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+reson              00000000006EB8BA  Unknown               Unknown  Unknown
+libpthread-2.28.s  00001497C6479CE0  Unknown               Unknown  Unknown
+libiomp5.so        00001497C9C3E49F  Unknown               Unknown  Unknown
+libiomp5.so        00001497C9C3E102  Unknown               Unknown  Unknown
+libiomp5.so        00001497C9C3FEA2  Unknown               Unknown  Unknown
+libiomp5.so        00001497C9C2C72A  Unknown               Unknown  Unknown
+libiomp5.so        00001497C9C2C538  Unknown               Unknown  Unknown
+libiomp5.so        00001497C9C2C1FD  Unknown               Unknown  Unknown
+libiomp5.so        00001497C9C2CB2E  Unknown               Unknown  Unknown
+libiomp5.so        00001497C9BA6BA8  Unknown               Unknown  Unknown
+ld-2.28.so         00001497D25611E6  Unknown               Unknown  Unknown
+libc-2.28.so       00001497C60F323C  Unknown               Unknown  Unknown
+libc-2.28.so       00001497C60F3370  on_exit               Unknown  Unknown
+reson              00000000007244CC  Unknown               Unknown  Unknown
+reson              00000000005CD8D5  Unknown               Unknown  Unknown
+reson              00000000004058A4  Unknown               Unknown  Unknown
+reson              0000000000405822  Unknown               Unknown  Unknown
+libc-2.28.so       00001497C60DCCF3  __libc_start_main     Unknown  Unknown
+reson              000000000040572E  Unknown               Unknown  Unknown
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Reading reson output ...
+  Resonance position: 0.11179781E+01 Ryd
+  Resonance width:    0.22861928E-01 Ryd
+ ... done.
+Running command "cp fort.1021 ../eigenph.doublet.App" ...
+Running command "cp fort.1221 ../xsec.doublet.App" ...

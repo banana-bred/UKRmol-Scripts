@@ -1,0 +1,55 @@
+bin="/home/houfek/UKRmol/ukrmol-in/tags/release-1.0/bin"
+
+#L=3
+#**********************
+
+cat > basis.data << EOF
+&INPUT
+ title='Neutral target',
+ ecmax=4.0, !Maximum energy of the numerical eigenfunctions
+ lval=3,    !angular momentum
+ rlim=12.0, !radial domain limit: this is recommended to be R-matrix radius + 2 so here we're optimizing for R-matrix radius 10 Bohr
+ charge=0.0,!charge of the target
+ /
+EOF
+$bin/numcbas < basis.data  > l3-numcbas.out
+
+cat > gtobas.data << EOF
+ &FIT
+ noexp=7,     !number of exponents
+ iguess=2,    !type of initial guess: leave as is
+ nplot=1,     !output flag
+ iprint=0,    !output flag
+ /
+EOF
+$bin/gtobas < gtobas.data > l3-gtobas.out
+mv fort.17 l3-graphs
+mv fort.18 l3-swmol3
+
+#L=4
+#**********************
+
+cat > basis.data << EOF
+&INPUT
+ title='Neutral target',
+ ecmax=4.0,
+ lval=4,
+ rlim=12.0,
+ charge=0.0, /
+EOF
+$bin/numcbas < basis.data  > l4-numcbas.out
+
+cat > gtobas.data << EOF
+ &FIT
+ noexp=6,
+ iguess=2,
+ nplot=1,
+ iprint=0, /
+EOF
+$bin/gtobas < gtobas.data > l4-gtobas.out
+mv fort.17 l4-graphs
+mv fort.18 l4-swmol3
+
+rm basis.data
+rm gtobas.data
+rm fort.13

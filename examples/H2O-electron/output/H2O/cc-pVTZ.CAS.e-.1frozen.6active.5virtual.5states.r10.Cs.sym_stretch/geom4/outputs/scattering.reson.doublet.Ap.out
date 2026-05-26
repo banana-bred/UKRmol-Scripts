@@ -1,0 +1,123 @@
++-------------------------------------------------------------------------+
+|              _              |                                           |
+| || || ||//  | \          |  | University College London (C) 1994 - 2020 |
+| || || ||    | / |/\/\ /\ |  | Open University           (C) 2007 - 2020 |
+| \\_// ||\\  | \ | | | \/ |  |                                           |
+|                             |                                           |
++-------------------------------------------------------------------------+
+| Last revision: unknown                                                  |
+| Last author:   unknown                                                  |
+| Last date:     unknown                                                  |
++-------------------------------------------------------------------------+
+MPI startup(): PMI server not found. Please set I_MPI_PMI_LIBRARY variable if it is not a singleton case.
+
+
+ Program RESON  (last modified 12-May-1997 )
+
+e + H2O - doublet Ap - Resonance fits                       20230416  145148.740
+
+ Automatic resonance detection and fitting requested:
+ For    NRESON =   20      lowest resonances
+ From   ABVTHR =   0.00002 Ryd above each threshold
+ Up to  BELTHR =   0.00002 Ryd below each threshold
+ Using  NFIT   =   20      energy grid points
+ And    NBACK  =    2      terms for the background
+ Change DPHZ   =   1.00000 constitutes a resonance.
+ Resonances fitted at supplied energy points.
+
+ Fixed nuclei calculation for R = 0.000
+
+ Input datasets:                                 Unit  Set numbers
+ Target and channel data     LUCHAN (UNFORMATTED) 10       1
+ Fixed nuclei R-matrix data  LURMT  (UNFORMATTED) 21       1
+ K-matrices                  LUKMT  (UNFORMATTED)920       1
+
+ Scratch dataset:                                Unit
+ K-matrix/eigenphase data    LURES  (UNFORMATTED)***
+
+ K-matrix input, set  1 on unit920
+
+ Symmetry data  MGVN = 0   STOT = 2   GUTOT = 2
+
+ K-matrices are vibrationally resolved
+
+ Number of target states       =   5
+ Number of scattering channels =  65
+
+ Input Energy grid (Ryd) 
+ Number of points        20       400
+ Initial values     0.00001   0.00007
+ Increments         0.00004   0.00367
+
+ K-matrices will be scanned for  420 energies in the range [  0.0000,  1.4701] Ryd
+
+ *** FIXED NUCLEI DATA ***
+
+ R-matrix data has been read from set number  1 on unit number 21
+ Header :e + H2O - doublet Ap                                        20230416  145122.807
+
+ Maximum multipole USED in asymptotic scattering potentials   ISMAX =  2
+
+ *** FIXED NUCLEI DATA ***
+
+ Target and channel data is read from set  1 on unit 10
+
+ R-matrix data has been read from set number  1 on unit number 21
+ Header :e + H2O - doublet Ap                                        20230416  145122.807
+
+ Automatic resonance fitting above target state  1
+    4 resonances detected
+    4 resonances to be fitted
+
+ Resonance  1 is in the range ELOW =   0.00005 Ryd to EHIGH =   0.00012 Ryd
+
+ Resonance  1 is NOT a real resonance
+
+
+ WARNING: more than MAXFIT = 100 points in resonance fitting region
+
+ Resonance  2 is in the range ELOW =   0.00002 Ryd to EHIGH =   1.06069 Ryd
+
+ Resonance  2 is NOT a real resonance
+
+
+ Resonance  3 is in the range ELOW =   0.30510 Ryd to EHIGH =   0.31245 Ryd
+
+ Resonance  3 is NOT a real resonance
+
+
+ WARNING: more than MAXFIT = 100 points in resonance fitting region
+
+ Resonance  4 is in the range ELOW =   0.00002 Ryd to EHIGH =   1.06069 Ryd
+
+ Resonance  4 is NOT a real resonance
+
+
+ Automatic resonance fitting above target state  2
+    1 resonances detected
+    1 resonances to be fitted
+
+ Resonance  1 is in the range ELOW =   1.12830 Ryd to EHIGH =   1.13565 Ryd
+
+ Resonance  1 is NOT a real resonance
+
+
+ Automatic resonance fitting above target state  3
+    1 resonances detected
+    1 resonances to be fitted
+
+ Resonance  1 is in the range ELOW =   1.15035 Ryd to EHIGH =   1.15770 Ryd
+
+ Resonance  1 is NOT a real resonance
+
+
+ Automatic resonance fitting above target state  4
+    1 resonances detected
+    1 resonances to be fitted
+
+ Resonance  1 is in the range ELOW =   1.21282 Ryd to EHIGH =   1.22017 Ryd
+
+ Resonance  1 is NOT a real resonance
+
+
+ *** Task successfully completed ***

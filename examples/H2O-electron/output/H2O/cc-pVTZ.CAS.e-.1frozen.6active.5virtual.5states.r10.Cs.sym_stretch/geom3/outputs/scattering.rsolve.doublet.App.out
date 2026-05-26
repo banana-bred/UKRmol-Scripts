@@ -1,0 +1,263 @@
++-------------------------------------------------------------------------+
+|              _              |                                           |
+| || || ||//  | \          |  | University College London (C) 1994 - 2020 |
+| || || ||    | / |/\/\ /\ |  | Open University           (C) 2007 - 2020 |
+| \\_// ||\\  | \ | | | \/ |  |                                           |
+|                             |                                           |
++-------------------------------------------------------------------------+
+| Last revision: unknown                                                  |
+| Last author:   unknown                                                  |
+| Last date:     unknown                                                  |
++-------------------------------------------------------------------------+
+MPI startup(): PMI server not found. Please set I_MPI_PMI_LIBRARY variable if it is not a singleton case.
+
+
+ Program RSOLVE  (last modified 05-Jan-2004 )
+
+e + H2O - doublet App - K-matrices                          20230416  144959.221
+
+ Symmetry data  MGVN = 1 STOT = 2 GUTOT = 0
+
+ Fixed nuclei calculation for R = 0.000
+
+ Input datasets:                                 Unit  Set numbers
+ Target and channel data     LUCHAN (UNFORMATTED) 10       1
+ Fixed nuclei R-matrix data  LURMT  (UNFORMATTED) 21       1
+
+ Output datasets:                                Unit  Set number
+ K-matrices                  LUKMT  (UNFORMATTED)921       1
+
+ K-matrices will be calculated for  420 energies in the range [  0.0001, 20.0010] EV 
+
+ *** FIXED NUCLEI DATA ***
+
+ R-matrix data has been read from set number  1 on unit number 21
+ Header :e + H2O - doublet App                                       20230416  144958.283
+
+ Dimension of Hamiltonian matrix           =       817
+ Number of CI vectors stored on file       =    0
+ Maximum multipole in asymptotic potential =    2
+ R-matrix radius                           =   10.0000
+
+ Maximum multipole USED in asymptotic scattering potentials   ISMAX =  2
+
+ *** FIXED NUCLEI DATA ***
+
+ Target and channel data is read from set  1 on unit 10
+
+ Target state    Spin    M    G/U  Energy (au)
+         1         1     0     0  -76.107428
+         2         3     1     0  -75.495166
+         3         1     1     0  -75.460381
+         4         3     0     0  -75.430732
+         5         1     0     0  -75.292388
+
+ Channel   Vibronic level   L   M  Threshold (Ryd)
+    1              1        1   1    0.000000
+    2              1        2  -2    0.000000
+    3              1        2   1    0.000000
+    4              1        3  -2    0.000000
+    5              1        3   1    0.000000
+    6              1        3   3    0.000000
+    7              1        4  -4    0.000000
+    8              1        4  -2    0.000000
+    9              1        4   1    0.000000
+   10              1        4   3    0.000000
+   11              2        0   0    1.224524
+   12              2        1  -1    1.224524
+   13              2        1   0    1.224524
+   14              2        2  -1    1.224524
+   15              2        2   0    1.224524
+   16              2        2   2    1.224524
+   17              2        3  -3    1.224524
+   18              2        3  -1    1.224524
+   19              2        3   0    1.224524
+   20              2        3   2    1.224524
+   21              2        4  -3    1.224524
+   22              2        4  -1    1.224524
+   23              2        4   0    1.224524
+   24              2        4   2    1.224524
+   25              2        4   4    1.224524
+   26              3        0   0    1.294094
+   27              3        1  -1    1.294094
+   28              3        1   0    1.294094
+   29              3        2  -1    1.294094
+   30              3        2   0    1.294094
+   31              3        2   2    1.294094
+   32              3        3  -3    1.294094
+   33              3        3  -1    1.294094
+   34              3        3   0    1.294094
+   35              3        3   2    1.294094
+   36              3        4  -3    1.294094
+   37              3        4  -1    1.294094
+   38              3        4   0    1.294094
+   39              3        4   2    1.294094
+   40              3        4   4    1.294094
+   41              4        1   1    1.353392
+   42              4        2  -2    1.353392
+   43              4        2   1    1.353392
+   44              4        3  -2    1.353392
+   45              4        3   1    1.353392
+   46              4        3   3    1.353392
+   47              4        4  -4    1.353392
+   48              4        4  -2    1.353392
+   49              4        4   1    1.353392
+   50              4        4   3    1.353392
+   51              5        1   1    1.630079
+   52              5        2  -2    1.630079
+   53              5        2   1    1.630079
+   54              5        3  -2    1.630079
+   55              5        3   1    1.630079
+   56              5        3   3    1.630079
+   57              5        4  -4    1.630079
+   58              5        4  -2    1.630079
+   59              5        4   1    1.630079
+   60              5        4   3    1.630079
+
+ R-matrix data has been read from set number  1 on unit number 21
+ Header :e + H2O - doublet App                                       20230416  144958.283
+
+ Dimension of Hamiltonian matrix           =       817
+ Number of CI vectors stored on file       =    0
+ Maximum multipole in asymptotic potential =    2
+ R-matrix radius                           =   10.0000
+ IWRON                     0
+
+ ASYMPTOTIC METHOD SELECTED : GAILITIS      
+ EXPANSION USED AT RADIUS =   70.0000
+
+ R-MATRIX WILL BE PROPAGATED ACROSS 12 SUBRANGES
+
+ K-matrices will be written to set 1 on unit 921
+ ASYWFN WARNING IN CHANNEL J =  1  LJ =  1  ET(J) =    0.00001   ET(1) =    0.00001 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  2  ET(J) =    0.00001   ET(1) =    0.00001 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  2  ET(J) =    0.00001   ET(1) =    0.00001 RYD
+ ASYWFN WARNING IN CHANNEL J =  4  LJ =  3  ET(J) =    0.00001   ET(1) =    0.00001 RYD
+ ASYWFN WARNING IN CHANNEL J =  5  LJ =  3  ET(J) =    0.00001   ET(1) =    0.00001 RYD
+ ASYWFN WARNING IN CHANNEL J =  6  LJ =  3  ET(J) =    0.00001   ET(1) =    0.00001 RYD
+ ASYWFN WARNING IN CHANNEL J =  7  LJ =  4  ET(J) =    0.00001   ET(1) =    0.00001 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00001   ET(1) =    0.00001 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00001   ET(1) =    0.00001 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00001   ET(1) =    0.00001 RYD
+ ASYWFN WARNING IN CHANNEL J =  1  LJ =  1  ET(J) =    0.00005   ET(1) =    0.00005 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  2  ET(J) =    0.00005   ET(1) =    0.00005 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  2  ET(J) =    0.00005   ET(1) =    0.00005 RYD
+ ASYWFN WARNING IN CHANNEL J =  4  LJ =  3  ET(J) =    0.00005   ET(1) =    0.00005 RYD
+ ASYWFN WARNING IN CHANNEL J =  5  LJ =  3  ET(J) =    0.00005   ET(1) =    0.00005 RYD
+ ASYWFN WARNING IN CHANNEL J =  6  LJ =  3  ET(J) =    0.00005   ET(1) =    0.00005 RYD
+ ASYWFN WARNING IN CHANNEL J =  7  LJ =  4  ET(J) =    0.00005   ET(1) =    0.00005 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00005   ET(1) =    0.00005 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00005   ET(1) =    0.00005 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00005   ET(1) =    0.00005 RYD
+ ASYWFN WARNING IN CHANNEL J =  1  LJ =  1  ET(J) =    0.00008   ET(1) =    0.00008 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  2  ET(J) =    0.00008   ET(1) =    0.00008 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  2  ET(J) =    0.00008   ET(1) =    0.00008 RYD
+ ASYWFN WARNING IN CHANNEL J =  4  LJ =  3  ET(J) =    0.00008   ET(1) =    0.00008 RYD
+ ASYWFN WARNING IN CHANNEL J =  5  LJ =  3  ET(J) =    0.00008   ET(1) =    0.00008 RYD
+ ASYWFN WARNING IN CHANNEL J =  6  LJ =  3  ET(J) =    0.00008   ET(1) =    0.00008 RYD
+ ASYWFN WARNING IN CHANNEL J =  7  LJ =  4  ET(J) =    0.00008   ET(1) =    0.00008 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00008   ET(1) =    0.00008 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00008   ET(1) =    0.00008 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00008   ET(1) =    0.00008 RYD
+ ASYWFN WARNING IN CHANNEL J =  1  LJ =  1  ET(J) =    0.00012   ET(1) =    0.00012 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  2  ET(J) =    0.00012   ET(1) =    0.00012 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  2  ET(J) =    0.00012   ET(1) =    0.00012 RYD
+ ASYWFN WARNING IN CHANNEL J =  4  LJ =  3  ET(J) =    0.00012   ET(1) =    0.00012 RYD
+ ASYWFN WARNING IN CHANNEL J =  5  LJ =  3  ET(J) =    0.00012   ET(1) =    0.00012 RYD
+ ASYWFN WARNING IN CHANNEL J =  6  LJ =  3  ET(J) =    0.00012   ET(1) =    0.00012 RYD
+ ASYWFN WARNING IN CHANNEL J =  7  LJ =  4  ET(J) =    0.00012   ET(1) =    0.00012 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00012   ET(1) =    0.00012 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00012   ET(1) =    0.00012 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00012   ET(1) =    0.00012 RYD
+ ASYWFN WARNING IN CHANNEL J =  1  LJ =  1  ET(J) =    0.00016   ET(1) =    0.00016 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  2  ET(J) =    0.00016   ET(1) =    0.00016 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  2  ET(J) =    0.00016   ET(1) =    0.00016 RYD
+ ASYWFN WARNING IN CHANNEL J =  4  LJ =  3  ET(J) =    0.00016   ET(1) =    0.00016 RYD
+ ASYWFN WARNING IN CHANNEL J =  5  LJ =  3  ET(J) =    0.00016   ET(1) =    0.00016 RYD
+ ASYWFN WARNING IN CHANNEL J =  6  LJ =  3  ET(J) =    0.00016   ET(1) =    0.00016 RYD
+ ASYWFN WARNING IN CHANNEL J =  7  LJ =  4  ET(J) =    0.00016   ET(1) =    0.00016 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00016   ET(1) =    0.00016 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00016   ET(1) =    0.00016 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00016   ET(1) =    0.00016 RYD
+ ASYWFN WARNING IN CHANNEL J =  1  LJ =  1  ET(J) =    0.00019   ET(1) =    0.00019 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  2  ET(J) =    0.00019   ET(1) =    0.00019 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  2  ET(J) =    0.00019   ET(1) =    0.00019 RYD
+ ASYWFN WARNING IN CHANNEL J =  4  LJ =  3  ET(J) =    0.00019   ET(1) =    0.00019 RYD
+ ASYWFN WARNING IN CHANNEL J =  5  LJ =  3  ET(J) =    0.00019   ET(1) =    0.00019 RYD
+ ASYWFN WARNING IN CHANNEL J =  6  LJ =  3  ET(J) =    0.00019   ET(1) =    0.00019 RYD
+ ASYWFN WARNING IN CHANNEL J =  7  LJ =  4  ET(J) =    0.00019   ET(1) =    0.00019 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00019   ET(1) =    0.00019 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00019   ET(1) =    0.00019 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00019   ET(1) =    0.00019 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  2  ET(J) =    0.00023   ET(1) =    0.00023 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  2  ET(J) =    0.00023   ET(1) =    0.00023 RYD
+ ASYWFN WARNING IN CHANNEL J =  4  LJ =  3  ET(J) =    0.00023   ET(1) =    0.00023 RYD
+ ASYWFN WARNING IN CHANNEL J =  5  LJ =  3  ET(J) =    0.00023   ET(1) =    0.00023 RYD
+ ASYWFN WARNING IN CHANNEL J =  6  LJ =  3  ET(J) =    0.00023   ET(1) =    0.00023 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00023   ET(1) =    0.00023 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00023   ET(1) =    0.00023 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00023   ET(1) =    0.00023 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  2  ET(J) =    0.00027   ET(1) =    0.00027 RYD
+ ASYWFN WARNING IN CHANNEL J =  4  LJ =  3  ET(J) =    0.00027   ET(1) =    0.00027 RYD
+ ASYWFN WARNING IN CHANNEL J =  5  LJ =  3  ET(J) =    0.00027   ET(1) =    0.00027 RYD
+ ASYWFN WARNING IN CHANNEL J =  6  LJ =  3  ET(J) =    0.00027   ET(1) =    0.00027 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00027   ET(1) =    0.00027 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00027   ET(1) =    0.00027 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00027   ET(1) =    0.00027 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  2  ET(J) =    0.00031   ET(1) =    0.00031 RYD
+ ASYWFN WARNING IN CHANNEL J =  4  LJ =  3  ET(J) =    0.00031   ET(1) =    0.00031 RYD
+ ASYWFN WARNING IN CHANNEL J =  5  LJ =  3  ET(J) =    0.00031   ET(1) =    0.00031 RYD
+ ASYWFN WARNING IN CHANNEL J =  6  LJ =  3  ET(J) =    0.00031   ET(1) =    0.00031 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00031   ET(1) =    0.00031 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00031   ET(1) =    0.00031 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00031   ET(1) =    0.00031 RYD
+ ASYWFN WARNING IN CHANNEL J =  4  LJ =  3  ET(J) =    0.00034   ET(1) =    0.00034 RYD
+ ASYWFN WARNING IN CHANNEL J =  5  LJ =  3  ET(J) =    0.00034   ET(1) =    0.00034 RYD
+ ASYWFN WARNING IN CHANNEL J =  6  LJ =  3  ET(J) =    0.00034   ET(1) =    0.00034 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00034   ET(1) =    0.00034 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00034   ET(1) =    0.00034 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00034   ET(1) =    0.00034 RYD
+ ASYWFN WARNING IN CHANNEL J =  5  LJ =  3  ET(J) =    0.00038   ET(1) =    0.00038 RYD
+ ASYWFN WARNING IN CHANNEL J =  6  LJ =  3  ET(J) =    0.00038   ET(1) =    0.00038 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00038   ET(1) =    0.00038 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00038   ET(1) =    0.00038 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00038   ET(1) =    0.00038 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00042   ET(1) =    0.00042 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00042   ET(1) =    0.00042 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00042   ET(1) =    0.00042 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00045   ET(1) =    0.00045 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00045   ET(1) =    0.00045 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00045   ET(1) =    0.00045 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00049   ET(1) =    0.00049 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00049   ET(1) =    0.00049 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00049   ET(1) =    0.00049 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00053   ET(1) =    0.00053 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00053   ET(1) =    0.00053 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00053   ET(1) =    0.00053 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00056   ET(1) =    0.00056 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00056   ET(1) =    0.00056 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00056   ET(1) =    0.00056 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00060   ET(1) =    0.00060 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00060   ET(1) =    0.00060 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00060   ET(1) =    0.00060 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00064   ET(1) =    0.00064 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00064   ET(1) =    0.00064 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00064   ET(1) =    0.00064 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00067   ET(1) =    0.00067 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00067   ET(1) =    0.00067 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00071   ET(1) =    0.00071 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00071   ET(1) =    0.00071 RYD
+ ASYWFN WARNING IN CHANNEL J =  1  LJ =  1  ET(J) =    0.00007   ET(1) =    0.00007 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  2  ET(J) =    0.00007   ET(1) =    0.00007 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  2  ET(J) =    0.00007   ET(1) =    0.00007 RYD
+ ASYWFN WARNING IN CHANNEL J =  4  LJ =  3  ET(J) =    0.00007   ET(1) =    0.00007 RYD
+ ASYWFN WARNING IN CHANNEL J =  5  LJ =  3  ET(J) =    0.00007   ET(1) =    0.00007 RYD
+ ASYWFN WARNING IN CHANNEL J =  6  LJ =  3  ET(J) =    0.00007   ET(1) =    0.00007 RYD
+ ASYWFN WARNING IN CHANNEL J =  7  LJ =  4  ET(J) =    0.00007   ET(1) =    0.00007 RYD
+ ASYWFN WARNING IN CHANNEL J =  8  LJ =  4  ET(J) =    0.00007   ET(1) =    0.00007 RYD
+ ASYWFN WARNING IN CHANNEL J =  9  LJ =  4  ET(J) =    0.00007   ET(1) =    0.00007 RYD
+ ASYWFN WARNING IN CHANNEL J = 10  LJ =  4  ET(J) =    0.00007   ET(1) =    0.00007 RYD
+
+Number of energy points for which the K matrices have actually been calculated:      0
+
+ *** Task successfully completed ***

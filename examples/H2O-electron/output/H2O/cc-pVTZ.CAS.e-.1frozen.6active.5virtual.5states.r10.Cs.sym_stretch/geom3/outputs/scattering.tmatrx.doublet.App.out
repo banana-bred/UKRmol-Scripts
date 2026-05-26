@@ -1,0 +1,559 @@
++-------------------------------------------------------------------------+
+|              _              |                                           |
+| || || ||//  | \          |  | University College London (C) 1994 - 2020 |
+| || || ||    | / |/\/\ /\ |  | Open University           (C) 2007 - 2020 |
+| \\_// ||\\  | \ | | | \/ |  |                                           |
+|                             |                                           |
++-------------------------------------------------------------------------+
+| Last revision: unknown                                                  |
+| Last author:   unknown                                                  |
+| Last date:     unknown                                                  |
++-------------------------------------------------------------------------+
+MPI startup(): PMI server not found. Please set I_MPI_PMI_LIBRARY variable if it is not a singleton case.
+1
+
+ Program TMATRX  (last modified 16-Nov-1998 )
+
+e + H2O - doublet App                                       20230416  145017.693
+
+
+ Input datasets:                                 Unit  Set numbers
+ Target and channel data     LUCHAN (UNFORMATTED) 10       1
+
+ K-matrices                  LUKMT  (UNFORMATTED)921       1
+
+ Output datasets:                                Unit  Set number
+ T-Matrices                  LUTMT  (UNFORMATTED)***       1
+
+ K-matrix input, set  1 on unit921
+
+ Symmetry data  MGVN = 1   STOT = 2   GUTOT = 2
+
+ K-matrices are vibrationally resolved
+
+ Number of target states       =   5
+ Number of scattering channels =  60
+
+ Input Energy grid (Ryd) 
+ Number of points        20       400
+ Initial values     0.00001   0.00007
+ Increments         0.00004   0.00367
+
+ Target and channel data is read from set  1 on unit 10
+
+ Target state    Spin    M    G/U  Energy (au)
+         1         1     0     0  -76.107428
+         2         3     1     0  -75.495166
+         3         1     1     0  -75.460381
+         4         3     0     0  -75.430732
+         5         1     0     0  -75.292388
+
+ Channel   Vibronic level   L   M  Threshold (Ryd)
+    1              1        1   1    0.000000
+    2              1        2  -2    0.000000
+    3              1        2   1    0.000000
+    4              1        3  -2    0.000000
+    5              1        3   1    0.000000
+    6              1        3   3    0.000000
+    7              1        4  -4    0.000000
+    8              1        4  -2    0.000000
+    9              1        4   1    0.000000
+   10              1        4   3    0.000000
+   11              2        0   0    1.224524
+   12              2        1  -1    1.224524
+   13              2        1   0    1.224524
+   14              2        2  -1    1.224524
+   15              2        2   0    1.224524
+   16              2        2   2    1.224524
+   17              2        3  -3    1.224524
+   18              2        3  -1    1.224524
+   19              2        3   0    1.224524
+   20              2        3   2    1.224524
+   21              2        4  -3    1.224524
+   22              2        4  -1    1.224524
+   23              2        4   0    1.224524
+   24              2        4   2    1.224524
+   25              2        4   4    1.224524
+   26              3        0   0    1.294094
+   27              3        1  -1    1.294094
+   28              3        1   0    1.294094
+   29              3        2  -1    1.294094
+   30              3        2   0    1.294094
+   31              3        2   2    1.294094
+   32              3        3  -3    1.294094
+   33              3        3  -1    1.294094
+   34              3        3   0    1.294094
+   35              3        3   2    1.294094
+   36              3        4  -3    1.294094
+   37              3        4  -1    1.294094
+   38              3        4   0    1.294094
+   39              3        4   2    1.294094
+   40              3        4   4    1.294094
+   41              4        1   1    1.353392
+   42              4        2  -2    1.353392
+   43              4        2   1    1.353392
+   44              4        3  -2    1.353392
+   45              4        3   1    1.353392
+   46              4        3   3    1.353392
+   47              4        4  -4    1.353392
+   48              4        4  -2    1.353392
+   49              4        4   1    1.353392
+   50              4        4   3    1.353392
+   51              5        1   1    1.630079
+   52              5        2  -2    1.630079
+   53              5        2   1    1.630079
+   54              5        3  -2    1.630079
+   55              5        3   1    1.630079
+   56              5        3   3    1.630079
+   57              5        4  -4    1.630079
+   58              5        4  -2    1.630079
+   59              5        4   1    1.630079
+   60              5        4   3    1.630079
+
+ T-matrices will be computed for 420 energies in the K-matrix file from  0.0000 to  1.4664 RYD
+
+ Target and channel data is read from set  1 on unit 10
+
+ K-matrix input, set  1 on unit921
+
+ Symmetry data  MGVN = 1   STOT = 2   GUTOT = 2
+
+ K-matrices are vibrationally resolved
+
+ Number of target states       =   5
+ Number of scattering channels =  60
+
+ Input Energy grid (Ryd) 
+ Number of points        20       400
+ Initial values     0.00001   0.00007
+ Increments         0.00004   0.00367
+
+Calculating T-matrices...
+Energy, number of open channels:     0.00001102 10
+Energy, number of open channels:     0.00004777 10
+Energy, number of open channels:     0.00008452 10
+Energy, number of open channels:     0.00012127 10
+Energy, number of open channels:     0.00015803 10
+Energy, number of open channels:     0.00019478 10
+Energy, number of open channels:     0.00023153 10
+Energy, number of open channels:     0.00026828 10
+Energy, number of open channels:     0.00030503 10
+Energy, number of open channels:     0.00034177 10
+Energy, number of open channels:     0.00037852 10
+Energy, number of open channels:     0.00041527 10
+Energy, number of open channels:     0.00045202 10
+Energy, number of open channels:     0.00048877 10
+Energy, number of open channels:     0.00052552 10
+Energy, number of open channels:     0.00056227 10
+Energy, number of open channels:     0.00059902 10
+Energy, number of open channels:     0.00063577 10
+Energy, number of open channels:     0.00067252 10
+Energy, number of open channels:     0.00070927 10
+Energy, number of open channels:     0.00007350 10
+Energy, number of open channels:     0.00374850 10
+Energy, number of open channels:     0.00742350 10
+Energy, number of open channels:     0.01109850 10
+Energy, number of open channels:     0.01477350 10
+Energy, number of open channels:     0.01844850 10
+Energy, number of open channels:     0.02212350 10
+Energy, number of open channels:     0.02579850 10
+Energy, number of open channels:     0.02947350 10
+Energy, number of open channels:     0.03314850 10
+Energy, number of open channels:     0.03682350 10
+Energy, number of open channels:     0.04049850 10
+Energy, number of open channels:     0.04417350 10
+Energy, number of open channels:     0.04784850 10
+Energy, number of open channels:     0.05152350 10
+Energy, number of open channels:     0.05519850 10
+Energy, number of open channels:     0.05887350 10
+Energy, number of open channels:     0.06254850 10
+Energy, number of open channels:     0.06622350 10
+Energy, number of open channels:     0.06989850 10
+Energy, number of open channels:     0.07357350 10
+Energy, number of open channels:     0.07724850 10
+Energy, number of open channels:     0.08092350 10
+Energy, number of open channels:     0.08459850 10
+Energy, number of open channels:     0.08827350 10
+Energy, number of open channels:     0.09194850 10
+Energy, number of open channels:     0.09562350 10
+Energy, number of open channels:     0.09929850 10
+Energy, number of open channels:     0.10297350 10
+Energy, number of open channels:     0.10664850 10
+Energy, number of open channels:     0.11032350 10
+Energy, number of open channels:     0.11399850 10
+Energy, number of open channels:     0.11767350 10
+Energy, number of open channels:     0.12134850 10
+Energy, number of open channels:     0.12502350 10
+Energy, number of open channels:     0.12869850 10
+Energy, number of open channels:     0.13237350 10
+Energy, number of open channels:     0.13604850 10
+Energy, number of open channels:     0.13972350 10
+Energy, number of open channels:     0.14339850 10
+Energy, number of open channels:     0.14707350 10
+Energy, number of open channels:     0.15074850 10
+Energy, number of open channels:     0.15442350 10
+Energy, number of open channels:     0.15809850 10
+Energy, number of open channels:     0.16177350 10
+Energy, number of open channels:     0.16544850 10
+Energy, number of open channels:     0.16912350 10
+Energy, number of open channels:     0.17279850 10
+Energy, number of open channels:     0.17647350 10
+Energy, number of open channels:     0.18014850 10
+Energy, number of open channels:     0.18382350 10
+Energy, number of open channels:     0.18749850 10
+Energy, number of open channels:     0.19117350 10
+Energy, number of open channels:     0.19484850 10
+Energy, number of open channels:     0.19852350 10
+Energy, number of open channels:     0.20219850 10
+Energy, number of open channels:     0.20587350 10
+Energy, number of open channels:     0.20954850 10
+Energy, number of open channels:     0.21322350 10
+Energy, number of open channels:     0.21689850 10
+Energy, number of open channels:     0.22057350 10
+Energy, number of open channels:     0.22424850 10
+Energy, number of open channels:     0.22792350 10
+Energy, number of open channels:     0.23159850 10
+Energy, number of open channels:     0.23527350 10
+Energy, number of open channels:     0.23894850 10
+Energy, number of open channels:     0.24262350 10
+Energy, number of open channels:     0.24629850 10
+Energy, number of open channels:     0.24997350 10
+Energy, number of open channels:     0.25364850 10
+Energy, number of open channels:     0.25732350 10
+Energy, number of open channels:     0.26099850 10
+Energy, number of open channels:     0.26467350 10
+Energy, number of open channels:     0.26834850 10
+Energy, number of open channels:     0.27202350 10
+Energy, number of open channels:     0.27569850 10
+Energy, number of open channels:     0.27937350 10
+Energy, number of open channels:     0.28304850 10
+Energy, number of open channels:     0.28672350 10
+Energy, number of open channels:     0.29039850 10
+Energy, number of open channels:     0.29407350 10
+Energy, number of open channels:     0.29774850 10
+Energy, number of open channels:     0.30142350 10
+Energy, number of open channels:     0.30509850 10
+Energy, number of open channels:     0.30877350 10
+Energy, number of open channels:     0.31244850 10
+Energy, number of open channels:     0.31612350 10
+Energy, number of open channels:     0.31979850 10
+Energy, number of open channels:     0.32347350 10
+Energy, number of open channels:     0.32714850 10
+Energy, number of open channels:     0.33082350 10
+Energy, number of open channels:     0.33449850 10
+Energy, number of open channels:     0.33817350 10
+Energy, number of open channels:     0.34184850 10
+Energy, number of open channels:     0.34552350 10
+Energy, number of open channels:     0.34919850 10
+Energy, number of open channels:     0.35287350 10
+Energy, number of open channels:     0.35654850 10
+Energy, number of open channels:     0.36022350 10
+Energy, number of open channels:     0.36389850 10
+Energy, number of open channels:     0.36757350 10
+Energy, number of open channels:     0.37124850 10
+Energy, number of open channels:     0.37492350 10
+Energy, number of open channels:     0.37859850 10
+Energy, number of open channels:     0.38227350 10
+Energy, number of open channels:     0.38594850 10
+Energy, number of open channels:     0.38962350 10
+Energy, number of open channels:     0.39329850 10
+Energy, number of open channels:     0.39697350 10
+Energy, number of open channels:     0.40064850 10
+Energy, number of open channels:     0.40432350 10
+Energy, number of open channels:     0.40799850 10
+Energy, number of open channels:     0.41167350 10
+Energy, number of open channels:     0.41534850 10
+Energy, number of open channels:     0.41902350 10
+Energy, number of open channels:     0.42269850 10
+Energy, number of open channels:     0.42637350 10
+Energy, number of open channels:     0.43004850 10
+Energy, number of open channels:     0.43372350 10
+Energy, number of open channels:     0.43739850 10
+Energy, number of open channels:     0.44107350 10
+Energy, number of open channels:     0.44474850 10
+Energy, number of open channels:     0.44842350 10
+Energy, number of open channels:     0.45209850 10
+Energy, number of open channels:     0.45577350 10
+Energy, number of open channels:     0.45944850 10
+Energy, number of open channels:     0.46312350 10
+Energy, number of open channels:     0.46679850 10
+Energy, number of open channels:     0.47047350 10
+Energy, number of open channels:     0.47414850 10
+Energy, number of open channels:     0.47782350 10
+Energy, number of open channels:     0.48149850 10
+Energy, number of open channels:     0.48517350 10
+Energy, number of open channels:     0.48884850 10
+Energy, number of open channels:     0.49252350 10
+Energy, number of open channels:     0.49619850 10
+Energy, number of open channels:     0.49987350 10
+Energy, number of open channels:     0.50354850 10
+Energy, number of open channels:     0.50722350 10
+Energy, number of open channels:     0.51089850 10
+Energy, number of open channels:     0.51457350 10
+Energy, number of open channels:     0.51824850 10
+Energy, number of open channels:     0.52192350 10
+Energy, number of open channels:     0.52559850 10
+Energy, number of open channels:     0.52927350 10
+Energy, number of open channels:     0.53294850 10
+Energy, number of open channels:     0.53662350 10
+Energy, number of open channels:     0.54029850 10
+Energy, number of open channels:     0.54397350 10
+Energy, number of open channels:     0.54764850 10
+Energy, number of open channels:     0.55132350 10
+Energy, number of open channels:     0.55499850 10
+Energy, number of open channels:     0.55867350 10
+Energy, number of open channels:     0.56234850 10
+Energy, number of open channels:     0.56602350 10
+Energy, number of open channels:     0.56969850 10
+Energy, number of open channels:     0.57337350 10
+Energy, number of open channels:     0.57704850 10
+Energy, number of open channels:     0.58072350 10
+Energy, number of open channels:     0.58439850 10
+Energy, number of open channels:     0.58807350 10
+Energy, number of open channels:     0.59174850 10
+Energy, number of open channels:     0.59542350 10
+Energy, number of open channels:     0.59909850 10
+Energy, number of open channels:     0.60277350 10
+Energy, number of open channels:     0.60644850 10
+Energy, number of open channels:     0.61012350 10
+Energy, number of open channels:     0.61379850 10
+Energy, number of open channels:     0.61747350 10
+Energy, number of open channels:     0.62114850 10
+Energy, number of open channels:     0.62482350 10
+Energy, number of open channels:     0.62849850 10
+Energy, number of open channels:     0.63217350 10
+Energy, number of open channels:     0.63584850 10
+Energy, number of open channels:     0.63952350 10
+Energy, number of open channels:     0.64319850 10
+Energy, number of open channels:     0.64687350 10
+Energy, number of open channels:     0.65054850 10
+Energy, number of open channels:     0.65422350 10
+Energy, number of open channels:     0.65789850 10
+Energy, number of open channels:     0.66157350 10
+Energy, number of open channels:     0.66524850 10
+Energy, number of open channels:     0.66892350 10
+Energy, number of open channels:     0.67259850 10
+Energy, number of open channels:     0.67627350 10
+Energy, number of open channels:     0.67994850 10
+Energy, number of open channels:     0.68362350 10
+Energy, number of open channels:     0.68729850 10
+Energy, number of open channels:     0.69097350 10
+Energy, number of open channels:     0.69464850 10
+Energy, number of open channels:     0.69832350 10
+Energy, number of open channels:     0.70199850 10
+Energy, number of open channels:     0.70567350 10
+Energy, number of open channels:     0.70934850 10
+Energy, number of open channels:     0.71302350 10
+Energy, number of open channels:     0.71669850 10
+Energy, number of open channels:     0.72037350 10
+Energy, number of open channels:     0.72404850 10
+Energy, number of open channels:     0.72772350 10
+Energy, number of open channels:     0.73139850 10
+Energy, number of open channels:     0.73507350 10
+Energy, number of open channels:     0.73874850 10
+Energy, number of open channels:     0.74242350 10
+Energy, number of open channels:     0.74609850 10
+Energy, number of open channels:     0.74977350 10
+Energy, number of open channels:     0.75344850 10
+Energy, number of open channels:     0.75712350 10
+Energy, number of open channels:     0.76079850 10
+Energy, number of open channels:     0.76447350 10
+Energy, number of open channels:     0.76814850 10
+Energy, number of open channels:     0.77182350 10
+Energy, number of open channels:     0.77549850 10
+Energy, number of open channels:     0.77917350 10
+Energy, number of open channels:     0.78284850 10
+Energy, number of open channels:     0.78652350 10
+Energy, number of open channels:     0.79019850 10
+Energy, number of open channels:     0.79387350 10
+Energy, number of open channels:     0.79754850 10
+Energy, number of open channels:     0.80122350 10
+Energy, number of open channels:     0.80489850 10
+Energy, number of open channels:     0.80857350 10
+Energy, number of open channels:     0.81224850 10
+Energy, number of open channels:     0.81592350 10
+Energy, number of open channels:     0.81959850 10
+Energy, number of open channels:     0.82327350 10
+Energy, number of open channels:     0.82694850 10
+Energy, number of open channels:     0.83062350 10
+Energy, number of open channels:     0.83429850 10
+Energy, number of open channels:     0.83797350 10
+Energy, number of open channels:     0.84164850 10
+Energy, number of open channels:     0.84532350 10
+Energy, number of open channels:     0.84899850 10
+Energy, number of open channels:     0.85267350 10
+Energy, number of open channels:     0.85634850 10
+Energy, number of open channels:     0.86002350 10
+Energy, number of open channels:     0.86369850 10
+Energy, number of open channels:     0.86737350 10
+Energy, number of open channels:     0.87104850 10
+Energy, number of open channels:     0.87472350 10
+Energy, number of open channels:     0.87839850 10
+Energy, number of open channels:     0.88207350 10
+Energy, number of open channels:     0.88574850 10
+Energy, number of open channels:     0.88942350 10
+Energy, number of open channels:     0.89309850 10
+Energy, number of open channels:     0.89677350 10
+Energy, number of open channels:     0.90044850 10
+Energy, number of open channels:     0.90412350 10
+Energy, number of open channels:     0.90779850 10
+Energy, number of open channels:     0.91147350 10
+Energy, number of open channels:     0.91514850 10
+Energy, number of open channels:     0.91882350 10
+Energy, number of open channels:     0.92249850 10
+Energy, number of open channels:     0.92617350 10
+Energy, number of open channels:     0.92984850 10
+Energy, number of open channels:     0.93352350 10
+Energy, number of open channels:     0.93719850 10
+Energy, number of open channels:     0.94087350 10
+Energy, number of open channels:     0.94454850 10
+Energy, number of open channels:     0.94822350 10
+Energy, number of open channels:     0.95189850 10
+Energy, number of open channels:     0.95557350 10
+Energy, number of open channels:     0.95924850 10
+Energy, number of open channels:     0.96292350 10
+Energy, number of open channels:     0.96659850 10
+Energy, number of open channels:     0.97027350 10
+Energy, number of open channels:     0.97394850 10
+Energy, number of open channels:     0.97762350 10
+Energy, number of open channels:     0.98129850 10
+Energy, number of open channels:     0.98497350 10
+Energy, number of open channels:     0.98864850 10
+Energy, number of open channels:     0.99232350 10
+Energy, number of open channels:     0.99599850 10
+Energy, number of open channels:     0.99967350 10
+Energy, number of open channels:     1.00334850 10
+Energy, number of open channels:     1.00702350 10
+Energy, number of open channels:     1.01069850 10
+Energy, number of open channels:     1.01437350 10
+Energy, number of open channels:     1.01804850 10
+Energy, number of open channels:     1.02172350 10
+Energy, number of open channels:     1.02539850 10
+Energy, number of open channels:     1.02907350 10
+Energy, number of open channels:     1.03274850 10
+Energy, number of open channels:     1.03642350 10
+Energy, number of open channels:     1.04009850 10
+Energy, number of open channels:     1.04377350 10
+Energy, number of open channels:     1.04744850 10
+Energy, number of open channels:     1.05112350 10
+Energy, number of open channels:     1.05479850 10
+Energy, number of open channels:     1.05847350 10
+Energy, number of open channels:     1.06214850 10
+Energy, number of open channels:     1.06582350 10
+Energy, number of open channels:     1.06949850 10
+Energy, number of open channels:     1.07317350 10
+Energy, number of open channels:     1.07684850 10
+Energy, number of open channels:     1.08052350 10
+Energy, number of open channels:     1.08419850 10
+Energy, number of open channels:     1.08787350 10
+Energy, number of open channels:     1.09154850 10
+Energy, number of open channels:     1.09522350 10
+Energy, number of open channels:     1.09889850 10
+Energy, number of open channels:     1.10257350 10
+Energy, number of open channels:     1.10624850 10
+Energy, number of open channels:     1.10992350 10
+Energy, number of open channels:     1.11359850 10
+Energy, number of open channels:     1.11727350 10
+Energy, number of open channels:     1.12094850 10
+Energy, number of open channels:     1.12462350 10
+Energy, number of open channels:     1.12829850 10
+Energy, number of open channels:     1.13197350 10
+Energy, number of open channels:     1.13564850 10
+Energy, number of open channels:     1.13932350 10
+Energy, number of open channels:     1.14299850 10
+Energy, number of open channels:     1.14667350 10
+Energy, number of open channels:     1.15034850 10
+Energy, number of open channels:     1.15402350 10
+Energy, number of open channels:     1.15769850 10
+Energy, number of open channels:     1.16137350 10
+Energy, number of open channels:     1.16504850 10
+Energy, number of open channels:     1.16872350 10
+Energy, number of open channels:     1.17239850 10
+Energy, number of open channels:     1.17607350 10
+Energy, number of open channels:     1.17974850 10
+Energy, number of open channels:     1.18342350 10
+Energy, number of open channels:     1.18709850 10
+Energy, number of open channels:     1.19077350 10
+Energy, number of open channels:     1.19444850 10
+Energy, number of open channels:     1.19812350 10
+Energy, number of open channels:     1.20179850 10
+Energy, number of open channels:     1.20547350 10
+Energy, number of open channels:     1.20914850 10
+Energy, number of open channels:     1.21282350 10
+Energy, number of open channels:     1.21649850 10
+Energy, number of open channels:     1.22017350 10
+Energy, number of open channels:     1.22384850 10
+Energy, number of open channels:     1.22752350 25
+Energy, number of open channels:     1.23119850 25
+Energy, number of open channels:     1.23487350 25
+Energy, number of open channels:     1.23854850 25
+Energy, number of open channels:     1.24222350 25
+Energy, number of open channels:     1.24589850 25
+Energy, number of open channels:     1.24957350 25
+Energy, number of open channels:     1.25324850 25
+Energy, number of open channels:     1.25692350 25
+Energy, number of open channels:     1.26059850 25
+Energy, number of open channels:     1.26427350 25
+Energy, number of open channels:     1.26794850 25
+Energy, number of open channels:     1.27162350 25
+Energy, number of open channels:     1.27529850 25
+Energy, number of open channels:     1.27897350 25
+Energy, number of open channels:     1.28264850 25
+Energy, number of open channels:     1.28632350 25
+Energy, number of open channels:     1.28999850 25
+Energy, number of open channels:     1.29367350 25
+Energy, number of open channels:     1.29734850 40
+Energy, number of open channels:     1.30102350 40
+Energy, number of open channels:     1.30469850 40
+Energy, number of open channels:     1.30837350 40
+Energy, number of open channels:     1.31204850 40
+Energy, number of open channels:     1.31572350 40
+Energy, number of open channels:     1.31939850 40
+Energy, number of open channels:     1.32307350 40
+Energy, number of open channels:     1.32674850 40
+Energy, number of open channels:     1.33042350 40
+Energy, number of open channels:     1.33409850 40
+Energy, number of open channels:     1.33777350 40
+Energy, number of open channels:     1.34144850 40
+Energy, number of open channels:     1.34512350 40
+Energy, number of open channels:     1.34879850 40
+Energy, number of open channels:     1.35247350 40
+Energy, number of open channels:     1.35614850 50
+Energy, number of open channels:     1.35982350 50
+Energy, number of open channels:     1.36349850 50
+Energy, number of open channels:     1.36717350 50
+Energy, number of open channels:     1.37084850 50
+Energy, number of open channels:     1.37452350 50
+Energy, number of open channels:     1.37819850 50
+Energy, number of open channels:     1.38187350 50
+Energy, number of open channels:     1.38554850 50
+Energy, number of open channels:     1.38922350 50
+Energy, number of open channels:     1.39289850 50
+Energy, number of open channels:     1.39657350 50
+Energy, number of open channels:     1.40024850 50
+Energy, number of open channels:     1.40392350 50
+Energy, number of open channels:     1.40759850 50
+Energy, number of open channels:     1.41127350 50
+Energy, number of open channels:     1.41494850 50
+Energy, number of open channels:     1.41862350 50
+Energy, number of open channels:     1.42229850 50
+Energy, number of open channels:     1.42597350 50
+Energy, number of open channels:     1.42964850 50
+Energy, number of open channels:     1.43332350 50
+Energy, number of open channels:     1.43699850 50
+Energy, number of open channels:     1.44067350 50
+Energy, number of open channels:     1.44434850 50
+Energy, number of open channels:     1.44802350 50
+Energy, number of open channels:     1.45169850 50
+Energy, number of open channels:     1.45537350 50
+Energy, number of open channels:     1.45904850 50
+Energy, number of open channels:     1.46272350 50
+Energy, number of open channels:     1.46639850 50
+
+...all T-matrices have been calculated
+
+ T-matrices will be written to set  1 on unit***
+
+ Subset of T-matrix which will be saved is  (( T(i,j), i = 1, 10 ) ,j = 1, 60 )
+
+ *** Task successfully completed ***

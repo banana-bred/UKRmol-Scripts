@@ -1,0 +1,39 @@
++-------------------------------------------------------------------------+
+|              _              |                                           |
+| || || ||//  | \          |  | University College London (C) 1994 - 2020 |
+| || || ||    | / |/\/\ /\ |  | Open University           (C) 2007 - 2020 |
+| \\_// ||\\  | \ | | | \/ |  |                                           |
+|                             |                                           |
++-------------------------------------------------------------------------+
+| Last revision: 3.2                                                      |
+| Last author:   Jimena Gorfinkiel                                        |
+| Last date:     Tue Dec 21 18:07:16 2021 +0000                           |
++-------------------------------------------------------------------------+
+
+ DIPELM (2019) 
+ Dipole matrix elements and photoionization observables 
+
+
+ Partial wave transition moments read. 
+
+ -------------------------------
+ Partial Wave Transition Moments
+ -------------------------------
+ 
+   State  2S+1  I.Rep. g/u    Energies
+  --------------------------------------
+     1     0     0     0     -0.40290469D+02
+ 
+  Scattering symmetry:   
+   2S+1  I.Rep. g/u   
+     1     1     2
+     1     2     2
+     1     3     2
+  Corresponding moment components:   
+     Y    Z    X  
+     1    1    1
+
+ Calculated Ip =       0.51960500D+00
+ User input Ip =       0.49979000D+00
+
+ Unoriented cross sections and asymmetry parameters calculated. 

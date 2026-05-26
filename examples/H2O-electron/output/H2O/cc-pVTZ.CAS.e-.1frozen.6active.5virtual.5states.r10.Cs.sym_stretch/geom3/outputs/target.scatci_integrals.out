@@ -1,0 +1,1809 @@
+ 
+ MPI running with 1 processes.
+ My rank is 0
+ I am running on the processor with name: utf-asus3.hpc.troja.mff.cuni.cz                                                                                                
+ Smallest positive magnitude:  2.225073858507201E-308
+ Largest magnitude:  1.797693134862316E+308
+ Smallest relative spacing:  1.110223024625157E-016
+ Largest relative spacing:  2.220446049250313E-016
+ Log10(Base)  0.301029995663981     
+ Decimal precision for real(kind=cfp):                    15
+ Number of bits in default integer:                    64
+ Number of bits in MPI integers:                    64
+ 
+The Molden file has been read into the memory.
+The Molden file contains the header for geometry data.
+The Molden file contains the header for GTO basis data.
+The GTO basis set contains    58 contracted and    82 corresponding primitive spherical GTOs.
+The corresponding number of contracted cartesian GTOs:    65
+Number of shells of contracted GTOs in the basis:    22
+The Molden file contains the header for Molecular orbitals data.
+Number of molecular orbitals on the file:    58
+The symmetry information for the orbitals is available.
+ ***MESSAGE FROM ROUTINE read_molden_geometry IN LIBRARY molden_mod
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Molecule is not centered on the center of mass or atomic masses are not as in the program (Molpro?) used to generate the molden file.
+ *
+ *  WARNING NUMBER = 3
+ ***END OF MESSAGE
+
+Nuclear data from the Molden file ./h2o.molden (coordinates in a.u.): 
+Index of the nucleus; Z; Element name; Coordinates of the nucleus
+      1   8.0 O          0.000000000000000        0.000000000000000        0.130177735980311
+      2   1.0 H          0.000000000000000        1.502107148004555       -1.033297280949226
+      3   1.0 H          0.000000000000000       -1.502107148004555       -1.033297280949226
+
+The number of orbitals per symmetry on the Molden file is:    40   18    0    0    0    0    0    0
+
+ ***MESSAGE FROM ROUTINE one_electron_integrals IN LIBRARY atomic_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Not enabled yet for nuclear attraction and property integrals.
+ *
+ *  WARNING NUMBER = -2
+ ***END OF MESSAGE
+
+Precalculating the Gaunt coefficients for L_max = 0
+
+Precalculating the Gaunt coefficients for L_max = 1
+
+Precalculating the Gaunt coefficients for L_max = 2
+
+Precalculating the Gaunt coefficients for L_max = 3
+
+Precalculating the Gaunt coefficients for L_max = 4
+
+Precalculating the Gaunt coefficients for L_max = 5
+
+Precalculating the Gaunt coefficients for L_max = 6
+
+Precalculating the Gaunt coefficients for L_max = 7
+
+Precalculating the Gaunt coefficients for L_max = 0
+
+Precalculating the Gaunt coefficients for L_max = 1
+
+Precalculating the Gaunt coefficients for L_max = 2
+
+Precalculating the Gaunt coefficients for L_max = 3
+
+Precalculating the Gaunt coefficients for L_max = 4
+
+Precalculating the Gaunt coefficients for L_max = 5
+
+Precalculating the Gaunt coefficients for L_max = 6
+
+Precalculating the Gaunt coefficients for L_max = 7
+
+Precalculating the Gaunt coefficients for L_max = 8
+
+Precalculating the Gaunt coefficients for L_max = 8
+One_electron_integrals took [s]:         0.062880039215088
+0.0 Starting the orthogonalisation for symmetry     1
+
+Orbital orthogonalization
+Symmetry: 1
+Range of active orbitals within the symmetry:     1   11
+
+          Checking orthogonality of the active orbitals in symmetry: 1
+
+5 1    0.937404874789383E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+4 2    0.237087902058555E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+5 2    0.953539177046098E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+4 3    0.256888866069797E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+8 3    0.101056227881527E-07    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+10 3    0.564610578640345E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+9 4    0.128978020374251E-07    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+11 4    0.708825585827113E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+6 5    0.506938609528472E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+9 5    0.689526334804241E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+11 5    0.124347084210789E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+8 7    0.227850703273446E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+9 8    0.248553907365940E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+11 8    0.851612083261309E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+10 9    0.208585250428221E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+11 10    0.237952132130237E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between two different orbitals is .ge. thrs.
+ *
+ *  WARNING NUMBER = 15
+ ***END OF MESSAGE
+
+Orthogonalization complete.
+2.0 One-by-one orthogonalisation of continuum     1
+
+Orbital orthogonalization
+Symmetry: 1
+Range of active orbitals within the symmetry:    12  113
+Symmetry: 1
+Range of passive orbitals within the symmetry:     1   11
+
+          Checking orthogonality of the active orbitals in symmetry: 1
+
+
+          Checking orthogonality of the active orbitals with respect to the fixed orbitals in symmetry: 1
+
+1 21    0.163040686458516E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+2 21    0.939357802581104E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+6 21    0.610659279951740E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+1 23    0.196225927382337E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+2 23    0.122276255808795E-07    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+6 23    0.219871150977924E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+1 25    0.183569258975440E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+2 25    0.119150372602090E-07    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+6 25    0.290262100298638E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+11 25    0.139109402767922E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+1 27    0.141872852882327E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+2 27    0.943064490545571E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+6 27    0.266895378182037E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+11 27    0.298259675469690E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+1 29    0.104307839062698E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+2 29    0.703749524511504E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+6 29    0.217335466830485E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+11 29    0.311485664088618E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+1 31    0.778087080392656E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+2 31    0.530088296669652E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+6 31    0.173028117901560E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+11 31    0.279322478629713E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+1 33    0.599584433476417E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+2 33    0.411185022341898E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+6 33    0.139312523205229E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+11 33    0.240801893794425E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 35    0.776934211299268E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+6 35    0.589800598054347E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+7 35    0.167305500192873E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+4 36    0.332029035070417E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+5 36    0.806600279250797E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+8 36    0.463158572565850E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+10 36    0.508032029714058E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+4 37    0.100960282550272E-07    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+5 37    0.509983461645049E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+8 37    0.183663271102622E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+10 37    0.419471647072158E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 38    0.119190640648217E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+6 38    0.127233956674703E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+7 38    0.132228792848243E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+4 39    0.223217625668744E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+5 39    0.498767036812772E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+8 39    0.303854306660919E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+10 39    0.358865722241479E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+4 40    0.775486817059358E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+5 40    0.391369600685484E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+8 40    0.136780948282202E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+10 40    0.316179244145097E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 41    0.149638756819975E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+7 41    0.106957016469058E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+4 42    0.152089725721238E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+5 42    0.312945596955593E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+8 42    0.202088222990900E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+10 42    0.254686830365410E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+4 43    0.588041230192235E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+5 43    0.297910658095917E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+8 43    0.100309886677455E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+10 43    0.234922569212515E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 44    0.161086009746225E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+7 44    0.856540639688183E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+4 45    0.102872104567067E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+5 45    0.194834761266738E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+8 45    0.133364089991318E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+10 45    0.178442368232284E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+4 46    0.435895378374737E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+5 46    0.222445459143198E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+8 46    0.716885780395231E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+10 46    0.170807202853729E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 47    0.154868254531496E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+7 47    0.670703545979923E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+4 48    0.684758327769738E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+5 48    0.119395164587457E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+10 48    0.122486394676454E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+4 49    0.314580202252360E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+5 49    0.162100099087820E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+8 49    0.497459495683987E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+10 49    0.121181604718466E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 50    0.138051375943584E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+7 50    0.516715966725147E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+4 51    0.451315785759954E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+4 52    0.222962323757271E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+5 52    0.116176989029380E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+8 52    0.338417490456111E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 53    0.118307976879736E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+7 53    0.398094059146128E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+4 54    0.299394977923315E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+4 55    0.158085504450036E-08    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+5 55    0.833503755588405E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+8 55    0.230104912471701E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 56    0.342035503254517E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+7 56    0.175542656396845E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 57    0.834097379278926E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+9 57    0.143856347048793E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+10 59    0.236633784919344E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 60    0.134786380860104E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+7 60    0.139666776706596E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 61    0.742772861685888E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+9 61    0.147062250199361E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+10 63    0.189019785362872E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 64    0.107285613773059E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+7 64    0.118189418388659E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 65    0.536394987015090E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+9 65    0.122466744506318E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+10 67    0.140050808009498E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 68    0.137577454573640E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+7 68    0.100866586213330E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 69    0.323779483339415E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 72    0.163694560745988E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 73    0.157482848197056E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 76    0.166287778380363E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 80    0.152012194506718E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 84    0.177780181683541E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+2 85    0.189796843501136E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+3 89    0.133676428849215E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+2 90    0.124528369555850E-09    0.100000000000000E-09
+ ***MESSAGE FROM ROUTINE orthogonalize IN LIBRARY molecular_orbital_basis_obj
+ ***INFORMATIVE MESSAGE, PROG CONTINUES, TRACEBACK REQUESTED
+ *  Overlap between an active and a passive orbital is .ge. thrs.
+ *
+ *  WARNING NUMBER = 17
+ ***END OF MESSAGE
+
+Orthogonalization complete.
+2.3 Symmetric orthogonalisation of total continuum     1
+
+Orbital orthogonalization
+Symmetry: 1
+Range of active orbitals within the symmetry:    12  113
+
+          Symmetric orthogonalization requested
+Deletion threshold:     0.100000000000000E-06
+
+Number of orbitals marked for deletion: 15
+
+          Checking orthogonality of the active orbitals in symmetry: 1
+
+
+Orthogonalization complete.
+Orbital 99 from symmetry 1 has been deleted.
+Orbital 100 from symmetry 1 has been deleted.
+Orbital 101 from symmetry 1 has been deleted.
+Orbital 102 from symmetry 1 has been deleted.
+Orbital 103 from symmetry 1 has been deleted.
+Orbital 104 from symmetry 1 has been deleted.
+Orbital 105 from symmetry 1 has been deleted.
+Orbital 106 from symmetry 1 has been deleted.
+Orbital 107 from symmetry 1 has been deleted.
+Orbital 108 from symmetry 1 has been deleted.
+Orbital 109 from symmetry 1 has been deleted.
+Orbital 110 from symmetry 1 has been deleted.
+Orbital 111 from symmetry 1 has been deleted.
+Orbital 112 from symmetry 1 has been deleted.
+Orbital 113 from symmetry 1 has been deleted.
+3.0 Completed orthogonalisation of symmetry     1
+3.1 Orbitals for symmetry  1, for target, PCO, continuum   11    0   87
+0.0 Starting the orthogonalisation for symmetry     2
+
+Orbital orthogonalization
+Symmetry: 2
+Range of active orbitals within the symmetry:     1    1
+
+          Checking orthogonality of the active orbitals in symmetry: 2
+
+
+Orthogonalization complete.
+2.0 One-by-one orthogonalisation of continuum     2
+
+Orbital orthogonalization
+Symmetry: 2
+Range of active orbitals within the symmetry:     2   67
+Symmetry: 2
+Range of passive orbitals within the symmetry:     1    1
+
+          Checking orthogonality of the active orbitals in symmetry: 2
+
+
+          Checking orthogonality of the active orbitals with respect to the fixed orbitals in symmetry: 2
+
+
+Orthogonalization complete.
+2.3 Symmetric orthogonalisation of total continuum     2
+
+Orbital orthogonalization
+Symmetry: 2
+Range of active orbitals within the symmetry:     2   67
+
+          Symmetric orthogonalization requested
+Deletion threshold:     0.100000000000000E-06
+
+Number of orbitals marked for deletion: 10
+
+          Checking orthogonality of the active orbitals in symmetry: 2
+
+
+Orthogonalization complete.
+Orbital 58 from symmetry 2 has been deleted.
+Orbital 59 from symmetry 2 has been deleted.
+Orbital 60 from symmetry 2 has been deleted.
+Orbital 61 from symmetry 2 has been deleted.
+Orbital 62 from symmetry 2 has been deleted.
+Orbital 63 from symmetry 2 has been deleted.
+Orbital 64 from symmetry 2 has been deleted.
+Orbital 65 from symmetry 2 has been deleted.
+Orbital 66 from symmetry 2 has been deleted.
+Orbital 67 from symmetry 2 has been deleted.
+3.0 Completed orthogonalisation of symmetry     2
+3.1 Orbitals for symmetry  2, for target, PCO, continuum    1    0   56
+Final number of orbitals for target    
+   11    1    0    0    0    0    0    0
+Final number of orbitals for PCOs      
+    0    0    0    0    0    0    0    0
+Final number of orbitals for TGT+PCOs  
+   11    1    0    0    0    0    0    0
+Final number of orbitals for continuum 
+   87   56    0    0    0    0    0    0
+Final number of orbitals for total     
+   98   57    0    0    0    0    0    0
+Transforming AO integral type: Overlap integrals ...
+...done
+Transforming AO integral type: Kinetic energy integrals ...
+...done
+Transforming AO integral type: Nuclear attraction integrals ...
+...done
+Transforming AO integral type: One electron Hamiltonian integrals ...
+...done
+Transforming AO integral type: Property integrals ...
+...done
+Transforming AO integral type: Property integrals ...
+...done
+Transforming AO integral type: Property integrals ...
+...done
+Transforming AO integral type: Property integrals ...
+...done
+Transforming AO integral type: Property integrals ...
+...done
+Transforming AO integral type: Property integrals ...
+...done
+Transforming AO integral type: Property integrals ...
+...done
+Transforming AO integral type: Property integrals ...
+...done
+Transforming AO integral type: Property integrals ...
+...done
+Continuum functions will be normalized to the requested radius:     0.100000000000000E+02
+
+Symmetry: 1
+
+Partial waves (m,l) in the current symmetry:
+    0    0
+   -1    1
+    0    1
+   -1    2
+    0    2
+    2    2
+   -3    3
+   -1    3
+    0    3
+    2    3
+   -3    4
+   -1    4
+    0    4
+    2    4
+    4    4
+
+Number of channels in the current symmetry: 15
+
+EIGENPHASE SUMS
+    0.000000000000000E+00    0.000000000000000E+00
+    0.272113846900000E+00   -0.896038846388208E-03
+    0.544227693800000E+00   -0.161038827844408E-02
+    0.816341540700000E+00   -0.253574380003102E-02
+    0.108845538760000E+01   -0.370606280415476E-02
+    0.136056923450000E+01   -0.489826524051625E-02
+    0.163268308140000E+01   -0.581907090579461E-02
+    0.190479692830000E+01   -0.625174916615525E-02
+    0.217691077520000E+01   -0.612318943439219E-02
+    0.244902462210000E+01   -0.550821205399099E-02
+    0.272113846900000E+01   -0.459173914644550E-02
+    0.299325231590000E+01   -0.361482810636867E-02
+    0.326536616280000E+01   -0.281874793663795E-02
+    0.353748000970000E+01   -0.240106460586918E-02
+    0.380959385660000E+01   -0.248572633236575E-02
+    0.408170770350000E+01   -0.311149800012242E-02
+    0.435382155040000E+01   -0.423452615108189E-02
+    0.462593539730000E+01   -0.574236170752703E-02
+    0.489804924420000E+01   -0.747548646339103E-02
+    0.517016309110000E+01   -0.924709909139404E-02
+    0.544227693800000E+01   -0.108842519968668E-01
+    0.571439078490000E+01   -0.122239843714592E-01
+    0.598650463180000E+01   -0.131514193623825E-01
+    0.625861847870000E+01   -0.136033359204270E-01
+    0.653073232560000E+01   -0.135744443993941E-01
+    0.680284617250000E+01   -0.131164586197177E-01
+    0.707496001940000E+01   -0.123315458330578E-01
+    0.734707386630000E+01   -0.113604551945863E-01
+    0.761918771320000E+01   -0.103903822806628E-01
+    0.789130156010000E+01   -0.956152799315267E-02
+    0.816341540700000E+01   -0.907901414357537E-02
+    0.843552925390000E+01   -0.909057765470754E-02
+    0.870764310080000E+01   -0.973428948176732E-02
+    0.897975694770000E+01   -0.110919225436628E-01
+    0.925187079460000E+01   -0.132117560794251E-01
+    0.952398464150000E+01   -0.160925984819657E-01
+    0.979609848840000E+01   -0.196859545171869E-01
+    0.100682123353000E+02   -0.238990043882441E-01
+    0.103403261822000E+02   -0.286190005830562E-01
+    0.106124400291000E+02   -0.336207002469970E-01
+    0.108845538760000E+02   -0.387818991785374E-01
+    0.111566677229000E+02   -0.438830259005615E-01
+    0.114287815698000E+02   -0.487293072759033E-01
+    0.117008954167000E+02   -0.531708589385407E-01
+    0.119730092636000E+02   -0.568099290631525E-01
+    0.122451231105000E+02   -0.598772286959014E-01
+    0.125172369574000E+02   -0.620746522129699E-01
+    0.127893508043000E+02   -0.633798100589892E-01
+    0.130614646512000E+02   -0.637914613321241E-01
+    0.133335784981000E+02   -0.633003861235786E-01
+    0.136056923450000E+02   -0.630011818252978E-01
+    0.138778061919000E+02   -0.609023289460502E-01
+    0.141499200388000E+02   -0.588514155331413E-01
+    0.144220338857000E+02   -0.566980604846705E-01
+    0.146941477326000E+02   -0.546671545773681E-01
+    0.149662615795000E+02   -0.530125773250642E-01
+    0.152383754264000E+02   -0.519870688347220E-01
+    0.155104892733000E+02   -0.517325475869705E-01
+    0.157826031202000E+02   -0.532511319099756E-01
+    0.160547169671000E+02   -0.555767307588513E-01
+    0.163268308140000E+02   -0.595961873580426E-01
+    0.165989446609000E+02   -0.653471267159660E-01
+    0.168710585078000E+02   -0.730147871694416E-01
+    0.171431723547000E+02   -0.826344612344241E-01
+    0.174152862016000E+02   -0.942435263314170E-01
+    0.176874000485000E+02   -0.107822391246323E+00
+    0.179595138954000E+02   -0.123297475624974E+00
+    0.182316277423000E+02   -0.140541041550677E+00
+    0.185037415892000E+02   -0.159372547458636E+00
+    0.187758554361000E+02   -0.179562345784334E+00
+    0.190479692830000E+02   -0.200839538981121E+00
+    0.193200831299000E+02   -0.222912239867252E+00
+    0.195921969768000E+02   -0.245569165660072E+00
+    0.198643108237000E+02   -0.274173633156951E+00
+    0.201364246706000E+02   -0.288635910961819E+00
+    0.204085385175000E+02   -0.310203317571829E+00
+    0.206806523644000E+02   -0.330442546471620E+00
+    0.209527662113000E+02   -0.349339944420827E+00
+    0.212248800582000E+02   -0.368912928690190E+00
+    0.214969939051000E+02   -0.377449165280214E+00
+    0.217691077520000E+02   -0.390619161063383E+00
+    0.220412215989000E+02   -0.400471538747959E+00
+    0.223133354458000E+02   -0.407600504958690E+00
+    0.225854492927000E+02   -0.412116174009626E+00
+    0.228575631396000E+02   -0.414127984772131E+00
+    0.231296769865000E+02   -0.413782680495089E+00
+    0.234017908334000E+02   -0.411242965480710E+00
+    0.236739046803000E+02   -0.406606861830843E+00
+    0.239460185272000E+02   -0.399612571660399E+00
+    0.242181323741000E+02   -0.387799413404162E+00
+    0.244902462210000E+02   -0.437583974627932E+00
+    0.247623600679000E+02   -0.403764240256368E+00
+    0.250344739148000E+02   -0.389447143853322E+00
+    0.253065877617000E+02   -0.381650662994023E+00
+    0.255787016086000E+02   -0.376331845551891E+00
+    0.258508154555000E+02   -0.372971571644178E+00
+    0.261229293024000E+02   -0.371167551283419E+00
+    0.263950431493000E+02   -0.366276716305208E+00
+    0.266671569962000E+02   -0.393957354298204E+00
+    0.269392708431000E+02   -0.396605371221405E+00
+    0.272113846900000E+02   -0.409261478851986E+00
+    0.274834985369000E+02   -0.423731137298280E+00
+    0.277556123838000E+02   -0.447036724823010E+00
+    0.280277262307000E+02   -0.474811944554455E+00
+    0.282998400776000E+02   -0.508041031219927E+00
+    0.285719539245000E+02   -0.547022670336659E+00
+    0.288440677714000E+02   -0.591950435608362E+00
+    0.291161816183000E+02   -0.642941131321801E+00
+    0.293882954652000E+02   -0.700035168364609E+00
+    0.296604093121000E+02   -0.763194687345172E+00
+    0.299325231590000E+02   -0.832302776079714E+00
+    0.302046370059000E+02   -0.907164377596382E+00
+    0.304767508528000E+02   -0.987509261967990E+00
+    0.307488646997000E+02   -0.107299811635836E+01
+    0.310209785466000E+02   -0.116323480394014E+01
+    0.312930923935000E+02   -0.125779350658261E+01
+    0.315652062404000E+02   -0.135628833352958E+01
+    0.318373200873000E+02   -0.145859243393797E+01
+    0.321094339342000E+02   -0.156578777368830E+01
+    0.323815477811000E+02   -0.168774856045859E+01
+    0.326536616280000E+02   -0.131045307878334E+01
+    0.329257754749000E+02   -0.185058336905515E+01
+    0.331978893218000E+02   -0.195329162249117E+01
+    0.334700031687000E+02   -0.205472862300100E+01
+    0.337421170156000E+02   -0.215333105951632E+01
+    0.340142308625000E+02   -0.225202475672791E+01
+    0.342863447094000E+02   -0.237650443399547E+01
+    0.345584585563000E+02   -0.114156401157036E+01
+    0.348305724032000E+02   -0.243573880653628E+01
+    0.351026862501000E+02   -0.249804422219736E+01
+    0.353748000970000E+02   -0.255126741962245E+01
+    0.356469139439000E+02   -0.259388694963196E+01
+    0.359190277908000E+02   -0.262631684512142E+01
+    0.361911416377000E+02   -0.264893271466783E+01
+    0.364632554846000E+02   -0.266216890747025E+01
+    0.367353693315000E+02   -0.266654566519211E+01
+    0.370074831784000E+02   -0.266261470673602E+01
+    0.372795970253000E+02   -0.265082050853200E+01
+    0.375517108722000E+02   -0.263123346800337E+01
+    0.378238247191000E+02   -0.260302062746234E+01
+    0.380959385660000E+02   -0.256323663001389E+01
+    0.383680524129000E+02   -0.250339979087655E+01
+    0.386401662598000E+02   -0.239623733596789E+01
+    0.389122801067000E+02   -0.193968648293997E+01
+    0.391843939536000E+02   -0.190528184098590E+01
+    0.394565078005000E+02   -0.304015888468184E+01
+    0.397286216474000E+02   -0.293308751567772E+01
+    0.400007354943000E+02   -0.283264670562329E+01
+    0.402728493412000E+02   -0.277044490986498E+01
+    0.405449631881000E+02   -0.271879798124972E+01
+    0.408170770350000E+02   -0.267110660931093E+01
+    0.410891908819000E+02   -0.173021875137403E+01
+    0.413613047288000E+02   -0.373207697956425E+01
+    0.416334185757000E+02   -0.305139057667979E+01
+    0.419055324226000E+02   -0.300129616014728E+01
+    0.421776462695000E+02   -0.270910712386648E+01
+    0.424497601164000E+02   -0.279066485687665E+01
+    0.427218739633000E+02   -0.279149070808533E+01
+    0.429939878102000E+02   -0.278806646300800E+01
+    0.432661016571000E+02   -0.278639467875281E+01
+    0.435382155040000E+02   -0.278832714442846E+01
+    0.438103293509000E+02   -0.279511445088903E+01
+    0.440824431978000E+02   -0.280791517786327E+01
+    0.443545570447000E+02   -0.282785966883433E+01
+    0.446266708916000E+02   -0.285602182144344E+01
+    0.448987847385000E+02   -0.289337250519405E+01
+    0.451708985854000E+02   -0.294073448558161E+01
+    0.454430124323000E+02   -0.299874511094283E+01
+    0.457151262792000E+02   -0.306782850454495E+01
+    0.459872401261000E+02   -0.314817700314541E+01
+    0.462593539730000E+02   -0.323974052570562E+01
+    0.465314678199000E+02   -0.334222206488040E+01
+    0.468035816668000E+02   -0.345507742718128E+01
+    0.470756955137000E+02   -0.357751753293184E+01
+    0.473478093606000E+02   -0.370851177357595E+01
+    0.476199232075000E+02   -0.384679079702117E+01
+    0.478920370544000E+02   -0.399084625694451E+01
+    0.481641509013000E+02   -0.413892289531621E+01
+    0.484362647482000E+02   -0.428899348277717E+01
+    0.487083785951000E+02   -0.443869610022358E+01
+    0.489804924420000E+02   -0.458518577096270E+01
+    0.492526062889000E+02   -0.472477544157679E+01
+    0.495247201358000E+02   -0.485199109126486E+01
+    0.497968339827000E+02   -0.495667667090680E+01
+    0.500689478296000E+02   -0.501258742993189E+01
+    0.503410616765000E+02   -0.490769580067665E+01
+    0.506131755234000E+02   -0.313067650443726E+01
+    0.508852893703000E+02   -0.232279673962839E+01
+    0.511574032172000E+02    0.247593059257563E-01
+    0.514295170641000E+02   -0.559180187999561E+01
+    0.517016309110000E+02   -0.571822351209348E+01
+    0.519737447579000E+02   -0.573767352169219E+01
+    0.522458586048000E+02   -0.572056842923440E+01
+    0.525179724517000E+02   -0.567919645206220E+01
+    0.527900862986000E+02   -0.562153253271408E+01
+    0.530622001455000E+02   -0.555577274463612E+01
+    0.533343139924000E+02   -0.548837703120211E+01
+    0.536064278393000E+02   -0.541813529428400E+01
+    0.538785416862000E+02   -0.528050749783038E+01
+    0.541506555331000E+02   -0.631905252495006E+01
+    0.544227693800000E+02   -0.547141799168270E+01
+    0.546948832269000E+02   -0.542623197176566E+01
+    0.549669970738000E+02   -0.540986001197173E+01
+    0.552391109207000E+02   -0.540345032242151E+01
+    0.555112247676000E+02   -0.540160111718567E+01
+    0.557833386145000E+02   -0.540172134028363E+01
+    0.560554524614000E+02   -0.540234563516491E+01
+    0.563275663083000E+02   -0.540267129975772E+01
+    0.565996801552000E+02   -0.540237552141738E+01
+    0.568717940021000E+02   -0.540151254473260E+01
+    0.571439078490000E+02   -0.540042895189333E+01
+    0.574160216959000E+02   -0.539966747960300E+01
+    0.576881355428000E+02   -0.539983453315720E+01
+    0.579602493897000E+02   -0.540139781699943E+01
+    0.582323632366000E+02   -0.540435255016357E+01
+    0.585044770835000E+02   -0.540761868013263E+01
+    0.587765909304000E+02   -0.540781307016473E+01
+    0.590487047773000E+02   -0.539633393359397E+01
+    0.593208186242000E+02   -0.535091077621988E+01
+    0.595929324711000E+02   -0.520235495476889E+01
+    0.598650463180000E+02   -0.458744423325390E+01
+    0.601371601649000E+02   -0.254163801972186E+01
+    0.604092740118000E+02   -0.170680280899727E+01
+    0.606813878587000E+02    0.327769671940472E+01
+    0.609535017056000E+02   -0.126921118685553E+01
+    0.612256155525000E+02   -0.186239742454203E+01
+    0.614977293994000E+02   -0.113097303611033E+01
+    0.617698432463000E+02   -0.700831519991002E+00
+    0.620419570932000E+02   -0.222028530802612E-01
+    0.623140709401000E+02    0.644541816706889E+00
+    0.625861847870000E+02   -0.128937735439728E+01
+    0.628582986339000E+02    0.214972605271872E+01
+    0.631304124808000E+02    0.413145545264144E+00
+    0.634025263277000E+02    0.815067380959085E+00
+    0.636746401746000E+02    0.100121735395184E+01
+    0.639467540215000E+02    0.108769521487125E+01
+    0.642188678684000E+02    0.352382050898171E+01
+    0.644909817153000E+02    0.296619016306494E+01
+    0.647630955622000E+02    0.151983102367707E+00
+    0.650352094091000E+02    0.289953241662375E+01
+    0.653073232560000E+02    0.207555139125108E+00
+    0.655794371029000E+02    0.180642979682258E+01
+    0.658515509498000E+02    0.811712420936493E+00
+    0.661236647967000E+02    0.488514858914722E+00
+    0.663957786436000E+02    0.302399563715132E+00
+    0.666678924905000E+02    0.467297720503766E+00
+    0.669400063374000E+02    0.104784156175685E+01
+    0.672121201843000E+02    0.230952242507275E+01
+    0.674842340312000E+02    0.293472926216422E+00
+    0.677563478781000E+02    0.379454177921692E+00
+    0.680284617250000E+02    0.367649482304589E+01
+    0.683005755719000E+02    0.110819309939880E+01
+    0.685726894188000E+02    0.424047348908216E+00
+    0.688448032657000E+02    0.187509641074289E+00
+    0.691169171126000E+02    0.115822750202137E+01
+    0.693890309595000E+02   -0.984817333576615E-01
+    0.696611448064000E+02   -0.112153253216356E+01
+    0.699332586533000E+02   -0.145354573670344E+01
+    0.702053725002000E+02   -0.162723643525014E+01
+    0.704774863471000E+02   -0.172537324934656E+01
+    0.707496001940000E+02   -0.139825909627772E+01
+    0.710217140409000E+02   -0.623675184153027E+01
+    0.712938278878000E+02   -0.274537933852359E+01
+    0.715659417347000E+02   -0.259816490614104E+01
+    0.718380555816000E+02   -0.258544508500011E+01
+    0.721101694285000E+02   -0.270526395346861E+01
+    0.723822832754000E+02   -0.301251800286647E+01
+    0.726543971223000E+02   -0.793709379010154E+00
+    0.729265109692000E+02   -0.449470655350669E+00
+    0.731986248161000E+02    0.157172292874907E+01
+    0.734707386630000E+02    0.169432325882002E+01
+    0.737428525099000E+02    0.160307678625838E+01
+    0.740149663568000E+02    0.142847540938478E+01
+    0.742870802037000E+02    0.121284281918997E+01
+    0.745591940506000E+02    0.990357730858533E+00
+    0.748313078975000E+02    0.392901731932455E+01
+    0.751034217444000E+02    0.375671771178097E+01
+    0.753755355913000E+02    0.361587853428933E+01
+    0.756476494382000E+02    0.350779785354651E+01
+    0.759197632851000E+02    0.343989413372994E+01
+    0.761918771320000E+02    0.342449942602525E+01
+    0.764639909789000E+02    0.347210306815229E+01
+    0.767361048258000E+02    0.358493246285944E+01
+    0.770082186727000E+02    0.375605292621358E+01
+    0.772803325196000E+02    0.828191351840479E+00
+    0.775524463665000E+02    0.105947519754159E+01
+    0.778245602134000E+02    0.128008534547300E+01
+    0.780966740603000E+02    0.147129076864935E+01
+    0.783687879072000E+02    0.162936222085480E+01
+    0.786409017541000E+02    0.176163912037421E+01
+    0.789130156010000E+02    0.188325808125084E+01
+    0.791851294479000E+02    0.202568391560239E+01
+    0.794572432948000E+02    0.229251623770538E+01
+    0.797293571417000E+02    0.311597793841200E+01
+    0.800014709886000E+02    0.547513160889798E+00
+    0.802735848355000E+02    0.753322942448539E+00
+    0.805456986824000E+02   -0.252637621827190E+01
+    0.808178125293000E+02   -0.253096045468512E+01
+    0.810899263762000E+02   -0.135666082292766E+01
+    0.813620402231000E+02   -0.673495943023660E+00
+    0.816341540700000E+02    0.138918717274220E+01
+
+Symmetry: 2
+
+Partial waves (m,l) in the current symmetry:
+    1    1
+   -2    2
+    1    2
+   -2    3
+    1    3
+    3    3
+   -4    4
+   -2    4
+    1    4
+    3    4
+
+Number of channels in the current symmetry: 10
+
+EIGENPHASE SUMS
+    0.000000000000000E+00    0.000000000000000E+00
+    0.272113846900000E+00   -0.465565775035501E-03
+    0.544227693800000E+00   -0.104857248383309E-02
+    0.816341540700000E+00   -0.182327227955001E-02
+    0.108845538760000E+01   -0.277408055750503E-02
+    0.136056923450000E+01   -0.371848812156581E-02
+    0.163268308140000E+01   -0.443425079823853E-02
+    0.190479692830000E+01   -0.476166369584274E-02
+    0.217691077520000E+01   -0.465094447619626E-02
+    0.244902462210000E+01   -0.416314817973835E-02
+    0.272113846900000E+01   -0.344173377784391E-02
+    0.299325231590000E+01   -0.267127585394771E-02
+    0.326536616280000E+01   -0.203600728311425E-02
+    0.353748000970000E+01   -0.168632321791228E-02
+    0.380959385660000E+01   -0.171717096165715E-02
+    0.408170770350000E+01   -0.215898206603329E-02
+    0.435382155040000E+01   -0.297965613394828E-02
+    0.462593539730000E+01   -0.409498004688760E-02
+    0.489804924420000E+01   -0.538450753025863E-02
+    0.517016309110000E+01   -0.670992769040875E-02
+    0.544227693800000E+01   -0.793390788166039E-02
+    0.571439078490000E+01   -0.893627440378652E-02
+    0.598650463180000E+01   -0.962756958325839E-02
+    0.625861847870000E+01   -0.995778848092669E-02
+    0.653073232560000E+01   -0.992050448735344E-02
+    0.680284617250000E+01   -0.955232511399363E-02
+    0.707496001940000E+01   -0.892822673613998E-02
+    0.734707386630000E+01   -0.815363361743661E-02
+    0.761918771320000E+01   -0.735430237620681E-02
+    0.789130156010000E+01   -0.666512725227561E-02
+    0.816341540700000E+01   -0.621890701345720E-02
+    0.843552925390000E+01   -0.613595017193625E-02
+    0.870764310080000E+01   -0.651517954352526E-02
+    0.897975694770000E+01   -0.742717902958841E-02
+    0.925187079460000E+01   -0.890942966414387E-02
+    0.952398464150000E+01   -0.109638254605558E-01
+    0.979609848840000E+01   -0.135564425784301E-01
+    0.100682123353000E+02   -0.166194581279972E-01
+    0.103403261822000E+02   -0.200562466824149E-01
+    0.106124400291000E+02   -0.237400321808077E-01
+    0.108845538760000E+02   -0.275355332671495E-01
+    0.111566677229000E+02   -0.312914162173489E-01
+    0.114287815698000E+02   -0.348571768001043E-01
+    0.117008954167000E+02   -0.380905489390877E-01
+    0.119730092636000E+02   -0.408611039017464E-01
+    0.122451231105000E+02   -0.430718648215527E-01
+    0.125172369574000E+02   -0.446466674888646E-01
+    0.127893508043000E+02   -0.455481236664108E-01
+    0.130614646512000E+02   -0.457763149477113E-01
+    0.133335784981000E+02   -0.453701837676672E-01
+    0.136056923450000E+02   -0.444037348698591E-01
+    0.138778061919000E+02   -0.429935943442784E-01
+    0.141499200388000E+02   -0.412773680135958E-01
+    0.144220338857000E+02   -0.394225500069670E-01
+    0.146941477326000E+02   -0.376142428185129E-01
+    0.149662615795000E+02   -0.360492083285967E-01
+    0.152383754264000E+02   -0.349290230062988E-01
+    0.155104892733000E+02   -0.344533726068319E-01
+    0.157826031202000E+02   -0.348132456456017E-01
+    0.160547169671000E+02   -0.361858586345942E-01
+    0.163268308140000E+02   -0.387276390367499E-01
+    0.165989446609000E+02   -0.425699617557567E-01
+    0.168710585078000E+02   -0.478141552783871E-01
+    0.171431723547000E+02   -0.545274116988463E-01
+    0.174152862016000E+02   -0.627393650981715E-01
+    0.176874000485000E+02   -0.724394933609649E-01
+    0.179595138954000E+02   -0.835754910636571E-01
+    0.182316277423000E+02   -0.960527548090287E-01
+    0.185037415892000E+02   -0.109735101882026E+00
+    0.187758554361000E+02   -0.124446814025505E+00
+    0.190479692830000E+02   -0.139976077519982E+00
+    0.193200831299000E+02   -0.156079956505012E+00
+    0.195921969768000E+02   -0.172491932909666E+00
+    0.198643108237000E+02   -0.188974184116437E+00
+    0.201364246706000E+02   -0.205028188449635E+00
+    0.204085385175000E+02   -0.220604438930450E+00
+    0.206806523644000E+02   -0.235305818746240E+00
+    0.209527662113000E+02   -0.248869494962926E+00
+    0.212248800582000E+02   -0.261077629838655E+00
+    0.214969939051000E+02   -0.271568031723545E+00
+    0.217691077520000E+02   -0.280430576800788E+00
+    0.220412215989000E+02   -0.287412136160578E+00
+    0.223133354458000E+02   -0.292478528518778E+00
+    0.225854492927000E+02   -0.295637056025820E+00
+    0.228575631396000E+02   -0.296950997145383E+00
+    0.231296769865000E+02   -0.296537963992279E+00
+    0.234017908334000E+02   -0.294565194933082E+00
+    0.236739046803000E+02   -0.291243158743503E+00
+    0.239460185272000E+02   -0.286818413154482E+00
+    0.242181323741000E+02   -0.281567345511474E+00
+    0.244902462210000E+02   -0.275871696885380E+00
+    0.247623600679000E+02   -0.269757626323668E+00
+    0.250344739148000E+02   -0.263861393629902E+00
+    0.253065877617000E+02   -0.258402478567361E+00
+    0.255787016086000E+02   -0.253726897181560E+00
+    0.258508154555000E+02   -0.250186818715430E+00
+    0.261229293024000E+02   -0.248141834253006E+00
+    0.263950431493000E+02   -0.247959459018664E+00
+    0.266671569962000E+02   -0.249999226501431E+00
+    0.269392708431000E+02   -0.254647541752913E+00
+    0.272113846900000E+02   -0.262259963343428E+00
+    0.274834985369000E+02   -0.273189582510041E+00
+    0.277556123838000E+02   -0.287767248983586E+00
+    0.280277262307000E+02   -0.306293256583857E+00
+    0.282998400776000E+02   -0.329028195844604E+00
+    0.285719539245000E+02   -0.356184383072786E+00
+    0.288440677714000E+02   -0.387918473116511E+00
+    0.291161816183000E+02   -0.424325649709931E+00
+    0.293882954652000E+02   -0.465435570861506E+00
+    0.296604093121000E+02   -0.511210036469370E+00
+    0.299325231590000E+02   -0.561542173422231E+00
+    0.302046370059000E+02   -0.616256825274829E+00
+    0.304767508528000E+02   -0.675111801993093E+00
+    0.307488646997000E+02   -0.737799690931608E+00
+    0.310209785466000E+02   -0.803950047352072E+00
+    0.312930923935000E+02   -0.873131974332718E+00
+    0.315652062404000E+02   -0.944857428661352E+00
+    0.318373200873000E+02   -0.101858639633303E+01
+    0.321094339342000E+02   -0.109373849305907E+01
+    0.323815477811000E+02   -0.116974211296344E+01
+    0.326536616280000E+02   -0.124702960607618E+01
+    0.329257754749000E+02   -0.131979312634944E+01
+    0.331978893218000E+02   -0.139404735382721E+01
+    0.334700031687000E+02   -0.146587043959517E+01
+    0.337421170156000E+02   -0.153476811029153E+01
+    0.340142308625000E+02   -0.160007566374874E+01
+    0.342863447094000E+02   -0.166117896516595E+01
+    0.345584585563000E+02   -0.171780877845176E+01
+    0.348305724032000E+02   -0.176617037110511E+01
+    0.351026862501000E+02   -0.181215866963617E+01
+    0.353748000970000E+02   -0.185114608980126E+01
+    0.356469139439000E+02   -0.188381233511035E+01
+    0.359190277908000E+02   -0.191025151716492E+01
+    0.361911416377000E+02   -0.193067545281619E+01
+    0.364632554846000E+02   -0.194545319547334E+01
+    0.367353693315000E+02   -0.195510726566315E+01
+    0.370074831784000E+02   -0.196029285534803E+01
+    0.372795970253000E+02   -0.196176435804759E+01
+    0.375517108722000E+02   -0.196033233944630E+01
+    0.378238247191000E+02   -0.195681524001858E+01
+    0.380959385660000E+02   -0.195199127698675E+01
+    0.383680524129000E+02   -0.194655682060963E+01
+    0.386401662598000E+02   -0.194110001980575E+01
+    0.389122801067000E+02   -0.193612434120276E+01
+    0.391843939536000E+02   -0.193309780931242E+01
+    0.394565078005000E+02   -0.192680522688583E+01
+    0.397286216474000E+02   -0.192425550138816E+01
+    0.400007354943000E+02   -0.192206130777292E+01
+    0.402728493412000E+02   -0.192025079417717E+01
+    0.405449631881000E+02   -0.191859574236810E+01
+    0.408170770350000E+02   -0.191682111193100E+01
+    0.410891908819000E+02   -0.191466308572665E+01
+    0.413613047288000E+02   -0.191134238543500E+01
+    0.416334185757000E+02   -0.190830350380886E+01
+    0.419055324226000E+02   -0.190407356715800E+01
+    0.421776462695000E+02   -0.189923736618962E+01
+    0.424497601164000E+02   -0.189413860296339E+01
+    0.427218739633000E+02   -0.188929618890298E+01
+    0.429939878102000E+02   -0.188540861555491E+01
+    0.432661016571000E+02   -0.188333320600127E+01
+    0.435382155040000E+02   -0.188404937208910E+01
+    0.438103293509000E+02   -0.188860992513429E+01
+    0.440824431978000E+02   -0.189808554125653E+01
+    0.443545570447000E+02   -0.191350805453522E+01
+    0.446266708916000E+02   -0.193581783175527E+01
+    0.448987847385000E+02   -0.196581922625330E+01
+    0.451708985854000E+02   -0.200414638798394E+01
+    0.454430124323000E+02   -0.205123992753111E+01
+    0.457151262792000E+02   -0.210733342635396E+01
+    0.459872401261000E+02   -0.217244777002166E+01
+    0.462593539730000E+02   -0.224639084219720E+01
+    0.465314678199000E+02   -0.232876021873117E+01
+    0.468035816668000E+02   -0.241894701091248E+01
+    0.470756955137000E+02   -0.251613973926312E+01
+    0.473478093606000E+02   -0.261932788590075E+01
+    0.476199232075000E+02   -0.272730542582502E+01
+    0.478920370544000E+02   -0.283867509416429E+01
+    0.481641509013000E+02   -0.295185440512091E+01
+    0.484362647482000E+02   -0.306508457460914E+01
+    0.487083785951000E+02   -0.317644365512513E+01
+    0.489804924420000E+02   -0.328386556129834E+01
+    0.492526062889000E+02   -0.338516746933660E+01
+    0.495247201358000E+02   -0.347808952294765E+01
+    0.497968339827000E+02   -0.356035295313139E+01
+    0.500689478296000E+02   -0.362974518424469E+01
+    0.503410616765000E+02   -0.368424090351370E+01
+    0.506131755234000E+02   -0.372215478624051E+01
+    0.508852893703000E+02   -0.374218846773284E+01
+    0.511574032172000E+02   -0.372864728404454E+01
+    0.514295170641000E+02   -0.373463072094122E+01
+    0.517016309110000E+02   -0.370621925183113E+01
+    0.519737447579000E+02   -0.366763941543404E+01
+    0.522458586048000E+02   -0.362268115705078E+01
+    0.525179724517000E+02   -0.357555555005008E+01
+    0.527900862986000E+02   -0.352999665750727E+01
+    0.530622001455000E+02   -0.348882136575930E+01
+    0.533343139924000E+02   -0.345380137688139E+01
+    0.536064278393000E+02   -0.342576290412777E+01
+    0.538785416862000E+02   -0.340479544674632E+01
+    0.541506555331000E+02   -0.339047419579595E+01
+    0.544227693800000E+02   -0.338204587828503E+01
+    0.546948832269000E+02   -0.337856381458509E+01
+    0.549669970738000E+02   -0.337897698982410E+01
+    0.552391109207000E+02   -0.338218466722689E+01
+    0.555112247676000E+02   -0.338706865948548E+01
+    0.557833386145000E+02   -0.339251370441343E+01
+    0.560554524614000E+02   -0.339742411199766E+01
+    0.563275663083000E+02   -0.340074232524572E+01
+    0.565996801552000E+02   -0.340147214685945E+01
+    0.568717940021000E+02   -0.339870607070234E+01
+    0.571439078490000E+02   -0.339165277582598E+01
+    0.574160216959000E+02   -0.337965826405972E+01
+    0.576881355428000E+02   -0.336221349549255E+01
+    0.579602493897000E+02   -0.333894350347413E+01
+    0.582323632366000E+02   -0.330957752919166E+01
+    0.585044770835000E+02   -0.327390469415830E+01
+    0.587765909304000E+02   -0.323172151773619E+01
+    0.590487047773000E+02   -0.318277207153005E+01
+    0.593208186242000E+02   -0.312666650611436E+01
+    0.595929324711000E+02   -0.306274236958917E+01
+    0.598650463180000E+02   -0.298981770147587E+01
+    0.601371601649000E+02   -0.290579511790970E+01
+    0.604092740118000E+02    0.334464626212527E+00
+    0.606813878587000E+02    0.453323443776391E+00
+    0.609535017056000E+02    0.600256116478798E+00
+    0.612256155525000E+02    0.785180292328362E+00
+    0.614977293994000E+02    0.101765906603294E+01
+    0.617698432463000E+02    0.130214793546882E+01
+    0.620419570932000E+02    0.162397041316465E+01
+    0.623140709401000E+02    0.193928083593756E+01
+    0.625861847870000E+02    0.219487306284349E+01
+    0.628582986339000E+02    0.236504165050678E+01
+    0.631304124808000E+02    0.245477817998928E+01
+    0.634025263277000E+02    0.248096085119560E+01
+    0.636746401746000E+02    0.246029572250646E+01
+    0.639467540215000E+02    0.240597127431607E+01
+    0.642188678684000E+02    0.232768796949973E+01
+    0.644909817153000E+02    0.223240565624461E+01
+    0.647630955622000E+02    0.212505713989746E+01
+    0.650352094091000E+02    0.200909946015409E+01
+    0.653073232560000E+02    0.188691979793217E+01
+    0.655794371029000E+02    0.176013168516624E+01
+    0.658515509498000E+02    0.162979084714101E+01
+    0.661236647967000E+02    0.149655211165081E+01
+    0.663957786436000E+02    0.136078302833781E+01
+    0.666678924905000E+02    0.122264581372422E+01
+    0.669400063374000E+02    0.108215631501522E+01
+    0.672121201843000E+02    0.939226464204819E+00
+    0.674842340312000E+02    0.793694958130169E+00
+    0.677563478781000E+02    0.645349516604767E+00
+    0.680284617250000E+02    0.493942929862424E+00
+    0.683005755719000E+02    0.339204099273999E+00
+    0.685726894188000E+02    0.180844286467446E+00
+    0.688448032657000E+02    0.185576934815286E-01
+    0.691169171126000E+02   -0.147985823946625E+00
+    0.693890309595000E+02   -0.319159769031682E+00
+    0.696611448064000E+02   -0.495417675769535E+00
+    0.699332586533000E+02   -0.677355844195727E+00
+    0.702053725002000E+02   -0.865813194367050E+00
+    0.704774863471000E+02   -0.106202112507963E+01
+    0.707496001940000E+02   -0.126781168850118E+01
+    0.710217140409000E+02   -0.148584772396065E+01
+    0.712938278878000E+02   -0.171954840867891E+01
+    0.715659417347000E+02   -0.197053533733625E+01
+    0.718380555816000E+02   -0.221889795934564E+01
+    0.721101694285000E+02   -0.229381838551089E+01
+    0.723822832754000E+02   -0.189847264836555E+01
+    0.726543971223000E+02    0.119914425851991E+01
+    0.729265109692000E+02    0.932179097254481E+00
+    0.731986248161000E+02    0.669748374093303E+00
+    0.734707386630000E+02    0.444496590588961E+00
+    0.737428525099000E+02    0.261329069579350E+00
+    0.740149663568000E+02    0.136035206554830E+00
+    0.742870802037000E+02   -0.390546355278080E+00
+    0.745591940506000E+02   -0.186494959409894E+00
+    0.748313078975000E+02   -0.199217613817938E+00
+    0.751034217444000E+02   -0.206385901280584E+00
+    0.753755355913000E+02   -0.206017059181530E+00
+    0.756476494382000E+02   -0.209002269978694E+00
+    0.759197632851000E+02   -0.224125471440177E+00
+    0.761918771320000E+02   -0.255042010245775E+00
+    0.764639909789000E+02   -0.301386793116485E+00
+    0.767361048258000E+02   -0.360854540157588E+00
+    0.770082186727000E+02   -0.430685482880920E+00
+    0.772803325196000E+02   -0.508375384103104E+00
+    0.775524463665000E+02   -0.591899245358572E+00
+    0.778245602134000E+02   -0.679712065496093E+00
+    0.780966740603000E+02   -0.770672198276109E+00
+    0.783687879072000E+02   -0.863950516516145E+00
+    0.786409017541000E+02   -0.958946690972406E+00
+    0.789130156010000E+02   -0.105521481241206E+01
+    0.791851294479000E+02   -0.115238976573293E+01
+    0.794572432948000E+02   -0.125008812347747E+01
+    0.797293571417000E+02   -0.134767696370514E+01
+    0.800014709886000E+02   -0.144306818103348E+01
+    0.802735848355000E+02   -0.154005655498646E+01
+    0.805456986824000E+02   -0.165489131164072E+01
+    0.808178125293000E+02   -0.174370349076771E+01
+    0.810899263762000E+02   -0.185576449497900E+01
+    0.813620402231000E+02   -0.191900393680362E+01
+    0.816341540700000E+02   -0.198194869734281E+01
+
+          Calculating GGGG integrals...
+Threading over quartets of shells using: 4 threads.
+Integral calculation took: 46.2 [s]
+Two_electron_integrals took [s]:        46.315876007080078
+Transforming AO integral type 1 ...
+Size of the ijrs array limited to (Mib): 5000.000
+
+Total number of (rs)-indices: 25651
+Number of (rs)-index blocks: 1, number of (rs)-indices in block: 25651
+
+Size of the ijrs buffer to be allocated [Mib]:      2369.163558959960938
+(rs)-index block: 1
+(pq|rs) -> (ij|rs) for rs-block: 1->25651 done in    3.520 [s]
+(ij|rs) -> (ij|kl) contribution done in    1.669 [s]
+
+Number of AO integrals used: 657973801
+Total time for (pq|rs) -> (ij|rs)    3.520 [s]
+Total time for (ij|rs) -> (ij|kl)    1.669 [s]
+(pq|rs) -> (ij|kl) done in    5.188 [s]
+Number of ijkl integrals:         1049974    8.011
+Two_electron_integrals took [s]:         5.660749912261963
+<-------->done:mpi_mod:mpi_mod_finalize

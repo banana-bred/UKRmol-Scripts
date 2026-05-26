@@ -1,0 +1,101 @@
+This is a basic description of target and scattering models,
+which are implemented in UKRmol-scripts.
+
+Note 1: in all cases below user can also specify which orbitals
+should be used in each irreducible representation (IR) using 
+'frozen_orbs', 'active_orbs', and 'virtual_orbs' in model.pl
+If these are not specified (i.e. zeroes are filled for each IR)
+or if the total number of specific orbitals given in 'nfrozen' etc.
+is not equal to the sum of orbitals specified for each IR,
+then they are determined automatically.
+For brevity these options and other options not related directly 
+to settings of a model are omitted.
+
+Note 2: The scripts check whether there is enough orbitals
+when compared to required orbitals in 'nfrozen' etc.
+If the user specifies too much orbitals then the scripts
+write an error message and stop.
+
+Scattering models:
+==================
+
+1) SE = static-exchange, SEP = static-exchange plus polarization
+
+The most simple models with target described in HF (SCF) approximation.
+In the SE model the scattered electron can be in virtual and continuum orbitals.
+Moreover in the SEP model one target electron is allowed to virtual orbitals.
+I.e. 
+SE  = (target)^N(continuum)^1 + (occupied)^N(virtual)^1
+SEP = (target)^N(continuum)^1 + (occupied)^N(virtual)^1 + (occupied)^(N-1)(virtual)^2
+
+The number of frozen + active orbitals should be equal to 
+the number of occupied orbitals in the SCF calculation
+(thus actually no active orbitals are present for closed-shell systems).
+
+Example for H2O (10 electrons + 1 scattered electron) in C2v symmetry (equlibrium geometry):
+
+  'model',      "SE",  # or SEP
+  'nfrozen',       0,
+  'nactive',       5,  # closed-shell, 10 electrons in 5 orbitals
+  'nvirtual',     10,
+  'ntarget_states', {'singlet', [1,0,0,0]},
+  'ntarget_states_used', "1",
+  'scattering_states', {'doublet', [1,1,1,1]},
+
+
+2) Close-coupling models based on CAS (CAS-A, CAS-B and CAS-C models)
+
+In close-coupling models the target is described within CASSCF approximation
+with some orbitals closed ('nfrozen') and other active ('nactive').
+The size of active space must be chosen carefully with respect to later
+scattering calculation which could be too large with large active space.
+
+The scattering wavefunctions have the following form
+CAS-A = (target)^N(continuum)^1 + (frozen+active)^(N+1) + (target)^N(virtual)^1
+CAS-B = (target)^N(continuum)^1 + (frozen+active)^(N+1) + (frozen+active)^N(virtual)^1
+CAS-C = (target)^N(continuum)^1 + (frozen+active)^(N+1) + (frozen+active)^N(virtual)^1 + (frozen+active)^(N-1)(virtual)^2
+where the first term in each model and the last term in CAS-A model 
+are actually sums over all used target states.
+One should note that CAS-C model can be quite large and should be used carefully.
+
+Example for H2O (10 electrons + 1 scattered electron) in C2v symmetry (equlibrium geometry):
+
+  'model',     "CAS",  # or CAS-A or CAS-C (CAS-B is the same as CAS)
+  'nfrozen',       1,  # "1s" orbital on O will be frozen
+  'nactive',       6,  # active space of "2s", "2p" on O and "1s" on H's
+  'nvirtual',     12,
+  'ncasscf_states', {'singlet', [1,0,0,0]}, # orbitals are optimized only for the lowest state
+  'ntarget_states', {'singlet', [2,2,2,2],  # we can calculate more states than it is used in scattering
+                     'triplet', [2,2,2,2]},
+  'ntarget_states_used', "5",               # actual number of target states used
+  'scattering_states', {'doublet', [1,1,1,1]},
+
+
+3) Close-coupling models based on FCI (actually also CAS without virtual orbitals)
+
+In this close-coupling model the target is described within FCI method (nfrozen = 0, nactive = -1) 
+or within frozen core FCI approximation (nfrozen = X, nactive = -1)
+The size of active space is chosen automatically according to the target basis set.
+
+The scattering wavefunctions have as in CAS models the following form (there are no virtual orbitals, all are used as active)
+FCI = (target)^N(continuum)^1 + (frozen+active)^(N+1)
+where the first term is actually a sum over all used target states.
+
+One should choose 'orbitals' as HF to avoid running CASSCF in Molpro, which can fail if there are many active orbitals !
+
+Example for H2O (10 electrons + 1 scattered electron) in C2v symmetry (equlibrium geometry):
+
+  'orbitals',   "HF",          # which orbitals to use, HF = Hartree-Fock orbitals (default), natural = natural orbitals obtained by Molpro with CASSCF
+  'select_orb_by',  "energy",  # UKRmol+ only: molden = use orbitals as ordered in Molden file, energy = use orbitals ordered by energy
+  'model',     "CAS",          # 
+  'nfrozen',       1,          # "1s" orbital on O will be frozen
+  'nactive',      -1,          # all other orbitals will be used as active space
+  'nvirtual',      0,
+  'ntarget_states', {'singlet', [2,2,2,2],  # we can calculate more states than it is used in scattering
+                     'triplet', [2,2,2,2]},
+  'ntarget_states_used', "5",               # actual number of target states used
+  'scattering_states', {'doublet', [1,1,1,1]},
+
+4) Details on the Multiple Active Spaces approach can be found in MAS_tutorial.md
+
+5) Information on PCCHF model will be included in a later release

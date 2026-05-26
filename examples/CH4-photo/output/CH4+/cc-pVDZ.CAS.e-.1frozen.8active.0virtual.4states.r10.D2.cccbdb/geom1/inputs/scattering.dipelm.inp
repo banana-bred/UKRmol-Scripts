@@ -1,0 +1,19 @@
+&dipelminp
+  ! partial wave dipoles input from RSOLVE
+  lu_pw_dipoles     = 411,412,413,
+  nset_pw_dipoles   = 1,1,1,
+  format_pw_dipoles = 'FORMATTED',
+
+  ! selection of transitions (initial/final states)
+  no_neutral_states = 1,
+  no_ion_states     = 4,
+  first_Ip          = 0.49979,
+
+  ! smoothing of partial wave dipoles
+  smooth = .false.,
+/
+
+&smooth
+  ismooth = 1,
+  eleft   = 0.0,
+/

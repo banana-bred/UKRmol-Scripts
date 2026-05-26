@@ -1,0 +1,132 @@
++-------------------------------------------------------------------------+
+|              _              |                                           |
+| || || ||//  | \          |  | University College London (C) 1994 - 2020 |
+| || || ||    | / |/\/\ /\ |  | Open University           (C) 2007 - 2020 |
+| \\_// ||\\  | \ | | | \/ |  |                                           |
+|                             |                                           |
++-------------------------------------------------------------------------+
+| Last revision: unknown                                                  |
+| Last author:   unknown                                                  |
+| Last date:     unknown                                                  |
++-------------------------------------------------------------------------+
+MPI startup(): PMI server not found. Please set I_MPI_PMI_LIBRARY variable if it is not a singleton case.
+
+
+ Program RESON  (last modified 12-May-1997 )
+
+e + H2O - doublet App - Resonance fits                      20230416  145213.825
+
+ Automatic resonance detection and fitting requested:
+ For    NRESON =   20      lowest resonances
+ From   ABVTHR =   0.00002 Ryd above each threshold
+ Up to  BELTHR =   0.00002 Ryd below each threshold
+ Using  NFIT   =   20      energy grid points
+ And    NBACK  =    2      terms for the background
+ Change DPHZ   =   1.00000 constitutes a resonance.
+ Resonances fitted at supplied energy points.
+
+ Fixed nuclei calculation for R = 0.000
+
+ Input datasets:                                 Unit  Set numbers
+ Target and channel data     LUCHAN (UNFORMATTED) 10       1
+ Fixed nuclei R-matrix data  LURMT  (UNFORMATTED) 21       1
+ K-matrices                  LUKMT  (UNFORMATTED)921       1
+
+ Scratch dataset:                                Unit
+ K-matrix/eigenphase data    LURES  (UNFORMATTED)***
+
+ K-matrix input, set  1 on unit921
+
+ Symmetry data  MGVN = 1   STOT = 2   GUTOT = 2
+
+ K-matrices are vibrationally resolved
+
+ Number of target states       =   5
+ Number of scattering channels =  60
+
+ Input Energy grid (Ryd) 
+ Number of points        20       400
+ Initial values     0.00001   0.00007
+ Increments         0.00004   0.00367
+
+ K-matrices will be scanned for  420 energies in the range [  0.0000,  1.4701] Ryd
+
+ *** FIXED NUCLEI DATA ***
+
+ R-matrix data has been read from set number  1 on unit number 21
+ Header :e + H2O - doublet App                                       20230416  145152.495
+
+ Maximum multipole USED in asymptotic scattering potentials   ISMAX =  2
+
+ *** FIXED NUCLEI DATA ***
+
+ Target and channel data is read from set  1 on unit 10
+
+ R-matrix data has been read from set number  1 on unit number 21
+ Header :e + H2O - doublet App                                       20230416  145152.495
+
+ Automatic resonance fitting above target state  1
+    3 resonances detected
+    3 resonances to be fitted
+
+ Resonance  1 is in the range ELOW =   0.00005 Ryd to EHIGH =   0.00012 Ryd
+
+ Resonance  1 is NOT a real resonance
+
+
+ Resonance  2 is in the range ELOW =   0.76080 Ryd to EHIGH =   0.76815 Ryd
+
+ Resonance  2 is NOT a real resonance
+
+
+ Resonance  3 is in the range ELOW =   1.05112 Ryd to EHIGH =   1.05847 Ryd
+
+ Resonance  3 is NOT a real resonance
+
+
+ Automatic resonance fitting above target state  2
+    1 resonances detected
+    1 resonances to be fitted
+
+ Resonance  1 is in the range ELOW =   1.10066 Ryd to EHIGH =   1.14123 Ryd
+ WARNING: LMDIF return INFO =                     1
+
+ Fitted resonance parameters
+ Positions / Ryd               0.11179781D+01
+ Widths    / Ryd               0.22861928D-01
+ Background       0.61534248D+01     -0.20046215D+01
+ Residues
+     0.0113188   -0.0043217   -0.0099075   -0.0044729    0.0059376    0.0088136    0.0016426   -0.0072746   -0.0111147   -0.0059327
+     0.0153116
+ Goodness factor:      0.82668868D-03
+
+ Eigenphase search found NO resonances above ITARG =  3
+
+ Automatic resonance fitting above target state  4
+    3 resonances detected
+    3 resonances to be fitted
+
+ Resonance  1 is in the range ELOW =   1.20547 Ryd to EHIGH =   1.21282 Ryd
+
+ Resonance  1 is NOT a real resonance
+
+
+ Resonance  2 is in the range ELOW =   1.34821 Ryd to EHIGH =   1.38614 Ryd
+ WARNING: LMDIF return INFO =                     1
+
+ Fitted resonance parameters
+ Positions / Ryd               0.13643506D+01
+ Widths    / Ryd               0.21003390D-01
+ Background       0.11071858D+02     -0.32314420D+01
+ Residues
+     0.0047167   -0.0015949   -0.0041080   -0.0019744    0.0025495    0.0035874    0.0001211   -0.0034428   -0.0041568   -0.0012043
+     0.0055064
+ Goodness factor:      0.12585158D-03
+
+ Resonance  3 is in the range ELOW =   1.31025 Ryd to EHIGH =   1.45808 Ryd
+ WARNING: LMDIF return INFO =                     1
+
+ Fitting failure: fitted resonance outside energy grid
+
+
+ *** Task successfully completed ***

@@ -1,0 +1,232 @@
++-------------------------------------------------------------------------+
+|              _              |                                           |
+| || || ||//  | \          |  | University College London (C) 1994 - 2020 |
+| || || ||    | / |/\/\ /\ |  | Open University           (C) 2007 - 2020 |
+| \\_// ||\\  | \ | | | \/ |  |                                           |
+|                             |                                           |
++-------------------------------------------------------------------------+
+| Last revision: 3.2                                                      |
+| Last author:   Jimena Gorfinkiel                                        |
+| Last date:     Tue Dec 21 17:59:46 2021 +0000                           |
++-------------------------------------------------------------------------+
+
+                    CDENPROP (2011) 
+
+                    Transition dipoles program 
+
+
+
+ INPUT FILES
+ -----------
+ Configuration state functions to be read from files       700  710
+ CI vectors for I states to be read from file              250
+ CI vectors for J states to be read from file               25
+ CI vectors to be read from sets                             1    1
+ Number of target states per symmetry          1    1    1    1    0    0    0    0
+ Assuming UKRmol+ property integrals on input
+ Target phase correction                                 F
+ Property integrals to be read from                         16
+ Target properties to be read from                          24
+ Target run: target vectors                                 26
+ L2 transformation matrices                               3001 3002
+ Sparsity of the density matrices                          1.000000%
+
+ OUTPUT FILES
+ ------------
+ Inner region properties                                   610
+ Data for Lsquared contraction                            9978
+ The Dyson orbitals                                        123
+ Target phases                                             333
+
+
+ READ CSF FILES
+ --------------
+ SCATCI: e + CH4+ - singlet A                                                                                                    
+ MGVN =         0     S    =  0.0
+ NELT =        10     SZ   =  0.0
+ IDIAGT=         1     R    =  0.0
+ THRES=   0.1D-09     NSYM =    4
+ MEGUL=700, NOCSF=      5172
+ NPFLG         0   0   0   0   0   0
+ SCATCI: e + CH4+ - singlet A                                                                                                    
+ MGVN =         0     S    =  0.0
+ NELT =        10     SZ   =  0.0
+ IDIAGT=         1     R    =  0.0
+ THRES=   0.1D-09     NSYM =    4
+ MEGUL=710, NOCSF=      5172
+ NPFLG         0   0   0   0   0   0
+
+ Both I and J contain continuum orbitals
+
+
+ READ N+1 CI FILES
+ -----------------
+ READING ONLY          1 EIGENPAIRS.
+ SET   1    CH4+ CI calculation - singlet A                                                                                         
+          NOCSF=       684    NSTAT=       684    NNUC =    6
+
+ Nuclear data     X         Y         Z       Charge
+   C  1        0.000000  0.000000  0.000000  6.000000
+   H  2        1.185952  1.185952  1.185957  1.000000
+   H  2       -1.185952 -1.185952  1.185957  1.000000
+   H  2       -1.185952  1.185952 -1.185957  1.000000
+   H  2        1.185952 -1.185952 -1.185957  1.000000
+   sc 3        0.000000  0.000000  0.000000  0.000000
+          EIGEN-ENERGIES
+                      -40.2904691106      -39.8710088518      -39.8710086790      -39.8631473567      -39.8348717219
+                      -39.8338207376      -39.8338196074      -39.7741742660      -39.7741716423      -39.7731378912
+                      -39.7731350844      -39.7723955627      -39.7707754764      -39.7381204551      -39.7381200666
+                      -39.7254126784      -39.7232047164      -39.7232026919      -39.7091050729      -39.7081591003
+
+ READCIP finished
+
+ SET   1    CH4+ CI calculation - singlet A                                                                                         
+          NOCSF=       684    NSTAT=       684    NNUC =    6
+
+ Nuclear data     X         Y         Z       Charge
+   C  1        0.000000  0.000000  0.000000  6.000000
+   H  2        1.185952  1.185952  1.185957  1.000000
+   H  2       -1.185952 -1.185952  1.185957  1.000000
+   H  2       -1.185952  1.185952 -1.185957  1.000000
+   H  2        1.185952 -1.185952 -1.185957  1.000000
+   sc 3        0.000000  0.000000  0.000000  0.000000
+          EIGEN-ENERGIES
+                      -40.2904691106      -39.8710088518      -39.8710086790      -39.8631473567      -39.8348717219
+                      -39.8338207376      -39.8338196074      -39.7741742660      -39.7741716423      -39.7731378912
+                      -39.7731350844      -39.7723955627      -39.7707754764      -39.7381204551      -39.7381200666
+                      -39.7254126784      -39.7232047164      -39.7232026919      -39.7091050729      -39.7081591003
+
+ READCIP finished
+
+
+ ALLOCATE PROPERTY INTEGRAL
+
+ READ PROPERTY INTEGRAL
+ ----------------------
+
+1-electron integrals read-in.
+
+Number of types of property integrals:    9
+
+ DENSITY MATRIX CONSTRUCTION
+ ----------------------------------
+ SET   1    CH4+ CI calculation - doublet A                                                                                         
+          NOCSF=       588    NSTAT=         1    NNUC =    6
+
+ Nuclear data     X         Y         Z       Charge
+   C  1        0.000000  0.000000  0.000000  6.000000
+   H  2        1.185952  1.185952  1.185957  1.000000
+   H  2       -1.185952 -1.185952  1.185957  1.000000
+   H  2       -1.185952  1.185952 -1.185957  1.000000
+   H  2        1.185952 -1.185952 -1.185957  1.000000
+   sc 3        0.000000  0.000000  0.000000  0.000000
+          EIGEN-ENERGIES
+                      -39.4096151656
+
+ READCIP finished
+
+ SET   2    CH4+ CI calculation - doublet B3                                                                                        
+          NOCSF=       588    NSTAT=         1    NNUC =    6
+
+ Nuclear data     X         Y         Z       Charge
+   C  1        0.000000  0.000000  0.000000  6.000000
+   H  2        1.185952  1.185952  1.185957  1.000000
+   H  2       -1.185952 -1.185952  1.185957  1.000000
+   H  2       -1.185952  1.185952 -1.185957  1.000000
+   H  2        1.185952 -1.185952 -1.185957  1.000000
+   sc 3        0.000000  0.000000  0.000000  0.000000
+          EIGEN-ENERGIES
+                      -39.7708635684
+
+ READCIP finished
+
+ SET   3    CH4+ CI calculation - doublet B2                                                                                        
+          NOCSF=       588    NSTAT=         1    NNUC =    6
+
+ Nuclear data     X         Y         Z       Charge
+   C  1        0.000000  0.000000  0.000000  6.000000
+   H  2        1.185952  1.185952  1.185957  1.000000
+   H  2       -1.185952 -1.185952  1.185957  1.000000
+   H  2       -1.185952  1.185952 -1.185957  1.000000
+   H  2        1.185952 -1.185952 -1.185957  1.000000
+   sc 3        0.000000  0.000000  0.000000  0.000000
+          EIGEN-ENERGIES
+                      -39.7708635678
+
+ READCIP finished
+
+ SET   4    CH4+ CI calculation - doublet B1                                                                                        
+          NOCSF=       588    NSTAT=         1    NNUC =    6
+
+ Nuclear data     X         Y         Z       Charge
+   C  1        0.000000  0.000000  0.000000  6.000000
+   H  2        1.185952  1.185952  1.185957  1.000000
+   H  2       -1.185952 -1.185952  1.185957  1.000000
+   H  2       -1.185952  1.185952 -1.185957  1.000000
+   H  2        1.185952 -1.185952 -1.185957  1.000000
+   sc 3        0.000000  0.000000  0.000000  0.000000
+          EIGEN-ENERGIES
+                      -39.7708623922
+
+ READCIP finished
+
+ READING PROPERTIES FILE
+
+ Size of contracted basis for I is    684 and for J is   684
+
+ Size of continuum part of the basis for I is    216 and for J is   216
+
+
+ CIvect%init_CV start
+
+ CIvect%init_CV finished
+
+ ALLOCATING prototype_properties_matrix       684       684
+
+ CIvect%init_CV start
+
+ CIvect%init_CV finished
+
+ L^2-L^2 Block: Density Matrix Construction
+
+ SparseMatrix: Creating a matrix of dimension        5172          5172        267495
+ SparseMatrix: integers will be stored as SHORTINT
+ SparseMatrix: Creating a matrix of dimension        5172          5172        267495
+ SparseMatrix: integers will be stored as SHORTINT
+ SparseMatrix: Creating a matrix of dimension        5172          5172        267495
+ SparseMatrix: integers will be stored as SHORTINT
+ SparseMatrix: Memory saving of      6380328  bytes
+ SparseMatrix: Memory saving of      6380328  bytes
+ SparseMatrix: Memory saving of      6380328  bytes
+
+ Continuum Block-L^2: Density Matrix Construction
+
+ SparseMatrix: Creating a matrix of dimension        5172          5172         16087
+ SparseMatrix: integers will be stored as SHORTINT
+ SparseMatrix: Creating a matrix of dimension        5172          5172         16087
+ SparseMatrix: integers will be stored as SHORTINT
+ SparseMatrix: Creating a matrix of dimension        5172          5172         16087
+ SparseMatrix: integers will be stored as SHORTINT
+ SparseMatrix: Memory saving of       286200  bytes
+ SparseMatrix: Memory saving of       286200  bytes
+ SparseMatrix: Memory saving of       286200  bytes
+
+ Continuum Block-L^2: Density Matrix Construction
+
+ SparseMatrix: Creating a matrix of dimension        5172          5172         16087
+ SparseMatrix: integers will be stored as SHORTINT
+ SparseMatrix: Creating a matrix of dimension        5172          5172         16087
+ SparseMatrix: integers will be stored as SHORTINT
+ SparseMatrix: Creating a matrix of dimension        5172          5172         16087
+ SparseMatrix: integers will be stored as SHORTINT
+ SparseMatrix: Memory saving of       286200  bytes
+ SparseMatrix: Memory saving of       286200  bytes
+ SparseMatrix: Memory saving of       286200  bytes
+
+ CIvect%init_CV start
+
+ CIvect%init_CV finished
+ Skipping property           1          -1 for this pair of symmetries
+ Skipping property           1           0 for this pair of symmetries
+ Skipping property           1           1 for this pair of symmetries
+<-------->done:mpi_mod:mpi_mod_finalize

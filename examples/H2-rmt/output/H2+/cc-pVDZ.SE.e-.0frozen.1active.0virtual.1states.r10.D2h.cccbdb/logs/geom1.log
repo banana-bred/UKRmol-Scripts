@@ -1,0 +1,283 @@
+
+Geometry #1:
+===========
+
+Target calculations:
+
+Skipping running psi4.
+Reading psi4 output ...
+  Total number of orbitals for each symmetry: 3, 1, 1, 0, 3, 1, 1, 0
+  Energies of the first 10 molecular orbitals: in X.Y  X stands for IR and Y counts MOs
+    1.1    -0.591989
+    5.1    0.197120
+    1.2    0.479651
+    5.2    0.936276
+    3.1    1.292782
+    2.1    1.292782
+    1.3    1.955708
+    6.1    2.042589
+    7.1    2.042589
+    5.3    3.601919
+  Frozen orbitals: 0,0,0,0,0,0,0,0
+  Active orbitals: 1,0,0,0,0,0,0,0
+  Target  orbitals: 1,0,0,0,0,0,0,0
+  Virtual orbitals: 0,0,0,0,0,0,0,0
+  Used    orbitals: 1,0,0,0,0,0,0,0
+  Reference orbitals: 2,2,2,2,2,2,2,2
+ ... done.
+Running scatci_integrals ...
+Running command "mv log_file.0 outputs/target.scatci_integrals.out" ...
+Running command "rm inp" ...
+Reading scatci_integrals output ...
+Final number of orbitals for target: 1, 0, 0, 0, 0, 0, 0, 0, 
+Final number of orbitals for PCOs: 0, 0, 0, 0, 0, 0, 0, 0, 
+Final number of orbitals for TGT+PCOs: 1, 0, 0, 0, 0, 0, 0, 0, 
+Final number of orbitals for continuum: 51, 27, 27, 25, 27, 25, 25, 9, 
+Number of molecular orbitals in each irreducible representation: 52, 27, 27, 25, 27, 25, 25, 9, 
+  Cont used orbitals: 51,27,27,25,27,25,25,9
+  All  used orbitals: 52,27,27,25,27,25,25,9
+ ... done.
+Target MAS:
+Method: ORMAS
+Space 0: [1,0,0,0,0,0,0,0], [1,1], active
+L^2 MAS:
+Method: ORMAS
+Space 0: [1,0,0,0,0,0,0,0], [1,2], active
+
+Searching for reference orbitals for doublet Ag state.
+Putting 1 electrons into (2,2,2,2,2,2,2,2) orbitals
+Reference orbitals found:
+0,1,1,0,0
+
+Running congen for doublet Ag ...
+Reading congen output ...
+  Total number of CSF's generated is 1
+.
+ ... done.
+Running scatci for doublet Ag ...
+Reading scatci output ...
+:
+  2.0.1 -> -0.5367273370
+ ... done.
+Running denprop ...
+Reading denprop output ...
+  Target states:
+    No. 1 - Doublet(2)  AG(0)  -0.536727337021D+00
+  Dipole moment (in a.u.) of the ground state:
+   z component: 0.0000000000
+   x component: 0.0000000000
+   y component: 0.0000000000
+ ... done.
+Running command "cp fort.24 prop.out" ...
+
+Scattering calculations with SE model:
+
+
+Searching for reference orbitals for singlet Ag state.
+Putting 2 electrons into (2,2,2,2,2,2,2,2) orbitals
+Reference orbitals found:
+0,1,2,0,0
+
+Running congen for singlet Ag ...
+Reading congen output ...
+  Total number of CSF's generated is 3
+.
+ ... done.
+Running scatci for singlet Ag ...
+Reading scatci output ...
+, printing first 10 energies:
+  1.0.1 -> -1.1319039097
+  1.0.2 -> -0.6644440324
+  1.0.3 -> -0.5965537207
+  1.0.4 -> -0.5949329608
+  1.0.5 -> -0.5417496225
+  1.0.6 -> -0.4739525486
+  1.0.7 -> -0.4737256339
+  1.0.8 -> -0.4730612033
+  1.0.9 -> -0.4538347429
+  1.0.10 -> -0.4485543829
+LCONT = 0
+ ... done.
+
+Searching for reference orbitals for singlet B3u state.
+Putting 2 electrons into (2,2,2,2,2,2,2,2) orbitals
+Reference orbitals found:
+0,1,1,0,0, 1,1,1,1,0
+
+Running congen for singlet B3u ...
+Reading congen output ...
+  Total number of CSF's generated is 2
+.
+ ... done.
+Running scatci for singlet B3u ...
+Reading scatci output ...
+, printing first 10 energies:
+  1.1.1 -> -0.6573494734
+  1.1.2 -> -0.5608272863
+  1.1.3 -> -0.5384902362
+  1.1.4 -> -0.5375611719
+  1.1.5 -> -0.3455966680
+  1.1.6 -> -0.3310905647
+  1.1.7 -> -0.3282254271
+  1.1.8 -> -0.0221941583
+  1.1.9 -> -0.0129065295
+  1.1.10 -> -0.0077275592
+LCONT = 0
+ ... done.
+
+Searching for reference orbitals for singlet B2u state.
+Putting 2 electrons into (2,2,2,2,2,2,2,2) orbitals
+Reference orbitals found:
+0,1,1,0,0, 2,1,1,1,0
+
+Running congen for singlet B2u ...
+Reading congen output ...
+  Total number of CSF's generated is 2
+.
+ ... done.
+Running scatci for singlet B2u ...
+Reading scatci output ...
+, printing first 10 energies:
+  1.2.1 -> -0.6573494734
+  1.2.2 -> -0.5608272863
+  1.2.3 -> -0.5384902362
+  1.2.4 -> -0.5375611719
+  1.2.5 -> -0.3455966680
+  1.2.6 -> -0.3310905647
+  1.2.7 -> -0.3282254271
+  1.2.8 -> -0.0221941583
+  1.2.9 -> -0.0129065295
+  1.2.10 -> -0.0077275592
+LCONT = 0
+ ... done.
+
+Searching for reference orbitals for singlet B1g state.
+Putting 2 electrons into (2,2,2,2,2,2,2,2) orbitals
+Reference orbitals found:
+0,1,1,0,0, 3,1,1,1,0
+
+Running congen for singlet B1g ...
+Reading congen output ...
+  Total number of CSF's generated is 2
+.
+ ... done.
+Running scatci for singlet B1g ...
+Reading scatci output ...
+, printing first 10 energies:
+  1.3.1 -> -0.5949329608
+  1.3.2 -> -0.4737256339
+  1.3.3 -> -0.4730612033
+  1.3.4 -> -0.4485543829
+  1.3.5 -> -0.2025961854
+  1.3.6 -> -0.2007539830
+  1.3.7 -> -0.1805778080
+  1.3.8 -> 0.1705435293
+  1.3.9 -> 0.1738314461
+  1.3.10 -> 0.1939503641
+LCONT = 0
+ ... done.
+
+Searching for reference orbitals for singlet B1u state.
+Putting 2 electrons into (2,2,2,2,2,2,2,2) orbitals
+Reference orbitals found:
+0,1,1,0,0, 4,1,1,1,0
+
+Running congen for singlet B1u ...
+Reading congen output ...
+  Total number of CSF's generated is 2
+.
+ ... done.
+Running scatci for singlet B1u ...
+Reading scatci output ...
+, printing first 10 energies:
+  1.4.1 -> -0.6675588335
+  1.4.2 -> -0.5773237876
+  1.4.3 -> -0.5386094437
+  1.4.4 -> -0.5381383203
+  1.4.5 -> -0.3825247993
+  1.4.6 -> -0.3314861604
+  1.4.7 -> -0.3299917461
+  1.4.8 -> -0.0820474271
+  1.4.9 -> -0.0137796882
+  1.4.10 -> -0.0109284738
+LCONT = 0
+ ... done.
+
+Searching for reference orbitals for singlet B2g state.
+Putting 2 electrons into (2,2,2,2,2,2,2,2) orbitals
+Reference orbitals found:
+0,1,1,0,0, 5,1,1,1,0
+
+Running congen for singlet B2g ...
+Reading congen output ...
+  Total number of CSF's generated is 2
+.
+ ... done.
+Running scatci for singlet B2g ...
+Reading scatci output ...
+, printing first 10 energies:
+  1.5.1 -> -0.5961359427
+  1.5.2 -> -0.4738954714
+  1.5.3 -> -0.4734462079
+  1.5.4 -> -0.4523883092
+  1.5.5 -> -0.2030891620
+  1.5.6 -> -0.2018103234
+  1.5.7 -> -0.1877829137
+  1.5.8 -> 0.1695706644
+  1.5.9 -> 0.1719734534
+  1.5.10 -> 0.1821650933
+LCONT = 0
+ ... done.
+
+Searching for reference orbitals for singlet B3g state.
+Putting 2 electrons into (2,2,2,2,2,2,2,2) orbitals
+Reference orbitals found:
+0,1,1,0,0, 6,1,1,1,0
+
+Running congen for singlet B3g ...
+Reading congen output ...
+  Total number of CSF's generated is 2
+.
+ ... done.
+Running scatci for singlet B3g ...
+Reading scatci output ...
+, printing first 10 energies:
+  1.6.1 -> -0.5961359427
+  1.6.2 -> -0.4738954714
+  1.6.3 -> -0.4734462079
+  1.6.4 -> -0.4523883092
+  1.6.5 -> -0.2030891620
+  1.6.6 -> -0.2018103234
+  1.6.7 -> -0.1877829137
+  1.6.8 -> 0.1695706644
+  1.6.9 -> 0.1719734534
+  1.6.10 -> 0.1821650933
+LCONT = 0
+ ... done.
+
+Searching for reference orbitals for singlet Au state.
+Putting 2 electrons into (2,2,2,2,2,2,2,2) orbitals
+Reference orbitals found:
+0,1,1,0,0, 7,1,1,1,0
+
+Running congen for singlet Au ...
+Reading congen output ...
+  Total number of CSF's generated is 2
+.
+ ... done.
+Running scatci for singlet Au ...
+Reading scatci output ...
+:
+  1.7.1 -> -0.5381383203
+  1.7.2 -> -0.3299917461
+  1.7.3 -> -0.0109284738
+  1.7.4 -> 0.4128262163
+  1.7.5 -> 0.9430136260
+  1.7.6 -> 1.6045417791
+  1.7.7 -> 2.5232309155
+  1.7.8 -> 3.9051207264
+  1.7.9 -> 6.0699172785
+LCONT = 0
+ ... done.
+Running cdenprop_all ...
+Running rmt_interface ...

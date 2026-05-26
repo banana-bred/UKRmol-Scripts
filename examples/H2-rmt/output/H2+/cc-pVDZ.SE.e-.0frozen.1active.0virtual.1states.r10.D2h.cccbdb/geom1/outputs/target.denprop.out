@@ -1,0 +1,263 @@
++-------------------------------------------------------------------------+
+|              _              |                                           |
+| || || ||//  | \          |  | University College London (C) 1994 - 2020 |
+| || || ||    | / |/\/\ /\ |  | Open University           (C) 2007 - 2020 |
+| \\_// ||\\  | \ | | | \/ |  |                                           |
+|                             |                                           |
++-------------------------------------------------------------------------+
+| Last revision: 3.2                                                      |
+| Last author:   Jimena Gorfinkiel                                        |
+| Last date:     Tue Dec 21 17:59:46 2021 +0000                           |
++-------------------------------------------------------------------------+
+
+
+                     Density Matrix package
+                     PROGRAM DENPROP
+
+                     DATE =20230406
+
+
+     H2+ - Transition Moments                                                        
+
+
+     No. of different wavefunction pairs to be computed =     1
+
+
+          Assuming UKRMol+ integrals on input.
+
+
+     Wavefunction location table
+     ---------------------------
+
+     Wavefunctions consist of two parts in the Alchemy
+     and R-matrix codes. The parts are: 
+
+       (i)  Slater determinants and Clebsch-Gordan 
+            coefficients i.e. CSF definitions 
+      (ii)  CI expansion coefficient over CSFs     
+
+     Data corresponding to (i) is in a single dataset 
+     for each different wavefunctions while data for (ii)
+     is stored, for all wavefunctions, on a single library
+     dataset
+
+     No. of target states =   1
+
+     No.  Determinants   CI vectors  Set. No.  Start/End
+     ---  ------------   ----------  --------  ---------
+
+       1      720           26            1    1   1
+
+     The print flags, NPFLG, are as follows: 
+     --------------------------------------- 
+
+     1. Wavefunction determinant data from SORT file =  0
+     2. Diagonal density matrix formulae evaluation  =  0
+     3. Off-diagonal density matrix form. evaluation =  0
+     4. Summary of unsorted density matrix formulae  =  0
+     5. Printing of transformed property integrals   =  0
+     6. Sorting procedure for density matrix form.   =  0
+     7.                                              =  0
+     8.                                              =  0
+     9.                                              =  1
+     10. Summary of properties for external region   =  0
+     11. Polarizibility calculation                  =  0
+
+
+
+     Dataset information and logical unit association:
+     -------------------------------------------------
+
+     Un-sorted density matrix expressions (NFTD) = 21
+     Sorted density matrix expressions    (NFTA) = 30
+     Direct access file for sorting       (NFDA) = 20
+     Molecular property integrals       (NFTINT) = 16
+     Computed moments written to         (NFTMT) = 24
+                           with set number NMSET =  1
+     Old style moments as in TMTJT/CJG  (NFTMOM) = 61
+                          with set number NMSET2 =  1
+
+
+     Property operator information will be obtained 
+     from the file of transformed integrals. To control
+     the number evaluated modify your INTS input cards 
+
+
+     Target Data File Construction for External Region
+     -------------------------------------------------
+
+
+     Logical unit for properties file     =  24
+     Set number to be used for properties =   1
+     Nuclear center (NUCCEN)  defined     =  -1
+     Flag for add. of nuclear terms (ISW) =   1
+
+
+1-electron integrals read-in.
+
+Number of types of property integrals:    9
+
+
+     **** &INPUT data has been verified 
+
+
+          Loading UKRmol+ data...
+
+     Molecule is Abelian using D2h subgroup with  8 elements 
+
+
+
+          GROUP MULTIPLICATION TABLE FOR D2H SYMMETRY
+
+                   1   2   3   4   5   6   7   8
+                  AG  B3U B2U B1G B1U B2G B3G AU 
+               ************************************  
+               *                                  *  
+           AG  *  AG  B3U B2U B1G B1U B2G B3G AU  *  
+               *                                  *  
+           B3U *  B3U AG  B1G B2U B2G B1U AU  B3G *  
+               *                                  *  
+           B2U *  B2U B1G AG  B3U B3G AU  B1U B2G *  
+               *                                  *  
+           B1G *  B1G B2U B3U AG  AU  B3G B2G B1U *  
+               *                                  *  
+           B1U *  B1U B2G B3G AU  AG  B3U B2U B1G *  
+               *                                  *  
+           B2G *  B2G B1U AU  B3G B3U AG  B1G B2U *  
+               *                                  *  
+           B3G *  B3G AU  B1U B2G B2U B1G AG  B3U *  
+               *                                  *  
+           AU  *  AU  B3G B2G B1U B1G B2U B3U AG  *  
+               *                                  *  
+               ************************************  
+
+
+     Wavefunction symmetry numbers =   0   0
+
+     Wavefunction symmetry difference =   0
+
+     Target vectors read successfully
+
+          Loading UKRmol+ data...
+
+          Details of all     3 centers follows: 
+
+  No.     X        Y        Z      Charge   Symbol    Mass     Spin     Quad  
+
+    1    0.000    0.000   -0.701    1.000       H     1.008    0.000    0.000
+    2    0.000    0.000    0.701    1.000       H     1.008    0.000    0.000
+    3    0.000    0.000    0.000    0.000             0.000    0.000    0.000
+
+          Total Molecular Mass =        2.016 Dalton (amu)
+
+          Co-ordinates of the Center of Mass in the present axis system: 
+
+               0.00000      0.00000      0.00000
+
+
+          Moment of Inertia Tensor (Lower Half Triangle):
+
+                  0.9891402102
+                  0.0000000000         0.9891402102
+                  0.0000000000         0.0000000000         0.0000000000
+
+
+          Principal Moments of Inertia (Atomic units): 
+
+                  0.0000000000      1803.0908303762      1803.0908303762
+
+
+          Principal Moments of Inertia (amu angstrom^2): 
+
+                  0.0000000000         0.2767614308         0.2767614308
+
+
+          Principal Axes Transformation Matrix: 
+
+               0.00000 x      0.00000 y      1.00000 z 
+               0.00000 x      1.00000 y      0.00000 z 
+               1.00000 x      0.00000 y      0.00000 z 
+
+          Rotational Constants (Atomic Units): 
+
+                  0.0000000000         0.0002773016         0.0002773016
+
+
+          Rotational Constants (cm**(-1)): 
+
+                  0.0000000000        60.8606611222        60.8606611222
+
+
+          Rotational Constants (eV): 
+
+                  0.0000000000         0.0075458345         0.0075458345
+
+
+
+
+ The following target state and properties tables are now in energy order
+
+
+          Unique Target State Table
+          -------------------------
+
+          There are     1 states in the table
+
+     (2S+1)   Sz    Irrep   Energy (Hartrees)
+     ------   --    -----   -----------------
+
+    1     2      0      0     -0.5367273370
+
+
+               ========================
+
+               W A V E F U N C T I O N 
+                 P R O P E R T I E S   
+                      T A B L E        
+
+               ========================
+
+
+
+
+     No. of Expectation Values (Rows) in table =       2
+
+     No. I-State J-State Property Operator Code Expectation Value
+     --- ------- ------- ---------------------- -----------------
+
+     1     1     1     2 0 0 0 0 0 0 0     0.1000D+01
+     2     1     1     4 2 0 0 3 2 0 0     0.2686D+00
+
+
+
+
+           ====> Create/Update target property file <====
+
+
+
+          Logical unit for target properties file   =  24
+          Set number at which to write target data  =   1
+          Format style for the target properties    = FORMATTED  
+
+
+          No. of nuclear centers in molecular frame =   3
+          Sequence number of the scattering center  =   3
+          Number of target states in this dataset   =   1
+          The number of properties computed         =      2
+          Nuclear contribution switch (ISW) is set  =   1
+
+
+ Output to unit 24 is as follows:
+
+6  1     5  2   1     1  1   0.000000000000D+00  0.277301615413D-03  0.277301615413D-03
+8  1 H   1    1.0078        0.0000000000        0.0000000000       -0.7005214747
+8  2 H   1    1.0078        0.0000000000        0.0000000000        0.7005214747
+5  1  0  0  0  2  0  0 -0.536727337021D+00  State No.   1 Doublet     AG        
+1  1  0  1  0  3  2  0  0.268597511496D+00
+Calculating polarisabilities with M = -1 (Y), 0 (Z), 1 (X)
+State     1 alpha_XX    0.000000000000D+00
+State     1 alpha_YY    0.000000000000D+00
+State     1 alpha_ZZ    0.000000000000D+00
+State     1 alpha_MS    0.000000000000D+00
+
+     END OF FILE ON READ. NO MORE INPUT

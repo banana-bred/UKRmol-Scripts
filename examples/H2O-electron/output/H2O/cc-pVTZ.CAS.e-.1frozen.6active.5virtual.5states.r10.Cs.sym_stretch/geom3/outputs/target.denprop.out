@@ -1,0 +1,424 @@
++-------------------------------------------------------------------------+
+|              _              |                                           |
+| || || ||//  | \          |  | University College London (C) 1994 - 2020 |
+| || || ||    | / |/\/\ /\ |  | Open University           (C) 2007 - 2020 |
+| \\_// ||\\  | \ | | | \/ |  |                                           |
+|                             |                                           |
++-------------------------------------------------------------------------+
+| Last revision: 3.2                                                      |
+| Last author:   Jimena Gorfinkiel                                        |
+| Last date:     Tue Dec 21 17:59:46 2021 +0000                           |
++-------------------------------------------------------------------------+
+
+
+                     Density Matrix package
+                     PROGRAM DENPROP
+
+                     DATE =20230416
+
+
+     H2O - Transition Moments                                                        
+
+
+     No. of different wavefunction pairs to be computed =    10
+
+
+          Assuming UKRMol+ integrals on input.
+
+
+     Wavefunction location table
+     ---------------------------
+
+     Wavefunctions consist of two parts in the Alchemy
+     and R-matrix codes. The parts are: 
+
+       (i)  Slater determinants and Clebsch-Gordan 
+            coefficients i.e. CSF definitions 
+      (ii)  CI expansion coefficient over CSFs     
+
+     Data corresponding to (i) is in a single dataset 
+     for each different wavefunctions while data for (ii)
+     is stored, for all wavefunctions, on a single library
+     dataset
+
+     No. of target states =   4
+
+     No.  Determinants   CI vectors  Set. No.  Start/End
+     ---  ------------   ----------  --------  ---------
+
+       1      710           26            1    1   2
+       2      730           26            2    1   1
+       3      711           26            3    1   1
+       4      731           26            4    1   1
+
+     The print flags, NPFLG, are as follows: 
+     --------------------------------------- 
+
+     1. Wavefunction determinant data from SORT file =  0
+     2. Diagonal density matrix formulae evaluation  =  0
+     3. Off-diagonal density matrix form. evaluation =  0
+     4. Summary of unsorted density matrix formulae  =  0
+     5. Printing of transformed property integrals   =  0
+     6. Sorting procedure for density matrix form.   =  0
+     7.                                              =  0
+     8.                                              =  0
+     9.                                              =  1
+     10. Summary of properties for external region   =  0
+     11. Polarizibility calculation                  =  0
+
+
+
+     Dataset information and logical unit association:
+     -------------------------------------------------
+
+     Un-sorted density matrix expressions (NFTD) = 21
+     Sorted density matrix expressions    (NFTA) = 30
+     Direct access file for sorting       (NFDA) = 20
+     Molecular property integrals       (NFTINT) = 16
+     Computed moments written to         (NFTMT) = 24
+                           with set number NMSET =  1
+     Old style moments as in TMTJT/CJG  (NFTMOM) = 61
+                          with set number NMSET2 =  1
+
+
+     Property operator information will be obtained 
+     from the file of transformed integrals. To control
+     the number evaluated modify your INTS input cards 
+
+
+     Target Data File Construction for External Region
+     -------------------------------------------------
+
+
+     Logical unit for properties file     =  24
+     Set number to be used for properties =   1
+     Nuclear center (NUCCEN)  defined     =  -1
+     Flag for add. of nuclear terms (ISW) =   0
+
+MPI startup(): PMI server not found. Please set I_MPI_PMI_LIBRARY variable if it is not a singleton case.
+
+1-electron integrals read-in.
+
+Number of types of property integrals:    9
+
+
+     **** &INPUT data has been verified 
+
+
+          Loading UKRmol+ data...
+
+     Molecule is Abelian using D2h subgroup with  2 elements 
+
+
+
+          GROUP MULTIPLICATION TABLE FOR D2H SYMMETRY
+
+                   1   2   3   4   5   6   7   8
+                  AG  B3U B2U B1G B1U B2G B3G AU 
+               ************************************  
+               *                                  *  
+           AG  *  AG  B3U B2U B1G B1U B2G B3G AU  *  
+               *                                  *  
+           B3U *  B3U AG  B1G B2U B2G B1U AU  B3G *  
+               *                                  *  
+           B2U *  B2U B1G AG  B3U B3G AU  B1U B2G *  
+               *                                  *  
+           B1G *  B1G B2U B3U AG  AU  B3G B2G B1U *  
+               *                                  *  
+           B1U *  B1U B2G B3G AU  AG  B3U B2U B1G *  
+               *                                  *  
+           B2G *  B2G B1U AU  B3G B3U AG  B1G B2U *  
+               *                                  *  
+           B3G *  B3G AU  B1U B2G B2U B1G AG  B3U *  
+               *                                  *  
+           AU  *  AU  B3G B2G B1U B1G B2U B3U AG  *  
+               *                                  *  
+               ************************************  
+
+
+     Wavefunction symmetry numbers =   0   0
+
+     Wavefunction symmetry difference =   0
+
+     Target vectors read successfully
+
+     Attempt to compute moments between states of  different spin
+     S1 =1.0, S2 =0.0
+
+
+     Wavefunction symmetry numbers =   0   0
+
+     Wavefunction symmetry difference =   0
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   1   0
+
+     Wavefunction symmetry difference =   1
+
+     Target vectors read successfully
+
+     Attempt to compute moments between states of  different spin
+     S1 =0.0, S2 =1.0
+
+
+     Wavefunction symmetry numbers =   1   1
+
+     Wavefunction symmetry difference =   0
+
+     Target vectors read successfully
+
+     Attempt to compute moments between states of  different spin
+     S1 =1.0, S2 =0.0
+
+
+     Wavefunction symmetry numbers =   1   0
+
+     Wavefunction symmetry difference =   1
+
+     Target vectors read successfully
+
+     Attempt to compute moments between states of  different spin
+     S1 =1.0, S2 =0.0
+
+
+     Wavefunction symmetry numbers =   1   1
+
+     Wavefunction symmetry difference =   0
+
+     Target vectors read successfully
+
+          Loading UKRmol+ data...
+
+          Details of all     4 centers follows: 
+
+  No.     X        Y        Z      Charge   Symbol    Mass     Spin     Quad  
+
+    1    0.000    0.000    0.130    8.000       O    15.995    0.000    0.000
+    2    0.000    1.502   -1.033    1.000       H     1.008    0.000    0.000
+    3    0.000   -1.502   -1.033    1.000       H     1.008    0.000    0.000
+    4    0.000    0.000    0.000    0.000             0.000    0.000    0.000
+
+          Total Molecular Mass =       18.011 Dalton (amu)
+
+          Co-ordinates of the Center of Mass in the present axis system: 
+
+               0.00000      0.00000     -0.00003
+
+
+          Moment of Inertia Tensor (Lower Half Triangle):
+
+                  6.9711303882
+                  0.0000000000         2.4231689250
+                  0.0000000000         0.0000000000         4.5479614632
+
+
+          Principal Moments of Inertia (Atomic units): 
+
+               4417.1631321899      8290.4198277646     12707.5829599546
+
+
+          Principal Moments of Inertia (amu angstrom^2): 
+
+                  0.6780026652         1.2725196174         1.9505222826
+
+
+          Principal Axes Transformation Matrix: 
+
+               0.00000 x      1.00000 y      0.00000 z 
+               0.00000 x      0.00000 y      1.00000 z 
+               1.00000 x      0.00000 y      0.00000 z 
+
+          Rotational Constants (Atomic Units): 
+
+                  0.0001131948         0.0000603106         0.0000393466
+
+
+          Rotational Constants (cm**(-1)): 
+
+                 24.8433885541        13.2366396732         8.6355761238
+
+
+          Rotational Constants (eV): 
+
+                  0.0030802179         0.0016411503         0.0010706855
+
+
+
+
+ The following target state and properties tables are now in energy order
+
+
+          Unique Target State Table
+          -------------------------
+
+          There are     5 states in the table
+
+     (2S+1)   Sz    Irrep   Energy (Hartrees)
+     ------   --    -----   -----------------
+
+    1     1      0      0    -76.1074279830
+    2     3      1      1    -75.4951661596
+    3     1      0      1    -75.4603809136
+    4     3      1      0    -75.4307320415
+    5     1      0      0    -75.2923882571
+
+
+               ========================
+
+               W A V E F U N C T I O N 
+                 P R O P E R T I E S   
+                      T A B L E        
+
+               ========================
+
+
+
+
+     No. of Expectation Values (Rows) in table =      48
+
+     No. I-State J-State Property Operator Code Expectation Value
+     --- ------- ------- ---------------------- -----------------
+
+     1     1     1     2 0 0 0 0 0 0 0     0.1000D+02
+     2     1     1     4 1 0 0 4 1 1-1     0.5397D-08
+     3     1     1     4 1 0 0 4 1 0 0    -0.2833D+00
+     4     1     1     4 2 0 0 4 2 1-1    -0.2156D-07
+     5     1     1     4 2 0 0 4 2 0 0     0.1240D+00
+     6     1     1     4 2 0 0 4 2 2 1    -0.1847D+01
+     7     5     1     2 0 0 0 0 0 0 0     0.1259D-07
+     8     5     1     4 1 0 0 4 1 1-1     0.5077D+00
+     9     5     1     4 1 0 0 4 1 0 0    -0.1355D-08
+    10     5     1     4 2 0 0 4 2 1-1    -0.7792D+00
+    11     5     1     4 2 0 0 4 2 0 0    -0.4007D-07
+    12     5     1     4 2 0 0 4 2 2 1    -0.4363D-07
+    13     5     5     2 0 0 0 0 0 0 0     0.1000D+02
+    14     5     5     4 1 0 0 4 1 1-1    -0.1425D-06
+    15     5     5     4 1 0 0 4 1 0 0    -0.8184D+00
+    16     5     5     4 2 0 0 4 2 1-1     0.3806D-06
+    17     5     5     4 2 0 0 4 2 0 0    -0.8405D+00
+    18     5     5     4 2 0 0 4 2 2 1    -0.2939D+01
+    19     4     4     2 0 0 0 0 0 0 0     0.1000D+02
+    20     4     4     4 1 0 0 4 1 1-1     0.4466D-07
+    21     4     4     4 1 0 0 4 1 0 0    -0.8537D+00
+    22     4     4     4 2 0 0 4 2 1-1    -0.7769D-07
+    23     4     4     4 2 0 0 4 2 0 0     0.1467D-01
+    24     4     4     4 2 0 0 4 2 2 1    -0.2435D+01
+    25     3     1     2 0 0 0 0 0 0 0     0.0000D+00
+    26     3     1     4 1 0 0 4 1 1 1     0.7423D-09
+    27     3     1     4 2 0 0 4 2 2-1     0.3873D+00
+    28     3     1     4 2 0 0 4 2 1 1     0.1455D-07
+    29     3     5     2 0 0 0 0 0 0 0     0.0000D+00
+    30     3     5     4 1 0 0 4 1 1 1     0.9468D-01
+    31     3     5     4 2 0 0 4 2 2-1    -0.4844D-07
+    32     3     5     4 2 0 0 4 2 1 1     0.7687D+00
+    33     3     3     2 0 0 0 0 0 0 0     0.1000D+02
+    34     3     3     4 1 0 0 4 1 1-1    -0.4920D-07
+    35     3     3     4 1 0 0 4 1 0 0    -0.7989D+00
+    36     3     3     4 2 0 0 4 2 1-1     0.9516D-07
+    37     3     3     4 2 0 0 4 2 0 0     0.3941D+00
+    38     3     3     4 2 0 0 4 2 2 1    -0.3930D+01
+    39     2     4     2 0 0 0 0 0 0 0     0.0000D+00
+    40     2     4     4 1 0 0 4 1 1 1     0.4004D-08
+    41     2     4     4 2 0 0 4 2 2-1    -0.3938D+00
+    42     2     4     4 2 0 0 4 2 1 1    -0.1775D-06
+    43     2     2     2 0 0 0 0 0 0 0     0.1000D+02
+    44     2     2     4 1 0 0 4 1 1-1    -0.5040D-06
+    45     2     2     4 1 0 0 4 1 0 0    -0.8298D+00
+    46     2     2     4 2 0 0 4 2 1-1     0.1080D-05
+    47     2     2     4 2 0 0 4 2 0 0     0.3687D+00
+    48     2     2     4 2 0 0 4 2 2 1    -0.3996D+01
+
+
+
+
+           ====> Create/Update target property file <====
+
+
+
+          Logical unit for target properties file   =  24
+          Set number at which to write target data  =   1
+          Format style for the target properties    = FORMATTED  
+
+
+          No. of nuclear centers in molecular frame =   4
+          Sequence number of the scattering center  =   4
+          Number of target states in this dataset   =   5
+          The number of properties computed         =     48
+          Nuclear contribution switch (ISW) is set  =   0
+
+
+ Output to unit 24 is as follows:
+
+6  1    48  3   5    39  0   0.113194823247D-03  0.603105765917D-04  0.393465855447D-04
+8  1 O   8   15.9949        0.0000000000        0.0000000000        0.1301777360
+8  2 H   1    1.0078        0.0000000000        1.5021071480       -1.0332972809
+8  3 H   1    1.0078        0.0000000000       -1.5021071480       -1.0332972809
+5  1  0  0  0  1  0  0 -0.761074279830D+02  State No.   1 Singlet     A'        
+5  2  0  0  1  3  0  0 -0.754951661596D+02  State No.   2 Triplet     A"        
+5  3  0  0  1  1  0  0 -0.754603809136D+02  State No.   3 Singlet     A"        
+5  4  0  0  0  3  0  0 -0.754307320415D+02  State No.   4 Triplet     A'        
+5  5  0  0  0  1  0  0 -0.752923882571D+02  State No.   5 Singlet     A'        
+1  1  0  1  0  4  1 -1  0.539695488300D-08
+1  1  0  1  0  4  1  0  0.741858948806D+00
+1  1  0  1  0  4  2 -1 -0.215555666649D-07
+1  1  0  1  0  4  2  0  0.109327889224D+00
+1  1  0  1  0  4  2  2  0.206112783080D+01
+1  5  0  1  0  4  1 -1  0.507683157755D+00
+1  5  0  1  0  4  1  0 -0.135539494538D-08
+1  5  0  1  0  4  2 -1 -0.779150312521D+00
+1  5  0  1  0  4  2  0 -0.400696500279D-07
+1  5  0  1  0  4  2  2 -0.436286663717D-07
+1  5  0  5  0  4  1 -1 -0.142469140041D-06
+1  5  0  5  0  4  1  0  0.206773077197D+00
+1  5  0  5  0  4  2 -1  0.380588140558D-06
+1  5  0  5  0  4  2  0 -0.855123414365D+00
+1  5  0  5  0  4  2  2  0.968775895296D+00
+1  4  0  4  0  4  1 -1  0.446644579100D-07
+1  4  0  4  0  4  1  0  0.171496798528D+00
+1  4  0  4  0  4  2 -1 -0.776852249196D-07
+1  4  0  4  0  4  2  0  0.241326429934D-04
+1  4  0  4  0  4  2  2  0.147287212009D+01
+1  3  1  1  0  4  1  1  0.742345283628D-09
+1  3  1  1  0  4  2 -2  0.387267436432D+00
+1  3  1  1  0  4  2  1  0.145483591607D-07
+1  3  1  5  0  4  1  1  0.946752426462D-01
+1  3  1  5  0  4  2 -2 -0.484375885436D-07
+1  3  1  5  0  4  2  1  0.768680009079D+00
+1  3  1  3  1  4  1 -1 -0.492022620424D-07
+1  3  1  3  1  4  1  0  0.226281840412D+00
+1  3  1  3  1  4  2 -1  0.951561651696D-07
+1  3  1  3  1  4  2  0  0.379467717650D+00
+1  3  1  3  1  4  2  2 -0.216639132023D-01
+1  2  1  4  0  4  1  1  0.400428658226D-08
+1  2  1  4  0  4  2 -2 -0.393800630168D+00
+1  2  1  4  0  4  2  1 -0.177502321676D-06
+1  2  1  2  1  4  1 -1 -0.503981992361D-06
+1  2  1  2  1  4  1  0  0.195403637121D+00
+1  2  1  2  1  4  2 -1  0.108041093361D-05
+1  2  1  2  1  4  2  0  0.354081069419D+00
+1  2  1  2  1  4  2  2 -0.878761220426D-01
+Calculating polarisabilities with M = -1 (Y), 0 (Z), 1 (X)
+State     1 alpha_XX    0.170335836815D-17
+State     1 alpha_YY    0.632465339977D+00
+State     1 alpha_ZZ    0.450798997787D-17
+State     1 alpha_MS    0.210821779992D+00
+State     2 alpha_XX    0.497696298349D-15
+State     2 alpha_YY    0.000000000000D+00
+State     2 alpha_ZZ    0.000000000000D+00
+State     2 alpha_MS    0.165898766116D-15
+State     3 alpha_XX    0.106711826063D+00
+State     3 alpha_YY    0.000000000000D+00
+State     3 alpha_ZZ    0.000000000000D+00
+State     3 alpha_MS    0.355706086876D-01
+State     4 alpha_XX   -0.497696298349D-15
+State     4 alpha_YY    0.000000000000D+00
+State     4 alpha_ZZ    0.000000000000D+00
+State     4 alpha_MS   -0.165898766116D-15
+State     5 alpha_XX   -0.106711826063D+00
+State     5 alpha_YY   -0.632465339977D+00
+State     5 alpha_ZZ   -0.450798997787D-17
+State     5 alpha_MS   -0.246392388680D+00
+
+     END OF FILE ON READ. NO MORE INPUT

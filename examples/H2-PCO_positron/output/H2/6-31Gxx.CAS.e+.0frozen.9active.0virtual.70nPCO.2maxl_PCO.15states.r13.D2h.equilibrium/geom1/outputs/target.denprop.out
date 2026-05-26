@@ -1,0 +1,904 @@
++-------------------------------------------------------------------------+
+|              _              |                                           |
+| || || ||//  | \          |  | University College London (C) 1994 - 2020 |
+| || || ||    | / |/\/\ /\ |  | Open University           (C) 2007 - 2020 |
+| \\_// ||\\  | \ | | | \/ |  |                                           |
+|                             |                                           |
++-------------------------------------------------------------------------+
+| Last revision: 0b11259e                                                 |
+| Last author:   Jimena Gorfinkiel                                        |
+| Last date:     Thu Oct 13 06:28:40 2022 +0000                           |
++-------------------------------------------------------------------------+
+
+
+                     Density Matrix package
+                     PROGRAM DENPROP
+
+                     DATE =20230418
+
+
+     H2 - Transition Moments                                                         
+
+
+     No. of different wavefunction pairs to be computed =    28
+
+
+          Assuming UKRMol+ integrals on input.
+
+
+     Wavefunction location table
+     ---------------------------
+
+     Wavefunctions consist of two parts in the Alchemy
+     and R-matrix codes. The parts are: 
+
+       (i)  Slater determinants and Clebsch-Gordan 
+            coefficients i.e. CSF definitions 
+      (ii)  CI expansion coefficient over CSFs     
+
+     Data corresponding to (i) is in a single dataset 
+     for each different wavefunctions while data for (ii)
+     is stored, for all wavefunctions, on a single library
+     dataset
+
+     No. of target states =   7
+
+     No.  Determinants   CI vectors  Set. No.  Start/End
+     ---  ------------   ----------  --------  ---------
+
+       1      710           26            1    1   6
+       2      711           26            2    1   2
+       3      712           26            3    1   2
+       4      713           26            4    1   1
+       5      714           26            5    1   2
+       6      715           26            6    1   1
+       7      716           26            7    1   1
+
+     The print flags, NPFLG, are as follows: 
+     --------------------------------------- 
+
+     1. Wavefunction determinant data from SORT file =  0
+     2. Diagonal density matrix formulae evaluation  =  0
+     3. Off-diagonal density matrix form. evaluation =  0
+     4. Summary of unsorted density matrix formulae  =  0
+     5. Printing of transformed property integrals   =  0
+     6. Sorting procedure for density matrix form.   =  0
+     7.                                              =  0
+     8.                                              =  0
+     9.                                              =  1
+     10. Summary of properties for external region   =  0
+     11. Polarizibility calculation                  =  0
+
+
+
+     Dataset information and logical unit association:
+     -------------------------------------------------
+
+     Un-sorted density matrix expressions (NFTD) = 21
+     Sorted density matrix expressions    (NFTA) = 30
+     Direct access file for sorting       (NFDA) = 20
+     Molecular property integrals       (NFTINT) = 16
+     Computed moments written to         (NFTMT) = 24
+                           with set number NMSET =  1
+     Old style moments as in TMTJT/CJG  (NFTMOM) = 61
+                          with set number NMSET2 =  1
+
+
+     Property operator information will be obtained 
+     from the file of transformed integrals. To control
+     the number evaluated modify your INTS input cards 
+
+
+     Target Data File Construction for External Region
+     -------------------------------------------------
+
+
+     Logical unit for properties file     =  24
+     Set number to be used for properties =   1
+     Nuclear center (NUCCEN)  defined     =  -1
+     Flag for add. of nuclear terms (ISW) =   0
+
+ Smallest positive magnitude:  2.225073858507201E-308
+ Largest magnitude:  1.797693134862316E+308
+ Smallest relative spacing:  1.110223024625157E-016
+ Largest relative spacing:  2.220446049250313E-016
+ Log10(Base)  0.301029995663981     
+ Decimal precision for real(kind=cfp):                    15
+ Number of bits in default integer:                    64
+
+1-electron integrals read-in.
+
+Number of types of property integrals:    9
+
+
+     **** &INPUT data has been verified 
+
+
+          Loading UKRmol+ data...
+
+     Molecule is Abelian using D2h subgroup with  8 elements 
+
+
+
+          GROUP MULTIPLICATION TABLE FOR D2H SYMMETRY
+
+                   1   2   3   4   5   6   7   8
+                  AG  B3U B2U B1G B1U B2G B3G AU 
+               ************************************  
+               *                                  *  
+           AG  *  AG  B3U B2U B1G B1U B2G B3G AU  *  
+               *                                  *  
+           B3U *  B3U AG  B1G B2U B2G B1U AU  B3G *  
+               *                                  *  
+           B2U *  B2U B1G AG  B3U B3G AU  B1U B2G *  
+               *                                  *  
+           B1G *  B1G B2U B3U AG  AU  B3G B2G B1U *  
+               *                                  *  
+           B1U *  B1U B2G B3G AU  AG  B3U B2U B1G *  
+               *                                  *  
+           B2G *  B2G B1U AU  B3G B3U AG  B1G B2U *  
+               *                                  *  
+           B3G *  B3G AU  B1U B2G B2U B1G AG  B3U *  
+               *                                  *  
+           AU  *  AU  B3G B2G B1U B1G B2U B3U AG  *  
+               *                                  *  
+               ************************************  
+
+
+     Wavefunction symmetry numbers =   0   0
+
+     Wavefunction symmetry difference =   0
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   1   0
+
+     Wavefunction symmetry difference =   1
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   1   1
+
+     Wavefunction symmetry difference =   0
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   2   0
+
+     Wavefunction symmetry difference =   2
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   2   1
+
+     Wavefunction symmetry difference =   3
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   2   2
+
+     Wavefunction symmetry difference =   0
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   3   0
+
+     Wavefunction symmetry difference =   3
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   3   1
+
+     Wavefunction symmetry difference =   2
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   3   2
+
+     Wavefunction symmetry difference =   1
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   3   3
+
+     Wavefunction symmetry difference =   0
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   4   0
+
+     Wavefunction symmetry difference =   4
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   4   1
+
+     Wavefunction symmetry difference =   5
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   4   2
+
+     Wavefunction symmetry difference =   6
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   4   3
+
+     Wavefunction symmetry difference =   7
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   4   4
+
+     Wavefunction symmetry difference =   0
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   5   0
+
+     Wavefunction symmetry difference =   5
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   5   1
+
+     Wavefunction symmetry difference =   4
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   5   2
+
+     Wavefunction symmetry difference =   7
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   5   3
+
+     Wavefunction symmetry difference =   6
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   5   4
+
+     Wavefunction symmetry difference =   1
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   5   5
+
+     Wavefunction symmetry difference =   0
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   6   0
+
+     Wavefunction symmetry difference =   6
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   6   1
+
+     Wavefunction symmetry difference =   7
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   6   2
+
+     Wavefunction symmetry difference =   4
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   6   3
+
+     Wavefunction symmetry difference =   5
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   6   4
+
+     Wavefunction symmetry difference =   2
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   6   5
+
+     Wavefunction symmetry difference =   3
+
+     Target vectors read successfully
+
+
+     Wavefunction symmetry numbers =   6   6
+
+     Wavefunction symmetry difference =   0
+
+     Target vectors read successfully
+
+          Loading UKRmol+ data...
+
+          Details of all     3 centers follows: 
+
+  No.     X        Y        Z      Charge   Symbol    Mass     Spin     Quad  
+
+    1    0.000    0.000   -0.701    1.000       H     1.008    0.000    0.000
+    2    0.000    0.000    0.701    1.000       H     1.008    0.000    0.000
+    3    0.000    0.000    0.000    0.000             0.000    0.000    0.000
+
+          Total Molecular Mass =        2.016 Dalton (amu)
+
+          Co-ordinates of the Center of Mass in the present axis system: 
+
+               0.00000      0.00000      0.00000
+
+
+          Moment of Inertia Tensor (Lower Half Triangle):
+
+                  0.9891402165
+                  0.0000000000         0.9891402165
+                  0.0000000000         0.0000000000         0.0000000000
+
+
+          Principal Moments of Inertia (Atomic units): 
+
+                  0.0000000000      1803.0908417939      1803.0908417939
+
+
+          Principal Moments of Inertia (amu angstrom^2): 
+
+                  0.0000000000         0.2767614326         0.2767614326
+
+
+          Principal Axes Transformation Matrix: 
+
+               0.00000 x      0.00000 y      1.00000 z 
+               0.00000 x      1.00000 y      0.00000 z 
+               1.00000 x      0.00000 y      0.00000 z 
+
+          Rotational Constants (Atomic Units): 
+
+                  0.0000000000         0.0002773016         0.0002773016
+
+
+          Rotational Constants (cm**(-1)): 
+
+                  0.0000000000        60.8606607368        60.8606607368
+
+
+          Rotational Constants (eV): 
+
+                  0.0000000000         0.0075458345         0.0075458345
+
+
+
+
+ The following target state and properties tables are now in energy order
+
+
+          Unique Target State Table
+          -------------------------
+
+          There are    15 states in the table
+
+     (2S+1)   Sz    Irrep   Energy (Hartrees)
+     ------   --    -----   -----------------
+
+    1     1      0      0     -1.1694761440
+    2     1      0      4     -0.6598141886
+    3     1      0      2     -0.6016045728
+    4     1      0      1     -0.6016045728
+    5     1      0      0     -0.5889945846
+    6     1      0      0     -0.4442617014
+    7     1      0      6     -0.4349622988
+    8     1      0      5     -0.4349622988
+    9     1      0      0     -0.4279116648
+   10     1      0      3     -0.4279116648
+   11     1      0      4     -0.2744123661
+   12     1      0      0     -0.0928068499
+   13     1      0      2     -0.0737065323
+   14     1      0      1     -0.0737065323
+   15     1      0      0     -0.0310178827
+
+
+               ========================
+
+               W A V E F U N C T I O N 
+                 P R O P E R T I E S   
+                      T A B L E        
+
+               ========================
+
+
+
+
+     No. of Expectation Values (Rows) in table =     239
+
+     No. I-State J-State Property Operator Code Expectation Value
+     --- ------- ------- ---------------------- -----------------
+
+     1     1     1     2 0 0 0 0 0 0 0     0.2000D+01
+     2     1     1     4 2 0 0 3 2 0 0     0.5344D+00
+     3     5     1     2 0 0 0 0 0 0 0    -0.1577D-14
+     4     5     1     4 2 0 0 3 2 0 0     0.1389D+00
+     5     5     5     2 0 0 0 0 0 0 0     0.2000D+01
+     6     5     5     4 2 0 0 3 2 0 0     0.1035D+01
+     7     6     1     2 0 0 0 0 0 0 0     0.2176D-14
+     8     6     1     4 2 0 0 3 2 0 0     0.2316D+01
+     9     6     5     2 0 0 0 0 0 0 0     0.2928D-13
+    10     6     5     4 2 0 0 3 2 0 0     0.7254D+01
+    11     6     6     2 0 0 0 0 0 0 0     0.2000D+01
+    12     6     6     4 2 0 0 3 2 0 0     0.4468D+01
+    13     9     1     2 0 0 0 0 0 0 0    -0.2156D-18
+    14     9     1     4 2 0 0 3 2 2 1    -0.2027D+01
+    15     9     5     2 0 0 0 0 0 0 0    -0.1609D-19
+    16     9     5     4 2 0 0 3 2 2 1    -0.6859D+01
+    17     9     6     2 0 0 0 0 0 0 0     0.3986D-19
+    18     9     6     4 2 0 0 3 2 2 1     0.4702D+01
+    19     9     9     2 0 0 0 0 0 0 0     0.2000D+01
+    20     9     9     4 2 0 0 3 2 0 0    -0.4378D+01
+    21    12     1     2 0 0 0 0 0 0 0     0.1599D-15
+    22    12     1     4 2 0 0 3 2 0 0     0.2586D+00
+    23    12     5     2 0 0 0 0 0 0 0    -0.2920D-13
+    24    12     5     4 2 0 0 3 2 0 0    -0.1669D+01
+    25    12     6     2 0 0 0 0 0 0 0    -0.2442D-13
+    26    12     6     4 2 0 0 3 2 0 0    -0.1531D+01
+    27    12     9     2 0 0 0 0 0 0 0    -0.2587D-18
+    28    12     9     4 2 0 0 3 2 2 1     0.1084D+00
+    29    12    12     2 0 0 0 0 0 0 0     0.2000D+01
+    30    12    12     4 2 0 0 3 2 0 0     0.6157D+01
+    31    15     1     2 0 0 0 0 0 0 0     0.5161D-14
+    32    15     1     4 2 0 0 3 2 0 0    -0.6719D-02
+    33    15     5     2 0 0 0 0 0 0 0    -0.2995D-13
+    34    15     5     4 2 0 0 3 2 0 0     0.3828D+00
+    35    15     6     2 0 0 0 0 0 0 0    -0.5552D-13
+    36    15     6     4 2 0 0 3 2 0 0    -0.2634D+01
+    37    15     9     2 0 0 0 0 0 0 0     0.4639D-19
+    38    15     9     4 2 0 0 3 2 2 1     0.3299D+01
+    39    15    12     2 0 0 0 0 0 0 0     0.4045D-13
+    40    15    12     4 2 0 0 3 2 0 0     0.1710D+00
+    41    15    15     2 0 0 0 0 0 0 0     0.2000D+01
+    42    15    15     4 2 0 0 3 2 0 0    -0.1428D+00
+    43     4     1     2 0 0 0 0 0 0 0     0.0000D+00
+    44     4     1     4 1 0 0 3 1 1 1    -0.1064D+01
+    45     4     5     2 0 0 0 0 0 0 0     0.0000D+00
+    46     4     5     4 1 0 0 3 1 1 1    -0.1600D+01
+    47     4     6     2 0 0 0 0 0 0 0     0.0000D+00
+    48     4     6     4 1 0 0 3 1 1 1     0.9030D+00
+    49     4     9     2 0 0 0 0 0 0 0     0.0000D+00
+    50     4     9     4 1 0 0 3 1 1 1     0.1438D+01
+    51     4    12     2 0 0 0 0 0 0 0     0.0000D+00
+    52     4    12     4 1 0 0 3 1 1 1    -0.1059D+00
+    53     4    15     2 0 0 0 0 0 0 0     0.0000D+00
+    54     4    15     4 1 0 0 3 1 1 1    -0.5317D-01
+    55    14     1     2 0 0 0 0 0 0 0     0.0000D+00
+    56    14     1     4 1 0 0 3 1 1 1     0.4929D+00
+    57    14     5     2 0 0 0 0 0 0 0     0.0000D+00
+    58    14     5     4 1 0 0 3 1 1 1    -0.1349D+01
+    59    14     6     2 0 0 0 0 0 0 0     0.0000D+00
+    60    14     6     4 1 0 0 3 1 1 1     0.5119D+00
+    61    14     9     2 0 0 0 0 0 0 0     0.0000D+00
+    62    14     9     4 1 0 0 3 1 1 1     0.9226D+00
+    63    14    12     2 0 0 0 0 0 0 0     0.0000D+00
+    64    14    12     4 1 0 0 3 1 1 1     0.1530D+00
+    65    14    15     2 0 0 0 0 0 0 0     0.0000D+00
+    66    14    15     4 1 0 0 3 1 1 1     0.1081D+01
+    67     4     4     2 0 0 0 0 0 0 0     0.2000D+01
+    68     4     4     4 2 0 0 3 2 0 0    -0.1876D+01
+    69     4     4     4 2 0 0 3 2 2 1     0.3745D+01
+    70    14     4     2 0 0 0 0 0 0 0     0.2246D-13
+    71    14     4     4 2 0 0 3 2 0 0    -0.1200D+01
+    72    14     4     4 2 0 0 3 2 2 1     0.2028D+01
+    73    14    14     2 0 0 0 0 0 0 0     0.2000D+01
+    74    14    14     4 2 0 0 3 2 0 0    -0.1741D+01
+    75    14    14     4 2 0 0 3 2 2 1     0.3553D+01
+    76     3     1     2 0 0 0 0 0 0 0     0.0000D+00
+    77     3     1     4 1 0 0 3 1 1-1     0.1064D+01
+    78     3     5     2 0 0 0 0 0 0 0     0.0000D+00
+    79     3     5     4 1 0 0 3 1 1-1     0.1600D+01
+    80     3     6     2 0 0 0 0 0 0 0     0.0000D+00
+    81     3     6     4 1 0 0 3 1 1-1    -0.9030D+00
+    82     3     9     2 0 0 0 0 0 0 0     0.0000D+00
+    83     3     9     4 1 0 0 3 1 1-1     0.1438D+01
+    84     3    12     2 0 0 0 0 0 0 0     0.0000D+00
+    85     3    12     4 1 0 0 3 1 1-1     0.1059D+00
+    86     3    15     2 0 0 0 0 0 0 0     0.0000D+00
+    87     3    15     4 1 0 0 3 1 1-1     0.5317D-01
+    88    13     1     2 0 0 0 0 0 0 0     0.0000D+00
+    89    13     1     4 1 0 0 3 1 1-1    -0.4929D+00
+    90    13     5     2 0 0 0 0 0 0 0     0.0000D+00
+    91    13     5     4 1 0 0 3 1 1-1     0.1349D+01
+    92    13     6     2 0 0 0 0 0 0 0     0.0000D+00
+    93    13     6     4 1 0 0 3 1 1-1    -0.5119D+00
+    94    13     9     2 0 0 0 0 0 0 0     0.0000D+00
+    95    13     9     4 1 0 0 3 1 1-1     0.9226D+00
+    96    13    12     2 0 0 0 0 0 0 0     0.0000D+00
+    97    13    12     4 1 0 0 3 1 1-1    -0.1530D+00
+    98    13    15     2 0 0 0 0 0 0 0     0.0000D+00
+    99    13    15     4 1 0 0 3 1 1-1    -0.1081D+01
+   100     3     4     2 0 0 0 0 0 0 0     0.0000D+00
+   101     3     4     4 2 0 0 3 2 2-1    -0.3745D+01
+   102     3    14     2 0 0 0 0 0 0 0     0.0000D+00
+   103     3    14     4 2 0 0 3 2 2-1    -0.2028D+01
+   104    13     4     2 0 0 0 0 0 0 0     0.0000D+00
+   105    13     4     4 2 0 0 3 2 2-1    -0.2028D+01
+   106    13    14     2 0 0 0 0 0 0 0     0.0000D+00
+   107    13    14     4 2 0 0 3 2 2-1    -0.3553D+01
+   108     3     3     2 0 0 0 0 0 0 0     0.2000D+01
+   109     3     3     4 2 0 0 3 2 0 0    -0.1876D+01
+   110     3     3     4 2 0 0 3 2 2 1    -0.3745D+01
+   111    13     3     2 0 0 0 0 0 0 0     0.2248D-13
+   112    13     3     4 2 0 0 3 2 0 0    -0.1200D+01
+   113    13     3     4 2 0 0 3 2 2 1    -0.2028D+01
+   114    13    13     2 0 0 0 0 0 0 0     0.2000D+01
+   115    13    13     4 2 0 0 3 2 0 0    -0.1741D+01
+   116    13    13     4 2 0 0 3 2 2 1    -0.3553D+01
+   117    10     1     2 0 0 0 0 0 0 0     0.0000D+00
+   118    10     1     4 2 0 0 3 2 2-1    -0.2027D+01
+   119    10     5     2 0 0 0 0 0 0 0     0.0000D+00
+   120    10     5     4 2 0 0 3 2 2-1    -0.6859D+01
+   121    10     6     2 0 0 0 0 0 0 0     0.0000D+00
+   122    10     6     4 2 0 0 3 2 2-1     0.4702D+01
+   123    10     9     2 0 0 0 0 0 0 0     0.0000D+00
+   124    10    12     2 0 0 0 0 0 0 0     0.0000D+00
+   125    10    12     4 2 0 0 3 2 2-1     0.1084D+00
+   126    10    15     2 0 0 0 0 0 0 0     0.0000D+00
+   127    10    15     4 2 0 0 3 2 2-1     0.3299D+01
+   128    10     4     2 0 0 0 0 0 0 0     0.0000D+00
+   129    10     4     4 1 0 0 3 1 1-1     0.1438D+01
+   130    10    14     2 0 0 0 0 0 0 0     0.0000D+00
+   131    10    14     4 1 0 0 3 1 1-1     0.9226D+00
+   132    10     3     2 0 0 0 0 0 0 0     0.0000D+00
+   133    10     3     4 1 0 0 3 1 1 1    -0.1438D+01
+   134    10    13     2 0 0 0 0 0 0 0     0.0000D+00
+   135    10    13     4 1 0 0 3 1 1 1    -0.9226D+00
+   136    10    10     2 0 0 0 0 0 0 0     0.2000D+01
+   137    10    10     4 2 0 0 3 2 0 0    -0.4378D+01
+   138     2     1     2 0 0 0 0 0 0 0     0.0000D+00
+   139     2     1     4 1 0 0 3 1 0 0     0.1198D+01
+   140     2     5     2 0 0 0 0 0 0 0     0.0000D+00
+   141     2     5     4 1 0 0 3 1 0 0     0.1604D+01
+   142     2     6     2 0 0 0 0 0 0 0     0.0000D+00
+   143     2     6     4 1 0 0 3 1 0 0     0.1425D+01
+   144     2     9     2 0 0 0 0 0 0 0     0.0000D+00
+   145     2    12     2 0 0 0 0 0 0 0     0.0000D+00
+   146     2    12     4 1 0 0 3 1 0 0    -0.1151D+01
+   147     2    15     2 0 0 0 0 0 0 0     0.0000D+00
+   148     2    15     4 1 0 0 3 1 0 0     0.3793D+00
+   149    11     1     2 0 0 0 0 0 0 0     0.0000D+00
+   150    11     1     4 1 0 0 3 1 0 0    -0.5040D+00
+   151    11     5     2 0 0 0 0 0 0 0     0.0000D+00
+   152    11     5     4 1 0 0 3 1 0 0     0.1502D+01
+   153    11     6     2 0 0 0 0 0 0 0     0.0000D+00
+   154    11     6     4 1 0 0 3 1 0 0     0.1189D+01
+   155    11     9     2 0 0 0 0 0 0 0     0.0000D+00
+   156    11    12     2 0 0 0 0 0 0 0     0.0000D+00
+   157    11    12     4 1 0 0 3 1 0 0    -0.3408D+00
+   158    11    15     2 0 0 0 0 0 0 0     0.0000D+00
+   159    11    15     4 1 0 0 3 1 0 0    -0.1126D+01
+   160     2     4     2 0 0 0 0 0 0 0     0.0000D+00
+   161     2     4     4 2 0 0 3 2 1 1    -0.3644D+01
+   162     2    14     2 0 0 0 0 0 0 0     0.0000D+00
+   163     2    14     4 2 0 0 3 2 1 1    -0.2151D+01
+   164    11     4     2 0 0 0 0 0 0 0     0.0000D+00
+   165    11     4     4 2 0 0 3 2 1 1    -0.2254D+01
+   166    11    14     2 0 0 0 0 0 0 0     0.0000D+00
+   167    11    14     4 2 0 0 3 2 1 1    -0.3657D+01
+   168     2     3     2 0 0 0 0 0 0 0     0.0000D+00
+   169     2     3     4 2 0 0 3 2 1-1     0.3644D+01
+   170     2    13     2 0 0 0 0 0 0 0     0.0000D+00
+   171     2    13     4 2 0 0 3 2 1-1     0.2151D+01
+   172    11     3     2 0 0 0 0 0 0 0     0.0000D+00
+   173    11     3     4 2 0 0 3 2 1-1     0.2254D+01
+   174    11    13     2 0 0 0 0 0 0 0     0.0000D+00
+   175    11    13     4 2 0 0 3 2 1-1     0.3657D+01
+   176     2    10     2 0 0 0 0 0 0 0     0.0000D+00
+   177    11    10     2 0 0 0 0 0 0 0     0.0000D+00
+   178     2     2     2 0 0 0 0 0 0 0     0.2000D+01
+   179     2     2     4 2 0 0 3 2 0 0     0.4473D+01
+   180    11     2     2 0 0 0 0 0 0 0    -0.2872D-13
+   181    11     2     4 2 0 0 3 2 0 0     0.2765D+01
+   182    11    11     2 0 0 0 0 0 0 0     0.2000D+01
+   183    11    11     4 2 0 0 3 2 0 0     0.4984D+01
+   184     8     1     2 0 0 0 0 0 0 0     0.0000D+00
+   185     8     1     4 2 0 0 3 2 1 1    -0.2236D+01
+   186     8     5     2 0 0 0 0 0 0 0     0.0000D+00
+   187     8     5     4 2 0 0 3 2 1 1    -0.6837D+01
+   188     8     6     2 0 0 0 0 0 0 0     0.0000D+00
+   189     8     6     4 2 0 0 3 2 1 1    -0.2058D+01
+   190     8     9     2 0 0 0 0 0 0 0     0.0000D+00
+   191     8     9     4 2 0 0 3 2 1 1     0.3918D+01
+   192     8    12     2 0 0 0 0 0 0 0     0.0000D+00
+   193     8    12     4 2 0 0 3 2 1 1     0.1094D+01
+   194     8    15     2 0 0 0 0 0 0 0     0.0000D+00
+   195     8    15     4 2 0 0 3 2 1 1     0.2185D+01
+   196     8     4     2 0 0 0 0 0 0 0     0.0000D+00
+   197     8     4     4 1 0 0 3 1 0 0     0.1337D+01
+   198     8    14     2 0 0 0 0 0 0 0     0.0000D+00
+   199     8    14     4 1 0 0 3 1 0 0     0.9077D+00
+   200     8     3     2 0 0 0 0 0 0 0     0.0000D+00
+   201     8    13     2 0 0 0 0 0 0 0     0.0000D+00
+   202     8    10     2 0 0 0 0 0 0 0     0.0000D+00
+   203     8    10     4 2 0 0 3 2 1-1     0.3918D+01
+   204     8     2     2 0 0 0 0 0 0 0     0.0000D+00
+   205     8     2     4 1 0 0 3 1 1 1    -0.1381D+01
+   206     8    11     2 0 0 0 0 0 0 0     0.0000D+00
+   207     8    11     4 1 0 0 3 1 1 1    -0.1014D+01
+   208     8     8     2 0 0 0 0 0 0 0     0.2000D+01
+   209     8     8     4 2 0 0 3 2 0 0     0.2477D+01
+   210     8     8     4 2 0 0 3 2 2 1     0.3853D+01
+   211     7     1     2 0 0 0 0 0 0 0     0.0000D+00
+   212     7     1     4 2 0 0 3 2 1-1    -0.2236D+01
+   213     7     5     2 0 0 0 0 0 0 0     0.0000D+00
+   214     7     5     4 2 0 0 3 2 1-1    -0.6837D+01
+   215     7     6     2 0 0 0 0 0 0 0     0.0000D+00
+   216     7     6     4 2 0 0 3 2 1-1    -0.2058D+01
+   217     7     9     2 0 0 0 0 0 0 0     0.0000D+00
+   218     7     9     4 2 0 0 3 2 1-1    -0.3918D+01
+   219     7    12     2 0 0 0 0 0 0 0     0.0000D+00
+   220     7    12     4 2 0 0 3 2 1-1     0.1094D+01
+   221     7    15     2 0 0 0 0 0 0 0     0.0000D+00
+   222     7    15     4 2 0 0 3 2 1-1     0.2185D+01
+   223     7     4     2 0 0 0 0 0 0 0     0.0000D+00
+   224     7    14     2 0 0 0 0 0 0 0     0.0000D+00
+   225     7     3     2 0 0 0 0 0 0 0     0.0000D+00
+   226     7     3     4 1 0 0 3 1 0 0    -0.1337D+01
+   227     7    13     2 0 0 0 0 0 0 0     0.0000D+00
+   228     7    13     4 1 0 0 3 1 0 0    -0.9077D+00
+   229     7    10     2 0 0 0 0 0 0 0     0.0000D+00
+   230     7    10     4 2 0 0 3 2 1 1     0.3918D+01
+   231     7     2     2 0 0 0 0 0 0 0     0.0000D+00
+   232     7     2     4 1 0 0 3 1 1-1    -0.1381D+01
+   233     7    11     2 0 0 0 0 0 0 0     0.0000D+00
+   234     7    11     4 1 0 0 3 1 1-1    -0.1014D+01
+   235     7     8     2 0 0 0 0 0 0 0     0.0000D+00
+   236     7     8     4 2 0 0 3 2 2-1     0.3853D+01
+   237     7     7     2 0 0 0 0 0 0 0     0.2000D+01
+   238     7     7     4 2 0 0 3 2 0 0     0.2477D+01
+   239     7     7     4 2 0 0 3 2 2 1    -0.3853D+01
+
+
+
+
+           ====> Create/Update target property file <====
+
+
+
+          Logical unit for target properties file   =  24
+          Set number at which to write target data  =   1
+          Format style for the target properties    = FORMATTED  
+
+
+          No. of nuclear centers in molecular frame =   3
+          Sequence number of the scattering center  =   3
+          Number of target states in this dataset   =  15
+          The number of properties computed         =    239
+          Nuclear contribution switch (ISW) is set  =   0
+
+
+ Output to unit 24 is as follows:
+
+6  1   137  2  15   119  0   0.000000000000D+00  0.277301613657D-03  0.277301613657D-03
+8  1 H   1    1.0078        0.0000000000        0.0000000000       -0.7005214769
+8  2 H   1    1.0078        0.0000000000        0.0000000000        0.7005214769
+5  1  0  0  0  1  0  0 -0.116947614404D+01  State No.   1 Singlet     AG        
+5  2  0  0  4  1  0  0 -0.659814188643D+00  State No.   2 Singlet     B1U       
+5  3  0  0  2  1  0  0 -0.601604572750D+00  State No.   3 Singlet     B2U       
+5  4  0  0  1  1  0  0 -0.601604572750D+00  State No.   4 Singlet     B3U       
+5  5  0  0  0  1  0  0 -0.588994584613D+00  State No.   5 Singlet     AG        
+5  6  0  0  0  1  0  0 -0.444261701392D+00  State No.   6 Singlet     AG        
+5  7  0  0  6  1  0  0 -0.434962298840D+00  State No.   7 Singlet     B3G       
+5  8  0  0  5  1  0  0 -0.434962298840D+00  State No.   8 Singlet     B2G       
+5  9  0  0  0  1  0  0 -0.427911664840D+00  State No.   9 Singlet     AG        
+5 10  0  0  3  1  0  0 -0.427911664840D+00  State No.  10 Singlet     B1G       
+5 11  0  0  4  1  0  0 -0.274412366094D+00  State No.  11 Singlet     B1U       
+5 12  0  0  0  1  0  0 -0.928068498915D-01  State No.  12 Singlet     AG        
+5 13  0  0  2  1  0  0 -0.737065322627D-01  State No.  13 Singlet     B2U       
+5 14  0  0  1  1  0  0 -0.737065322627D-01  State No.  14 Singlet     B3U       
+5 15  0  0  0  1  0  0 -0.310178827384D-01  State No.  15 Singlet     AG        
+1  1  0  1  0  3  2  0 -0.447094706985D+00
+1  5  0  1  0  3  2  0  0.138943859369D+00
+1  5  0  5  0  3  2  0  0.539914302876D-01
+1  6  0  1  0  3  2  0  0.231576652708D+01
+1  6  0  5  0  3  2  0  0.725397073682D+01
+1  6  0  6  0  3  2  0  0.348651624292D+01
+1  9  0  1  0  3  2  2 -0.202664649789D+01
+1  9  0  5  0  3  2  2 -0.685887209616D+01
+1  9  0  6  0  3  2  2  0.470156307218D+01
+1  9  0  9  0  3  2  0 -0.535980999851D+01
+1 12  0  1  0  3  2  0  0.258578613161D+00
+1 12  0  5  0  3  2  0 -0.166885394343D+01
+1 12  0  6  0  3  2  0 -0.153133416032D+01
+1 12  0  9  0  3  2  2  0.108407854947D+00
+1 12  0 12  0  3  2  0  0.517574849961D+01
+1 15  0  1  0  3  2  0 -0.671888223208D-02
+1 15  0  5  0  3  2  0  0.382777351921D+00
+1 15  0  6  0  3  2  0 -0.263392124013D+01
+1 15  0  9  0  3  2  2  0.329945867725D+01
+1 15  0 12  0  3  2  0  0.171006458653D+00
+1 15  0 15  0  3  2  0 -0.112421990722D+01
+1  4  1  1  0  3  1  1 -0.106406726493D+01
+1  4  1  5  0  3  1  1 -0.160023460079D+01
+1  4  1  6  0  3  1  1  0.902995317872D+00
+1  4  1  9  0  3  1  1  0.143763053663D+01
+1  4  1 12  0  3  1  1 -0.105918921677D+00
+1  4  1 15  0  3  1  1 -0.531748508953D-01
+1 14  1  1  0  3  1  1  0.492907115502D+00
+1 14  1  5  0  3  1  1 -0.134856489557D+01
+1 14  1  6  0  3  1  1  0.511912483411D+00
+1 14  1  9  0  3  1  1  0.922585980537D+00
+1 14  1 12  0  3  1  1  0.153019651969D+00
+1 14  1 15  0  3  1  1  0.108138208186D+01
+1  4  1  4  1  3  2  0 -0.285742829507D+01
+1  4  1  4  1  3  2  2  0.374450776705D+01
+1 14  1  4  1  3  2  0 -0.119959322291D+01
+1 14  1  4  1  3  2  2  0.202813390200D+01
+1 14  1 14  1  3  2  0 -0.272284585790D+01
+1 14  1 14  1  3  2  2  0.355319421642D+01
+1  3  2  1  0  3  1 -1  0.106406726493D+01
+1  3  2  5  0  3  1 -1  0.160023460079D+01
+1  3  2  6  0  3  1 -1 -0.902995317872D+00
+1  3  2  9  0  3  1 -1  0.143763053663D+01
+1  3  2 12  0  3  1 -1  0.105918921677D+00
+1  3  2 15  0  3  1 -1  0.531748508953D-01
+1 13  2  1  0  3  1 -1 -0.492907115502D+00
+1 13  2  5  0  3  1 -1  0.134856489557D+01
+1 13  2  6  0  3  1 -1 -0.511912483411D+00
+1 13  2  9  0  3  1 -1  0.922585980537D+00
+1 13  2 12  0  3  1 -1 -0.153019651969D+00
+1 13  2 15  0  3  1 -1 -0.108138208186D+01
+1  3  2  4  1  3  2 -2 -0.374450776705D+01
+1  3  2 14  1  3  2 -2 -0.202813390200D+01
+1 13  2  4  1  3  2 -2 -0.202813390200D+01
+1 13  2 14  1  3  2 -2 -0.355319421642D+01
+1  3  2  3  2  3  2  0 -0.285742829507D+01
+1  3  2  3  2  3  2  2 -0.374450776705D+01
+1 13  2  3  2  3  2  0 -0.119959322291D+01
+1 13  2  3  2  3  2  2 -0.202813390200D+01
+1 13  2 13  2  3  2  0 -0.272284585790D+01
+1 13  2 13  2  3  2  2 -0.355319421642D+01
+1 10  3  1  0  3  2 -2 -0.202664649789D+01
+1 10  3  5  0  3  2 -2 -0.685887209616D+01
+1 10  3  6  0  3  2 -2  0.470156307218D+01
+1 10  3 12  0  3  2 -2  0.108407854947D+00
+1 10  3 15  0  3  2 -2  0.329945867725D+01
+1 10  3  4  1  3  1 -1  0.143763053663D+01
+1 10  3 14  1  3  1 -1  0.922585980537D+00
+1 10  3  3  2  3  1  1 -0.143763053663D+01
+1 10  3 13  2  3  1  1 -0.922585980537D+00
+1 10  3 10  3  3  2  0 -0.535980999851D+01
+1  2  4  1  0  3  1  0  0.119814013687D+01
+1  2  4  5  0  3  1  0  0.160411762586D+01
+1  2  4  6  0  3  1  0  0.142461437570D+01
+1  2  4 12  0  3  1  0 -0.115075720006D+01
+1  2  4 15  0  3  1  0  0.379323691406D+00
+1 11  4  1  0  3  1  0 -0.504013167799D+00
+1 11  4  5  0  3  1  0  0.150238195524D+01
+1 11  4  6  0  3  1  0  0.118876339932D+01
+1 11  4 12  0  3  1  0 -0.340835007896D+00
+1 11  4 15  0  3  1  0 -0.112577872972D+01
+1  2  4  4  1  3  2  1 -0.364419011402D+01
+1  2  4 14  1  3  2  1 -0.215056451715D+01
+1 11  4  4  1  3  2  1 -0.225444811176D+01
+1 11  4 14  1  3  2  1 -0.365655066637D+01
+1  2  4  3  2  3  2 -1  0.364419011402D+01
+1  2  4 13  2  3  2 -1  0.215056451715D+01
+1 11  4  3  2  3  2 -1  0.225444811176D+01
+1 11  4 13  2  3  2 -1  0.365655066637D+01
+1  2  4  2  4  3  2  0  0.349195531506D+01
+1 11  4  2  4  3  2  0  0.276524994624D+01
+1 11  4 11  4  3  2  0  0.400267189467D+01
+1  8  5  1  0  3  2  1 -0.223642416308D+01
+1  8  5  5  0  3  2  1 -0.683650023631D+01
+1  8  5  6  0  3  2  1 -0.205820506361D+01
+1  8  5  9  0  3  2  1  0.391849579851D+01
+1  8  5 12  0  3  2  1  0.109434659730D+01
+1  8  5 15  0  3  2  1  0.218507547137D+01
+1  8  5  4  1  3  1  0  0.133665505131D+01
+1  8  5 14  1  3  1  0  0.907681567513D+00
+1  8  5 10  3  3  2 -1  0.391849579851D+01
+1  8  5  2  4  3  1  1 -0.138099922285D+01
+1  8  5 11  4  3  1  1 -0.101429133561D+01
+1  8  5  8  5  3  2  0  0.149515085055D+01
+1  8  5  8  5  3  2  2  0.385315109595D+01
+1  7  6  1  0  3  2 -1 -0.223642416308D+01
+1  7  6  5  0  3  2 -1 -0.683650023631D+01
+1  7  6  6  0  3  2 -1 -0.205820506361D+01
+1  7  6  9  0  3  2 -1 -0.391849579851D+01
+1  7  6 12  0  3  2 -1  0.109434659730D+01
+1  7  6 15  0  3  2 -1  0.218507547137D+01
+1  7  6  3  2  3  1  0 -0.133665505131D+01
+1  7  6 13  2  3  1  0 -0.907681567513D+00
+1  7  6 10  3  3  2  1  0.391849579851D+01
+1  7  6  2  4  3  1 -1 -0.138099922285D+01
+1  7  6 11  4  3  1 -1 -0.101429133561D+01
+1  7  6  8  5  3  2 -2  0.385315109595D+01
+1  7  6  7  6  3  2  0  0.149515085055D+01
+1  7  6  7  6  3  2  2 -0.385315109595D+01
+Calculating polarisabilities with M = -1 (Y), 0 (Z), 1 (X)
+State     1 alpha_XX    0.443110536801D+01
+State     1 alpha_YY    0.443110536801D+01
+State     1 alpha_ZZ    0.620092446185D+01
+State     1 alpha_MS    0.502104506595D+01
+State     2 alpha_XX    0.169636897887D+02
+State     2 alpha_YY    0.169636897887D+02
+State     2 alpha_ZZ    0.909952218657D+02
+State     2 alpha_MS    0.416408671477D+02
+State     3 alpha_XX    0.237981110999D+02
+State     3 alpha_YY    0.436375516486D+03
+State     3 alpha_ZZ    0.214428990228D+02
+State     3 alpha_MS    0.160538842203D+03
+State     4 alpha_XX    0.436375516486D+03
+State     4 alpha_YY    0.237981110999D+02
+State     4 alpha_ZZ    0.214428990228D+02
+State     4 alpha_MS    0.160538842203D+03
+State     5 alpha_XX   -0.399087739245D+03
+State     5 alpha_YY   -0.399087739245D+03
+State     5 alpha_ZZ   -0.583188030109D+02
+State     5 alpha_MS   -0.285498093833D+03
+State     6 alpha_XX   -0.895024482693D+01
+State     6 alpha_YY   -0.895024482693D+01
+State     6 alpha_ZZ   -0.219078205192D+01
+State     6 alpha_MS   -0.669709056859D+01
+State     7 alpha_XX    0.000000000000D+00
+State     7 alpha_YY   -0.414790225275D+01
+State     7 alpha_ZZ   -0.168816662109D+02
+State     7 alpha_MS   -0.700985615455D+01
+State     8 alpha_XX   -0.414790225275D+01
+State     8 alpha_YY    0.000000000000D+00
+State     8 alpha_ZZ   -0.168816662109D+02
+State     8 alpha_MS   -0.700985615455D+01
+State     9 alpha_XX   -0.189920548731D+02
+State     9 alpha_YY   -0.189920548731D+02
+State     9 alpha_ZZ    0.000000000000D+00
+State     9 alpha_MS   -0.126613699154D+02
+State    10 alpha_XX   -0.189920548731D+02
+State    10 alpha_YY   -0.189920548731D+02
+State    10 alpha_ZZ    0.000000000000D+00
+State    10 alpha_MS   -0.126613699154D+02
+State    11 alpha_XX   -0.128157875360D+02
+State    11 alpha_YY   -0.128157875360D+02
+State    11 alpha_ZZ   -0.198643805547D+02
+State    11 alpha_MS   -0.151653185422D+02
+State    12 alpha_XX    0.240769381766D+01
+State    12 alpha_YY    0.240769381766D+01
+State    12 alpha_ZZ   -0.595033756700D+01
+State    12 alpha_MS   -0.378316643891D+00
+State    13 alpha_XX   -0.480605622674D+01
+State    13 alpha_YY    0.386124322480D+02
+State    13 alpha_ZZ   -0.456123281191D+01
+State    13 alpha_MS    0.974838106977D+01
+State    14 alpha_XX    0.386124322480D+02
+State    14 alpha_YY   -0.480605622674D+01
+State    14 alpha_ZZ   -0.456123281191D+01
+State    14 alpha_MS    0.974838106977D+01
+State    15 alpha_XX   -0.547967089745D+02
+State    15 alpha_YY   -0.547967089745D+02
+State    15 alpha_ZZ   -0.108718431430D+02
+State    15 alpha_MS   -0.401550870306D+02
+
+     END OF FILE ON READ. NO MORE INPUT

@@ -1,0 +1,172 @@
++-------------------------------------------------------------------------+
+|              _              |                                           |
+| || || ||//  | \          |  | University College London (C) 1994 - 2020 |
+| || || ||    | / |/\/\ /\ |  | Open University           (C) 2007 - 2020 |
+| \\_// ||\\  | \ | | | \/ |  |                                           |
+|                             |                                           |
++-------------------------------------------------------------------------+
+| Last revision: b034153                                                  |
+| Last author:   Jimena Gorfinkiel                                        |
+| Last date:     Wed Oct 26 08:42:12 2022 +0000                           |
++-------------------------------------------------------------------------+
+ Smallest positive magnitude:  2.225073858507201E-308
+ Largest magnitude:  1.797693134862316E+308
+ Smallest relative spacing:  1.110223024625157E-016
+ Largest relative spacing:  2.220446049250313E-016
+ Log10(Base)  0.301029995663981     
+ Decimal precision for real(kind=cfp):                    15
+ Number of bits in default integer:                    64
+
+
+ Program RSOLVE  (last modified 05-Jan-2004 )
+
+e + H2 - doublet B1u - K-matrices                           20230418  080040.616
+
+ Symmetry data  MGVN = 4 STOT = 2 GUTOT = 0
+
+ Fixed nuclei calculation for R = 0.000
+
+ Input datasets:                                 Unit  Set numbers
+ Target and channel data     LUCHAN (UNFORMATTED) 10       1
+ Fixed nuclei R-matrix data  LURMT  (UNFORMATTED) 21       1
+
+ Output datasets:                                Unit  Set number
+ K-matrices                  LUKMT  (UNFORMATTED)924       1
+
+ K-matrices will be calculated for 6017 energies in the range [  0.0001,  6.0010] EV 
+
+ *** FIXED NUCLEI DATA ***
+
+ R-matrix data has been read from set number  1 on unit number 21
+ Header :e + H2 - doublet B1u                                        20230418  080040.460
+
+ Dimension of Hamiltonian matrix           =      4284
+ Number of CI vectors stored on file       =    0
+ Maximum multipole in asymptotic potential =    2
+ R-matrix radius                           =   13.0000
+
+ Maximum multipole USED in asymptotic scattering potentials   ISMAX =  2
+
+ *** FIXED NUCLEI DATA ***
+
+ Target and channel data is read from set  1 on unit 10
+
+ Target state    Spin    M    G/U  Energy (au)
+         1         1     0     0   -1.169476
+         2         1     4     0   -0.659814
+         3         1     2     0   -0.601605
+         4         1     1     0   -0.601605
+         5         1     0     0   -0.588995
+         6         1     0     0   -0.444262
+         7         1     6     0   -0.434962
+         8         1     5     0   -0.434962
+         9         1     0     0   -0.427912
+        10         1     3     0   -0.427912
+        11         1     4     0   -0.274412
+        12         1     0     0   -0.092807
+        13         1     2     0   -0.073707
+        14         1     1     0   -0.073707
+        15         1     0     0   -0.031018
+
+ Channel   Vibronic level   L   M  Threshold (Ryd)
+    1              1        1   0    0.000000
+    2              1        3   0    0.000000
+    3              1        3   2    0.000000
+    4              2        0   0    1.019324
+    5              2        2   0    1.019324
+    6              2        2   2    1.019324
+    7              2        4   0    1.019324
+    8              2        4   2    1.019324
+    9              2        4   4    1.019324
+   10              3        2  -1    1.135743
+   11              3        4  -3    1.135743
+   12              3        4  -1    1.135743
+   13              4        2   1    1.135743
+   14              4        4   1    1.135743
+   15              4        4   3    1.135743
+   16              5        1   0    1.160963
+   17              5        3   0    1.160963
+   18              5        3   2    1.160963
+   19              6        1   0    1.450429
+   20              6        3   0    1.450429
+   21              6        3   2    1.450429
+   22              7        1  -1    1.469028
+   23              7        3  -3    1.469028
+   24              7        3  -1    1.469028
+   25              8        1   1    1.469028
+   26              8        3   1    1.469028
+   27              8        3   3    1.469028
+   28              9        1   0    1.483129
+   29              9        3   0    1.483129
+   30              9        3   2    1.483129
+   31             10        3  -2    1.483129
+   32             11        0   0    1.790128
+   33             11        2   0    1.790128
+   34             11        2   2    1.790128
+   35             11        4   0    1.790128
+   36             11        4   2    1.790128
+   37             11        4   4    1.790128
+   38             12        1   0    2.153339
+   39             12        3   0    2.153339
+   40             12        3   2    2.153339
+   41             13        2  -1    2.191539
+   42             13        4  -3    2.191539
+   43             13        4  -1    2.191539
+   44             14        2   1    2.191539
+   45             14        4   1    2.191539
+   46             14        4   3    2.191539
+   47             15        1   0    2.276917
+   48             15        3   0    2.276917
+   49             15        3   2    2.276917
+
+ R-matrix data has been read from set number  1 on unit number 21
+ Header :e + H2 - doublet B1u                                        20230418  080040.460
+
+ Dimension of Hamiltonian matrix           =      4284
+ Number of CI vectors stored on file       =    0
+ Maximum multipole in asymptotic potential =    2
+ R-matrix radius                           =   13.0000
+ IWRON                     0
+
+ ASYMPTOTIC METHOD SELECTED : GAILITIS      
+ EXPANSION USED AT RADIUS =   70.0000
+
+ R-MATRIX WILL BE PROPAGATED ACROSS  6 SUBRANGES
+
+ K-matrices will be written to set 1 on unit 924
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00001   ET(1) =    0.00001 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  3  ET(J) =    0.00001   ET(1) =    0.00001 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00001   ET(1) =    0.00001 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  3  ET(J) =    0.00001   ET(1) =    0.00001 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00002   ET(1) =    0.00002 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  3  ET(J) =    0.00002   ET(1) =    0.00002 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00002   ET(1) =    0.00002 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  3  ET(J) =    0.00002   ET(1) =    0.00002 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00003   ET(1) =    0.00003 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  3  ET(J) =    0.00003   ET(1) =    0.00003 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00003   ET(1) =    0.00003 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  3  ET(J) =    0.00003   ET(1) =    0.00003 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00003   ET(1) =    0.00003 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  3  ET(J) =    0.00003   ET(1) =    0.00003 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00004   ET(1) =    0.00004 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  3  ET(J) =    0.00004   ET(1) =    0.00004 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00004   ET(1) =    0.00004 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  3  ET(J) =    0.00004   ET(1) =    0.00004 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00004   ET(1) =    0.00004 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  3  ET(J) =    0.00004   ET(1) =    0.00004 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00005   ET(1) =    0.00005 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  3  ET(J) =    0.00005   ET(1) =    0.00005 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00005   ET(1) =    0.00005 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  3  ET(J) =    0.00005   ET(1) =    0.00005 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00006   ET(1) =    0.00006 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00006   ET(1) =    0.00006 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00006   ET(1) =    0.00006 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  3  ET(J) =    0.00006   ET(1) =    0.00006 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00007   ET(1) =    0.00007 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00007   ET(1) =    0.00007 RYD
+ ASYWFN WARNING IN CHANNEL J =  3  LJ =  3  ET(J) =    0.00007   ET(1) =    0.00007 RYD
+ ASYWFN WARNING IN CHANNEL J =  2  LJ =  3  ET(J) =    0.00007   ET(1) =    0.00007 RYD
+
+Number of energy points for which the K matrices have actually been calculated:      0
+
+ *** Task successfully completed ***

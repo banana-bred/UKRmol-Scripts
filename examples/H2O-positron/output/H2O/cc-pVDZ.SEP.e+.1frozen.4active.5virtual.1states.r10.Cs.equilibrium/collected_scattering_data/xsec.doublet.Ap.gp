@@ -1,0 +1,16 @@
+dir = 'xsec'
+
+initial = 1 # initial electronic state
+final   = 1 # final electronic state (0 gives total cross section)
+
+set title 'H2O, doublet Ap'
+
+set xlabel 'Energy (eV)
+set ylabel 'Cross section (a.u.)
+
+e_unit = 1.0 # to change energy units
+x_unit = 1.0 # to chenge cross-section units
+
+plot [:] \
+  dir.'/xsec.doublet.Ap.from_initial_state_'.initial.'.geom1' u ($1*e_unit):(column(final+2)*x_unit) t 'R1 = 1.81, R2 = 1.81, Theta = 104.48' w l
+

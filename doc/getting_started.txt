@@ -1,0 +1,95 @@
+This is a short introduction to UK R-matrix code Perl scripts.
+
+To run scripts:
+===============
+
+1) Copy all files from /scripts to a directory where you want to run scripts.
+The /lib directory needs to be made available either by copying it to ../ with 
+respect to where you want to run the scripts or specifing the path as indicated in
+(4) below. 
+
+2) Set the paths to binaries of the UK R-matrix inner and outer codes in 
+dirs.pl and , if using MOLPRO/Psi4/Molcas,  set the path to the appropiate 
+binaries too.
+
+3) Adjust other settings relevant for your system in
+model.pl      - which model and for which target to run codes
+geometry.pl   - parameters specifying a geometry or several geometries of the target
+config.pl - options to run specific codes, in parallel etc.
+
+4) Run the following command:
+
+perl main.pl dirs.pl config.pl model.pl geometry.pl
+
+or the following if you have not copied /lib:
+
+perl -Ipath-to-where-lib-is/lib  main.pl dirs.pl config.pl model.pl geometry.pl
+
+
+In /tools, there is an example of a bash script (run_scripts.sh)
+which runs scripts on a PBS queue system by qsub run_scripts.sh.
+Feel free to modify and use it as you need.
+
+Outputs:
+========
+
+If everything is set up correctly, then the following directories (D) and files (F)
+should appear in the output directory <output>/<molecule>/<model>/:
+
+in the main directory (see an example of output in examples/H2O-electron/output):
+
+D logs             - contains the main logfile and logfiles for each geometry
+D scripts_backup   - contains a copy of all used Perl scripts for future reference
+D geom1, geom2 etc - directories for each geometries
+D collected_scattering_data - directory with eigenphase sums and cross sections (and T- or K-matrices if required)
+                   - also some simple gnuplot files for quick view are generated here
+F geometries       - each numbered geometry is described according to settings in geometry.pl
+F target.energies  - gathered target energies for all geometries
+F Rmatrix.energies - gathered R-matrix poles for all geometries
+F resonance.positions.and.widths
+
+in each geometry directory (geom1, geom2 etc):
+
+D input             - contains all input files for UKRmol codes and MOLPRO created by the scripts
+                    - here you can check what input parameters were set automatically by the scripts
+D output            - contains all output files of UKRmol codes and MOLPRO
+                    - here you can check what happened if the run failed
+F prop.out          - information about target states and properties
+F eigenph...        - eigenphase sums (also collected in collected_scattering_data/eigenph)
+F xsec...           - the cross section (also collected in collected_scattering_data/xsec)
+and some less important other files
+
+Example runs:
+=============
+
+Examples of several calculations driven by the scripts are included in the Examples directory.
+These are:
+
+CH4-photo
+* Photoionization of CH4 molecule using a Close-Coupling model
+H2O-electron
+* Electron scattering from water using a Close-Coupling model
+H2O-positron
+* Positron scattering from water using a Static-Exchange plus Polarization model
+H2-PCO_positron
+* Positron scattering from H2 using a Close-Coupling model with pseudostates
+H2-rmt
+* Static exchange model for photoionization of H2 to generate input data for RMT code
+MAS
+* A number of sub-tests of the Multiple Active Spaces approach (see examples/MAS/README.md)
+
+Each example is setup to be run from the directory where it is located. To run it you need to:
+
+1. Modify all paths set in dirs.pl except for those set under the 'libs' and 'output' hash keys to point to your 
+local binaries and script directories. When running the scripts all output will be stored in the directory called 
+"my_output". Do not modify the name of this directory otherwise the examples will not run with the default settings.
+
+2. The examples do not execute by default the quantum chemistry (QCH) programs to generate the molecular orbitals. Instead
+they use orbitals which have been pregenerated and stored in the "my_output" directory. Skipping of the QCH calculation is
+achieved by explicitly listing the parts of the calculation which should be executed using the 'only' hash key in config.pl.
+This setup works as long as outputs of the omitted parts of the calculation are stored in the expected locations of the 
+"my_output" directory structure. If you wish to run the calculation including the quantum chemistry part simply comment out 
+the 'only' line. Then the 'output' directory in dirs.pl can be changed to any location.
+
+* Each example contains a set of reference outputs in the "output" directory. These are intended to be used for comparison
+with your results from the "my_output" directory.

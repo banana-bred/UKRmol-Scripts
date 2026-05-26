@@ -1,0 +1,256 @@
+Current working directory: /home/houfek/ukrmol-scripts/examples/H2O-electron
+
+Running UK R-matrix codes for e + H2O
+Target charge q = 0
+  the continuum basis swmol3.continuum.q0.r10.L6 will be loaded.
+
+Output in /home/houfek/ukrmol-scripts/examples/H2O-electron/my_output/H2O/cc-pVTZ.CAS.e-.1frozen.6active.5virtual.5states.r10.Cs.sym_stretch
+
+Symmetry Cs with 2 IRs for all geometries.
+
+Checking user settings given in model.pl ...
+  ... done.
+Number of geometries to run: 4
+
+Starting main loop over geometries.
+Logging continues into files corresponding to each geometry.
+
+Start of collecting data for all geometries ...
+Skipping running scatci.
+Reading scatci output ...
+:
+  1.0.1 -> -76.1019370152
+  1.0.2 -> -75.0701406137
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  3.0.1 -> -75.2006108159
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  1.1.1 -> -75.2709070480
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  3.1.1 -> -75.3074430927
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+, printing first 10 energies:
+  2.0.1 -> -76.0900909418
+  2.0.2 -> -76.0661968247
+  2.0.3 -> -76.0609664020
+  2.0.4 -> -76.0288847979
+  2.0.5 -> -76.0284905332
+  2.0.6 -> -76.0259333502
+  2.0.7 -> -75.9794235080
+  2.0.8 -> -75.9794161223
+  2.0.9 -> -75.9782149275
+  2.0.10 -> -75.9770556618
+LCONT = 0
+ ... done.
+Skipping running reson.
+Reading reson output ...
+  Warning: there is no resonance in output of reson: file /home/houfek/ukrmol-scripts/examples/H2O-electron/my_output/H2O/cc-pVTZ.CAS.e-.1frozen.6active.5virtual.5states.r10.Cs.sym_stretch/geom1/outputs/scattering.reson.doublet.Ap.out !
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+, printing first 10 energies:
+  2.1.1 -> -76.0617842778
+  2.1.2 -> -76.0278132196
+  2.1.3 -> -76.0258712017
+  2.1.4 -> -75.9787904561
+  2.1.5 -> -75.9783021222
+  2.1.6 -> -75.9770505972
+  2.1.7 -> -75.9184724460
+  2.1.8 -> -75.9182618430
+  2.1.9 -> -75.9175865674
+  2.1.10 -> -75.9167019385
+LCONT = 0
+ ... done.
+Skipping running reson.
+Reading reson output ...
+  Warning: there is no resonance in output of reson: file /home/houfek/ukrmol-scripts/examples/H2O-electron/my_output/H2O/cc-pVTZ.CAS.e-.1frozen.6active.5virtual.5states.r10.Cs.sym_stretch/geom1/outputs/scattering.reson.doublet.App.out !
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  1.0.1 -> -76.1102871106
+  1.0.2 -> -75.1955487001
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  3.0.1 -> -75.3283615603
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  1.1.1 -> -75.3769637784
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  3.1.1 -> -75.4127125521
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+, printing first 10 energies:
+  2.0.1 -> -76.0988145999
+  2.0.2 -> -76.0747373430
+  2.0.3 -> -76.0692802852
+  2.0.4 -> -76.0374376692
+  2.0.5 -> -76.0370451936
+  2.0.6 -> -76.0342220681
+  2.0.7 -> -75.9879390410
+  2.0.8 -> -75.9878613230
+  2.0.9 -> -75.9865627256
+  2.0.10 -> -75.9853266509
+LCONT = 0
+ ... done.
+Skipping running reson.
+Reading reson output ...
+  Warning: there is no resonance in output of reson: file /home/houfek/ukrmol-scripts/examples/H2O-electron/my_output/H2O/cc-pVTZ.CAS.e-.1frozen.6active.5virtual.5states.r10.Cs.sym_stretch/geom2/outputs/scattering.reson.doublet.Ap.out !
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+, printing first 10 energies:
+  2.1.1 -> -76.0700406827
+  2.1.2 -> -76.0361999376
+  2.1.3 -> -76.0341431363
+  2.1.4 -> -75.9871697524
+  2.1.5 -> -75.9866580427
+  2.1.6 -> -75.9853190883
+  2.1.7 -> -75.9268449394
+  2.1.8 -> -75.9266312216
+  2.1.9 -> -75.9259086308
+  2.1.10 -> -75.9249686789
+LCONT = 0
+ ... done.
+Skipping running reson.
+Reading reson output ...
+  Warning: there is no resonance in output of reson: file /home/houfek/ukrmol-scripts/examples/H2O-electron/my_output/H2O/cc-pVTZ.CAS.e-.1frozen.6active.5virtual.5states.r10.Cs.sym_stretch/geom2/outputs/scattering.reson.doublet.App.out !
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  1.0.1 -> -76.1074279830
+  1.0.2 -> -75.2923882571
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  3.0.1 -> -75.4307320415
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  1.1.1 -> -75.4603809136
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  3.1.1 -> -75.4951661596
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+, printing first 10 energies:
+  2.0.1 -> -76.0964280804
+  2.0.2 -> -76.0721048861
+  2.0.3 -> -76.0664022298
+  2.0.4 -> -76.0348071992
+  2.0.5 -> -76.0344256937
+  2.0.6 -> -76.0313130035
+  2.0.7 -> -75.9853518785
+  2.0.8 -> -75.9850953694
+  2.0.9 -> -75.9837016411
+  2.0.10 -> -75.9823968491
+LCONT = 0
+ ... done.
+Skipping running reson.
+Reading reson output ...
+  Resonance position: 0.23075150E+00 Ryd
+  Resonance width:    -0.73839595E-01 Ryd
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+, printing first 10 energies:
+  2.1.1 -> -76.0670874248
+  2.1.2 -> -76.0333696449
+  2.1.3 -> -76.0312112423
+  2.1.4 -> -75.9843337794
+  2.1.5 -> -75.9838039511
+  2.1.6 -> -75.9823823863
+  2.1.7 -> -75.9240060358
+  2.1.8 -> -75.9237927554
+  2.1.9 -> -75.9230247112
+  2.1.10 -> -75.9220337863
+LCONT = 0
+ ... done.
+Skipping running reson.
+Reading reson output ...
+  Warning: there is no resonance in output of reson: file /home/houfek/ukrmol-scripts/examples/H2O-electron/my_output/H2O/cc-pVTZ.CAS.e-.1frozen.6active.5virtual.5states.r10.Cs.sym_stretch/geom3/outputs/scattering.reson.doublet.App.out !
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  1.0.1 -> -76.0969731990
+  1.0.2 -> -75.3679222327
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  3.0.1 -> -75.5125584059
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  1.1.1 -> -75.5259921979
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  3.1.1 -> -75.5666161635
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+, printing first 10 energies:
+  2.0.1 -> -76.0874293027
+  2.0.2 -> -76.0617867049
+  2.0.3 -> -76.0560029039
+  2.0.4 -> -76.0246715103
+  2.0.5 -> -76.0242700660
+  2.0.6 -> -76.0208609452
+  2.0.7 -> -75.9778610329
+  2.0.8 -> -75.9747304672
+  2.0.9 -> -75.9735685782
+  2.0.10 -> -75.9732495356
+LCONT = 0
+ ... done.
+Skipping running reson.
+Reading reson output ...
+  Warning: there is no resonance in output of reson: file /home/houfek/ukrmol-scripts/examples/H2O-electron/my_output/H2O/cc-pVTZ.CAS.e-.1frozen.6active.5virtual.5states.r10.Cs.sym_stretch/geom4/outputs/scattering.reson.doublet.Ap.out !
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+, printing first 10 energies:
+  2.1.1 -> -76.0565341492
+  2.1.2 -> -76.0229301571
+  2.1.3 -> -76.0206928505
+  2.1.4 -> -75.9738947423
+  2.1.5 -> -75.9733528637
+  2.1.6 -> -75.9718563226
+  2.1.7 -> -75.9135680924
+  2.1.8 -> -75.9133600839
+  2.1.9 -> -75.9125489354
+  2.1.10 -> -75.9115135499
+LCONT = 0
+ ... done.
+Skipping running reson.
+Reading reson output ...
+  Resonance position: 0.11179781E+01 Ryd
+  Resonance width:    0.22861928E-01 Ryd
+ ... done.

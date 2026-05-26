@@ -1,0 +1,142 @@
+Current working directory: /scratch.ssd/tmp/ukrmol-scripts-new-tests/H2-rmt
+
+Running UK R-matrix codes for e + H2+
+Target charge q = 1
+  the continuum basis swmol3.continuum.q1.r10.L7 will be loaded.
+
+Output in /scratch.ssd/tmp/ukrmol-scripts-new-tests/H2-rmt/output/H2+/cc-pVDZ.SE.e-.0frozen.1active.0virtual.1states.r10.D2h.cccbdb
+
+Symmetry D2h with 8 IRs for all geometries.
+
+Checking user settings given in model.pl ...
+  ... done.
+Number of geometries to run: 1
+
+Starting main loop over geometries.
+Logging continues into files corresponding to each geometry.
+
+Start of collecting data for all geometries ...
+Skipping running scatci.
+Reading scatci output ...
+:
+  2.0.1 -> -0.5367273370
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+, printing first 10 energies:
+  1.0.1 -> -1.1319039097
+  1.0.2 -> -0.6644440324
+  1.0.3 -> -0.5965537207
+  1.0.4 -> -0.5949329608
+  1.0.5 -> -0.5417496225
+  1.0.6 -> -0.4739525486
+  1.0.7 -> -0.4737256339
+  1.0.8 -> -0.4730612033
+  1.0.9 -> -0.4538347429
+  1.0.10 -> -0.4485543829
+LCONT = 0
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+, printing first 10 energies:
+  1.1.1 -> -0.6573494734
+  1.1.2 -> -0.5608272863
+  1.1.3 -> -0.5384902362
+  1.1.4 -> -0.5375611719
+  1.1.5 -> -0.3455966680
+  1.1.6 -> -0.3310905647
+  1.1.7 -> -0.3282254271
+  1.1.8 -> -0.0221941583
+  1.1.9 -> -0.0129065295
+  1.1.10 -> -0.0077275592
+LCONT = 0
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+, printing first 10 energies:
+  1.2.1 -> -0.6573494734
+  1.2.2 -> -0.5608272863
+  1.2.3 -> -0.5384902362
+  1.2.4 -> -0.5375611719
+  1.2.5 -> -0.3455966680
+  1.2.6 -> -0.3310905647
+  1.2.7 -> -0.3282254271
+  1.2.8 -> -0.0221941583
+  1.2.9 -> -0.0129065295
+  1.2.10 -> -0.0077275592
+LCONT = 0
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+, printing first 10 energies:
+  1.3.1 -> -0.5949329608
+  1.3.2 -> -0.4737256339
+  1.3.3 -> -0.4730612033
+  1.3.4 -> -0.4485543829
+  1.3.5 -> -0.2025961854
+  1.3.6 -> -0.2007539830
+  1.3.7 -> -0.1805778080
+  1.3.8 -> 0.1705435293
+  1.3.9 -> 0.1738314461
+  1.3.10 -> 0.1939503641
+LCONT = 0
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+, printing first 10 energies:
+  1.4.1 -> -0.6675588335
+  1.4.2 -> -0.5773237876
+  1.4.3 -> -0.5386094437
+  1.4.4 -> -0.5381383203
+  1.4.5 -> -0.3825247993
+  1.4.6 -> -0.3314861604
+  1.4.7 -> -0.3299917461
+  1.4.8 -> -0.0820474271
+  1.4.9 -> -0.0137796882
+  1.4.10 -> -0.0109284738
+LCONT = 0
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+, printing first 10 energies:
+  1.5.1 -> -0.5961359427
+  1.5.2 -> -0.4738954714
+  1.5.3 -> -0.4734462079
+  1.5.4 -> -0.4523883092
+  1.5.5 -> -0.2030891620
+  1.5.6 -> -0.2018103234
+  1.5.7 -> -0.1877829137
+  1.5.8 -> 0.1695706644
+  1.5.9 -> 0.1719734534
+  1.5.10 -> 0.1821650933
+LCONT = 0
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+, printing first 10 energies:
+  1.6.1 -> -0.5961359427
+  1.6.2 -> -0.4738954714
+  1.6.3 -> -0.4734462079
+  1.6.4 -> -0.4523883092
+  1.6.5 -> -0.2030891620
+  1.6.6 -> -0.2018103234
+  1.6.7 -> -0.1877829137
+  1.6.8 -> 0.1695706644
+  1.6.9 -> 0.1719734534
+  1.6.10 -> 0.1821650933
+LCONT = 0
+ ... done.
+Skipping running scatci.
+Reading scatci output ...
+:
+  1.7.1 -> -0.5381383203
+  1.7.2 -> -0.3299917461
+  1.7.3 -> -0.0109284738
+  1.7.4 -> 0.4128262163
+  1.7.5 -> 0.9430136260
+  1.7.6 -> 1.6045417791
+  1.7.7 -> 2.5232309155
+  1.7.8 -> 3.9051207264
+  1.7.9 -> 6.0699172785
+LCONT = 0
+ ... done.
