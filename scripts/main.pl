@@ -23,6 +23,10 @@ use lib $libpath;
 use ForkManager; # for parallelization of geometries and spin-symmetries
 use ukrmollib;   # my package of subroutines to handle geometries, inputs, outputs etc.
 
+our $icform = "'F'";          # formatting of the channel information file (fort.10)
+our $irform = "'F'";          # formatting of the boundary amplitudes file (fort.21)
+our $ikform = "'F'";          # formatting of the K-matrix file (fort.9SM)
+
 $run{'parallel_diag'} = 0; #Force use of scatci for build and diagonalization (use of hamdiag for diagonalization has not been implemented yet).
 
 my %data = ( # this hash array together with option hash arrays above will be passed to subroutines calling programs
@@ -254,7 +258,7 @@ foreach $r_geom (@{$data{'geometries'}}) {
     $data{'scf_ok'} = 0; # indicator whether SCF calculation converged
 
     my $qchem = $run{'psi4'} ? "psi4" : "molpro";
-  
+
     if (exists($model{'use_MASSCF'}) && $model{'use_MASSCF'} == 1){
       # ORMASSCF
       $qchem = "molpro"
@@ -297,10 +301,10 @@ foreach $r_geom (@{$data{'geometries'}}) {
     &run_sub("make_symlink_ALWAYS", \%parameters, "moints", "fort.16");
 
     # from here we run congen and scatci for each spin state (multiplicity) and symmetry (IR) separately
-      
+
       if (exists($model{'use_MAS'}) && $model{'use_MAS'} > 0){
 
-        # Use predefined model names to select the model instead of setting 
+        # Use predefined model names to select the model instead of setting
         # MAS by hand. Does not work for CHF models currently!
         if(!$model{'MAS'}){
           choose_model_by_name_mas(\%parameters);
@@ -312,7 +316,7 @@ foreach $r_geom (@{$data{'geometries'}}) {
         &print_info($data{'MAS'}->{'target'}->string_mas(), \%parameters);
         if (exists($model{'l2_MAS'}) && defined($model{'l2_MAS'})){
           &print_info("L^2 MAS:\n", \%parameters);
-          &print_info($data{'MAS'}->{'l2'}->string_mas(), \%parameters);          
+          &print_info($data{'MAS'}->{'l2'}->string_mas(), \%parameters);
         }
       }
 
@@ -805,4 +809,3 @@ if ($run{'gather_data'} == 1) {
     }
   }
 }
-
