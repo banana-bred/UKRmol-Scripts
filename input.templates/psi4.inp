@@ -31,6 +31,8 @@ set num_roots >>>NUMROOTS<<<
 set avg_states [ >>>AVGSTATES<<< ]
 set avg_weights [ >>>AVGWEIGHTS<<< ]
 
+set df_ints_io save
+
 [E, wfn] = energy('>>>METHOD<<<', return_wfn=True)
 
 molden(wfn, '>>>MOLECULE<<<.molden')

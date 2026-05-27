@@ -12,10 +12,11 @@
 
   # Molecule
 
-  'molecule',    "H2O",              # Used only for directory and descriptions
-  'atoms',        ["O", "H", "H"],   # All atoms must be specified
-  'nelectrons',     10,              # number of target electrons
-  'symmetry',     "Cs",              # Options are "D2h", "C2v", "C2", "Cs", "C2h", "D2", "Ci", "C1"
+  'groundStateSpinMultiplicity', 2,  # 1 (singlet), 2(doublet), 3(triplet), etc.
+  'molecule',    "NHX",              # Used only for directory and descriptions
+  'atoms',        ["N", "H"],   # All atoms must be specified
+  'nelectrons',     7,              # number of target electrons
+  'symmetry',     "C2v",              # Options are "D2h", "C2v", "C2", "Cs", "C2h", "D2", "Ci", "C1"
 
   # Units
 
@@ -28,28 +29,22 @@
   # Important note: Put correct numbers of orbitals even for SE and SEP
   #
   # Choices below will determine which orbitals are generated and how many are used
-  'basis',         "cc-pVTZ",         # make sure there are corresponding files in $dir_basis (see below)
-  'orbitals',      "natural",         # which orbitals to use, HF = Hartree-Fock orbitals (default), natural = natural orbitals obtained by Molpro with CASSCF
+  'basis',          "cc-pVTZ",        # make sure there are corresponding files in $dir_basis (see below)
+  'orbitals',       "natural",             # which orbitals to use, HF = Hartree-Fock orbitals (default), natural = natural orbitals obtained by Molpro with CASSCF
   'charge_of',      "target",         # PHOTO/RMT: use orbitals for N-electron system (= "target") or (N+1)-electron system (= "scattering")
-  'select_orb_by',  "molden",         # molden = use orbitals as ordered in Molden file, energy = use orbitals ordered by energy
+  'select_orb_by',  "energy",         # molden = use orbitals as ordered in Molden file, energy = use orbitals ordered by energy
   'model',             "CAS",         # options are "SE"    = static-exchange,
                                       #             "SEP"   = SE + polarization,
-                                      #             "CHF-A" = Polarization-Consistent Coupled Hartree-Fock (PC-CHF) (requires 'orbitals' to be set to "HF")
-                                      #                       All of the target states implied by the polarization configurations are included in the continuum wavefunction
-                                      #                       Each HF-like target configuration corresponds to a separate target state in the CC expansion
-                                      #                       (Recommended for most use-cases)
-                                      #             "CHF-B" = Same as above but target configurations of the same spin-space symmetry are contracted similar to CAS calculation.
-                                      #                       (Recommended for molecules with degenerate target HF-like states like N2O)
                                       #             "CAS"   = complete active space (as a default it is used the model B below),
                                       #             "CAS-A" = contracted version of CAS-B,
                                       #             "CAS-B" = standard close coupling with (core+cas)^N+1 and (core+cas)^N x (virtual)^1
                                       #             "CAS-C" = adds (core+cas)^N-1 x (virtual)^2 to CAS-B (to add more polarization)
                                       #   if you want to run FCI calculation then set "CAS" and 'nactive' = -1 and 'nvirtual' = 0
   'nfrozen',       1,                 # number of frozen target orbitals (used for SEP and CAS)
-  'nactive',       6,                 # number of active target orbitals (used for SEP and CAS)
+  'nactive',      18,                 # number of active target orbitals (used for SEP and CAS)
                                       #   if -1 then all available orbitals provided by the basis are used
-  'nvirtual',      5,                 # number of virtual orbitals
-  'nreference',   10,                 # number of orbitals used for searching reference orbitals
+  'nvirtual',      6,                 # number of virtual orbitals
+  'nreference',   20,                 # number of orbitals used for searching reference orbitals
 
   # if the following arrays are empty (zeroes) then orbitals are chosen automatically according to their ordering,
   # ("energy" or "molden" for molpro orbitals, but currently just "energy" for psi4 orbitals),
@@ -57,10 +52,10 @@
   # with numbers of orbitals specified above in 'nfrozen', 'nactive', 'nvirtual'
   # be careful with these settings, if you choose your active space differently than orbitals are ordered
   # you should specify also which virtual orbitals you want to use
-  'frozen_orbs',   [1,0,0,0,0,0,0,0], # which orbitals for each symmetry to use as frozen,
-  'active_orbs',   [5,1,0,0,0,0,0,0], # which orbitals for each symmetry to use as active,
-  'virtual_orbs',  [0,0,0,0,0,0,0,0], # which orbitals for each symmetry to use as virtual,
-  'reference_orbs',[0,0,0,0,0,0,0,0], # which orbitals for each symmetry to use for searching reference orbitals,
+  'frozen_orbs',   [1,0,0,0], # which orbitals for each symmetry to use as frozen,
+  'active_orbs',   [9,4,4,1], # which orbitals for each symmetry to use as active,
+  'virtual_orbs',  [0,0,0,0], # which orbitals for each symmetry to use as virtual,
+  'reference_orbs',[0,0,0,0], # which orbitals for each symmetry to use for searching reference orbitals,
 
   # ------------- The Multiple Active Spaces (MAS) approach -------------------
   #
@@ -117,16 +112,31 @@
   # Number of target states used to generate orbitals  in MOLPRO CASSCF calculation
   # for closed-shell target, specify the number of singlets, triplets, ...
   # for   open-shell target,                       doublets, quartets, ...
-  'ncasscf_states', {'singlet', [1,0,0,0,0,0,0,0],
-                     'triplet', [0,0,0,0,0,0,0,0]},
+  'ncasscf_states', {'doublet', [3,2,2,3]},
+  # -- 1 -> the so-sci  option to the multi card. 0 -> doesn't
+  'molpro_so_sci', 1,
+  # -- free-form multi card add-ons: {multi, molpro_multi_options;...
+  'molpro_multi_options', "",
+
+  # -- array of arrays for specifying LQUANT values to states that we state-average, ordered by irrep, e.g.
+  #    'molpro_lquant', {'doublet',  [ [2,0,0], [1,1], [1,1], [0,2,0] ],
+  #                   'quartet', [ [], [], [], [] ]},
+  #  corresponds to
+  #     A1: 2,0,0 (²Δ,²Σ⁺,²Σ⁺)
+  #     B1: 2,0,0 (²Π,²Π)
+  #     B2: 2,0,0 (²Π,²Π)
+  #     A2: 0,2,0 (²Σ¯,²Δ,²Σ¯)
+  #   and no quartets, or at least not specifying anything for the quartets.
+  # Make sure this matches the dimensions of ncasscf_states.
+  'molpro_lquant', {'doublet',  [ [2,0,0], [1,1], [1,1], [0,2,0] ]
+                   ,'quartet', [ [], [], [], [] ]},
 
   # Target states: for closed-shell target, specify the number of singlets, triplets, ...
   #                for   open-shell target,                       doublets, quartets, ...
   # for each symmetry (irreducible representation)
   # number of all target states which will be calculated
-  'ntarget_states', {'singlet', [2,1,0,0,0,0,0,0],  # number of target states to calculate in each irreducible representation (IR)
-                     'triplet', [1,1,0,0,0,0,0,0]},
-  'ntarget_states_used', "5",        # number of target states which will be actually used in scattering calculations
+  'ntarget_states', {'doublet', [2,1,1,2]},  # number of target states to calculate in each irreducible representation (IR)
+  'ntarget_states_used', "6",        # number of target states which will be actually used in scattering calculations
                                       # (chosen according to their energy from states above)
 
   # Deletion thresholds, used in  scatci_integrals for the continuum orthogonalization
@@ -148,12 +158,12 @@
 
   # Scattering spin-symmetry: for closed-shell target, specify which of doublets, quartets, ... to use
   #                           for   open-shell target,                  singlets, triplets, ...
-  'scattering_states', {'doublet', [1,1,0,0,0,0,0,0], # 1/0 to run/not to run scattering calculation for a given spin-symmetry
-                        'quartet', [0,0,0,0,0,0,0,0]},
+  'scattering_states', {'singlet', [1,1,1,1],  # 1/0 to run/not to run scattering calculation for a given spin-symmetry
+                        'triplet', [1,1,1,1]},
 
   # Continuum basis set
   'use_GTO',             1,              # do you want to use a Gaussion type basis?
-  'radius_GTO',         10,              # radius for which Gaussian basis was optimized (basis sets available for radius 10, 13, 15, 18)
+  'radius_GTO',         13,              # radius for which Gaussian basis was optimized (basis sets available for radius 10, 13, 15, 18)
   'maxl_GTO',            4,              # the highest partial wave used in the continuum Gaussian basis
                                          # search the directory basis.sets to find out
                                          # which continuum bases are available (they start with swmol3.continuum...)
@@ -166,15 +176,15 @@
   'maxl_legendre_1el',  70,              # maximum L to use in Legendre expansion for nuclear attraction integrals in the B-sline basis
   'maxl_legendre_2el',  55,              # maximum L to use in Legendre expansion for 2-electron integrals in the B-sline basis
 
-  'rmatrix_radius',   10.0,              # R-matrix radius used for scattering, it is also where the BTO basis ends
+  'rmatrix_radius',   13.0,              # R-matrix radius used for scattering, it is also where the BTO basis ends
 
  # Propagation step
   'max_multipole',       2,              # maximum multipole to be retained in expansion of long range potentials
   'raf',              70.0,              # radius at which continued fraction method can be used for R-matrix propagation
 
  # Energy grid
-  'nescat',      "17, 6000",              # number of input scattering energies in each subrange (input for R_SOLVE via namelist &rslvin)
-  'einc',     "0.00015, 0.00005, 0.001, 0.001",              # scattering energies - initial energy, energy increment, there can be more subranges
+  'nescat',   "40          , 40          ,  40          , 500",              # number of input scattering energies in each subrange (input for R_SOLVE via namelist &rslvin)
+  'einc',     "1e-4, 2.5e-5, 1e-3, 2.5e-4,  1e-2, 2.5e-3, 0.1, 0.005",              # scattering energies - initial energy, energy increment, there can be more subranges
 
  # Initial and final states for which the cross sections are calculated
   'maxi',              "1",              # the highest initial state for which cross sections are required

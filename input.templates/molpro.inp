@@ -28,7 +28,7 @@ orbprint,-1;
 }
 
 ! First CASSCF run only for target states for which orbitals should be optimised
-{multi;
+{multi>>>MULTIOPTS<<<;
 closed,>>>CLOSED<<<;
 occ,>>>OCC<<<;
 >>>CASWF<<<
@@ -45,9 +45,9 @@ natorb,print=1000;
 !}
 
 ! Saving density matrix for radden
-!{matrop; 
+!{matrop;
 !load,dm,den,2140.2;
-!write,dm;}								!save,dm,2140.2,DENSITY;} 
+!write,dm;}								!save,dm,2140.2,DENSITY;}
 
 ENDIF
 

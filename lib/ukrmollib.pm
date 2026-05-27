@@ -107,6 +107,7 @@ our %mass = (
 our %atomic_number = (
   'H' ,   1,
   'D' ,   1,
+  'H@2.014101779' ,   1,
   'T' ,   1,
   'He',   2,
   'Li',   3,
@@ -837,7 +838,7 @@ sub choose_model_by_name_mas {
   } elsif (!$r_par->{'model'}->{'models_using_mas'}->{$model_type}){
     die "$model_type model not yet implemented in the MAS approach";
   }
-  
+
   my $nel_closed = min($r_par->{'model'}->{'nfrozen'}*2, $r_par->{'model'}->{'nelectrons'});
   my $nel_active = $r_par->{'model'}->{'nelectrons'} - $nel_closed; # ORMAS style entry
 
@@ -851,9 +852,9 @@ sub choose_model_by_name_mas {
     if ($r_par->{'model'}{'nvirtual'})  {$virtual_orbs[$i] += $r_par->{'data'}->{'orbitals'}->{'virtual'}->[$i]};
     if ($r_par->{'model'}->{'use_PCO'}) {$pco_orbs[$i] += $r_par->{'data'}->{'orbitals'}->{'PCO'}->[$i]};
   }
-  
+
   my @MAS;
-  
+
   # Add closed orbitals if any.
   if ($r_par->{'model'}{'nfrozen'} > 0){
     if ($r_par->{'model'}->{'use_PCO'} && $r_par->{'model'}->{'reduce_PCO_CAS'}) {
@@ -868,8 +869,8 @@ sub choose_model_by_name_mas {
   my @CAS;
   if ($r_par->{'model'}{'nactive'} > 0){
     if ($r_par->{'model'}->{'use_PCO'} && $r_par->{'model'}->{'reduce_PCO_CAS'}) {
-      # We need to split the CAS into 2 subspaces: active part of GS and 
-      # the rest of the CAS active orbitals. All occupancies are allowed so it 
+      # We need to split the CAS into 2 subspaces: active part of GS and
+      # the rest of the CAS active orbitals. All occupancies are allowed so it
       # is equivalent to the single space description of the CAS.
       @CAS = split_cas($r_par);
     } else {
@@ -880,7 +881,7 @@ sub choose_model_by_name_mas {
 
   # Add PCO if we have them.
   if ($r_par->{'model'}->{'use_PCO'}) {
-    if ($r_par->{'model'}{'nvirtual'} > 0) {  
+    if ($r_par->{'model'}{'nvirtual'} > 0) {
       # Virtuals must come before PCO so must be added even though they are not
       # used in the target run.
       if ($model_type eq "CAS-A") {
@@ -907,21 +908,21 @@ sub choose_model_by_name_mas {
       }
       return $val;
     }
-  }   
+  }
 
   my @l2_MAS = @{dclone(\@MAS)};
   add_electron(\@l2_MAS);
   $polarization = 0;
 
   if ($r_par->{'model'}->{'nvirtual'} > 0) {
-    if ($model_type eq "CAS" || $model_type eq "CAS-B") { # Single excitations to the virtuals
+    if ($model_type eq "CAS" || $model_type eq "CAS-B") { # Spingle excitations to the virtuals
       $polarization = 1;
       if ($r_par->{'model'}->{'use_PCO'}) {
         $l2_MAS[-5]->[1] = 1;
       } else {
         push(@l2_MAS, (\@virtual_orbs, [0, 1], "active"));
       }
-    } elsif ($model_type eq "SEP" || $model_type eq "CAS-C"){ # Single and double excitations to the virtuals
+    } elsif ($model_type eq "SEP" || $model_type eq "CAS-C"){ # Spingle and double excitations to the virtuals
       $polarization = 2;
       add_excitation(\@l2_MAS);
       if ($r_par->{'model'}->{'use_PCO'}) {
@@ -947,15 +948,15 @@ sub choose_model_by_name_mas {
       if ($r_par->{'model'}->{'reduce_PCO_CAS'}){
         # Only PCO CSF of the type  GS^N PCO^1 and GS^N-1 PCO^2
         if ($r_par->{'model'}{'nfrozen'} > 0){
-          if ( ($occ->[-1] == 0 && $occ->[0] == $nel_closed) 
-                ||  ($occ->[-1] == 2 && $occ->[0] + $occ->[1] == $nelectrons-1) 
+          if ( ($occ->[-1] == 0 && $occ->[0] == $nel_closed)
+                ||  ($occ->[-1] == 2 && $occ->[0] + $occ->[1] == $nelectrons-1)
                 ||  ($occ->[-1] == 1 && $occ->[0] + $occ->[1] == $nelectrons) ) {
             $val = $val && 1;
           } else {
             $val = 0;
           }
         } else {
-          if ($occ->[-1] == 0 ||  ($occ->[-1] == 2 && $occ->[0] == $nelectrons-1) 
+          if ($occ->[-1] == 0 ||  ($occ->[-1] == 2 && $occ->[0] == $nelectrons-1)
               || ($occ->[-1] == 1 && $occ->[0] == $nelectrons)) {
             $val = $val && 1;
           } else {
@@ -1002,24 +1003,24 @@ sub split_cas {
 
 sub add_electron{
   my ($MAS) = @_;
-  
+
   # ORMAS with subspace labels only
   for( my $i = 0; $i < @{$MAS}; $i += 3 ) {
     if ($MAS->[$i+1][1] < 2*sum0(@{$MAS->[$i]})) {
       $MAS->[$i+1][1]++;
     }
-  }    
+  }
 }
 
 sub add_excitation{
   my ($MAS) = @_;
-  
+
   # ORMAS with subspace labels only
   for( my $i = 0; $i < @{$MAS}; $i += 3 ) {
     if ($MAS->[$i+1][0] > 0 && $MAS->[$i+2] eq "active") {
       $MAS->[$i+1][0]--;
     }
-  }    
+  }
 }
 
 # ------------------------- molpro --------------------------
@@ -1097,6 +1098,16 @@ sub make_molpro_input {
     &replace_in_template($r_str, "CLOSED", join(",", @{$r_par->{'data'}->{'orbitals'}->{'frozen'}}));
     &replace_in_template($r_str, "OCC", join(",", @{$r_par->{'data'}->{'orbitals'}->{'target'}}));
   }
+  # -- optional extra keywords on the {multi} command line (e.g., so-sci, shiftc=..)
+  my $multiopts = "";
+  if ($r_par->{'model'}->{'molpro_so_sci'}) {
+    $multiopts .= ",so-sci";
+  }
+  if (defined($r_par->{'model'}->{'molpro_multi_options'})
+      && $r_par->{'model'}->{'molpro_multi_options'} ne "") {
+    $multiopts .= ",".$r_par->{'model'}->{'molpro_multi_options'};
+  }
+  &replace_in_template($r_str, "MULTIOPTS", $multiopts);
 
   # Adding all 'wf' to MOLPRO input for which we want to optimise orbitals
   # and also for all target states needed
@@ -1105,7 +1116,7 @@ sub make_molpro_input {
   if (exists($r_par->{'model'}->{'use_MASSCF'}) && $r_par->{'model'}->{'use_MASSCF'} == 1){
     if ($molpro_input{'ORMAS'}){
       $casscf_states .= $molpro_input{'ORMAS'};
-      my $commented_lines = ""; 
+      my $commented_lines = "";
       foreach my $line (split(/\n/, $molpro_input{'ORMAS'})){
         if ($line ne "config;"){
           $line = "!".$line;
@@ -1121,6 +1132,13 @@ sub make_molpro_input {
       my $nstates = $r_par->{'model'}->{'ncasscf_states'}->{$statespin}->[$i - 1];
       if ($nstates > 0) {
         $casscf_states .= "wf,nelec=$nelec,sym=$i,spin=$spin; state,$nstates; ";
+        # -- add lquant
+        if (exists($r_par->{'model'}->{'molpro_lquant'})
+            && defined($r_par->{'model'}->{'molpro_lquant'}->{$statespin})
+            && defined($r_par->{'model'}->{'molpro_lquant'}->{$statespin}->[$i - 1])
+            && scalar(@{$r_par->{'model'}->{'molpro_lquant'}->{$statespin}->[$i - 1]}) > 0) {
+          $casscf_states .= "lquant,".join(",", @{$r_par->{'model'}->{'molpro_lquant'}->{$statespin}->[$i - 1]})."; ";
+        }
       }
       my $nstates = $r_par->{'model'}->{'ntarget_states'}->{$statespin}->[$i - 1];
       if ($nstates > 0) {
@@ -1143,6 +1161,7 @@ sub make_psi4_input {
   my $nelectrons = $r_par->{'model'}->{'nelectrons'};
   my $nprotons = 0;
   my @frozen, @active;
+  my $groundStateSpinMultiplicity = $r_par->{'model'}->{'groundStateSpinMultiplicity'};
 
   # Compose the geometry section and calculate number of +1 charges
   $str_geometry = "";
@@ -1192,8 +1211,8 @@ sub make_psi4_input {
   &replace_in_template($r_str, "ACTIVE", join(",", @$active));
 
   &replace_in_template($r_str, "CHARGE",    $nprotons - $nelectrons);
-  &replace_in_template($r_str, "SPIN",      $nelectrons % 2 == 0 ? 1 : 2);
-  &replace_in_template($r_str, "REFERENCE", $nelectrons % 2 == 0 ? "rhf" : "rohf");
+  &replace_in_template($r_str, "SPIN",      $groundStateSpinMultiplicity);
+  &replace_in_template($r_str, "REFERENCE", $groundStateSpinMultiplicity  == 1 ? "rhf" : "rohf");
 
   &replace_in_template($r_str, "MOLECULE",  lc($r_par->{'model'}->{'molecule'}));
   &replace_in_template($r_str, "BASISNAME", $r_par->{'model'}->{'basis'});
@@ -1238,19 +1257,19 @@ sub make_molcas_input {
   &replace_in_template($r_str, "CHARGE",    $nprotons - $nelectrons);
 
   if ($r_par->{'model'}->{'model'} =~ /^SE/ || $r_par->{'data'}->{'scf_ok'} == 0 ||
-        $r_par->{'model'}->{'orbitals'} eq "HF") { 
+        $r_par->{'model'}->{'orbitals'} eq "HF") {
     &replace_in_template($r_str, "METHOD", "HF");
   }
-  else { 
+  else {
     &replace_in_template($r_str, "METHOD", "GASSCF");
   }
-  #  Choose spin, irrep and number of states to average over Note: Molcas 
+  #  Choose spin, irrep and number of states to average over Note: Molcas
   #  cannot average over states of different symmetry (unlike Molpro). Defaults
   #  to the lowest spin totally symmetric state (as in Molcas).
   my $spin = ($nprotons - $nelectrons) % 2 + 1;
-  my $irrep = 1;  
+  my $irrep = 1;
   my $ciroot = [1, 1, 1];
-  
+
   %spin_labels = reverse %spin_multiplicity;
   my $found_states = 0;
   for my $i (1..9){
@@ -1266,11 +1285,11 @@ sub make_molcas_input {
           last;
         }
       }
-    } 
+    }
   }
 
   my %molcas_input;
-  if ($r_par->{'model'}->{'model'} =~ /^SE/ || $r_par->{'data'}->{'scf_ok'} == 0 || $r_par->{'model'}->{'orbitals'} eq "HF") { 
+  if ($r_par->{'model'}->{'model'} =~ /^SE/ || $r_par->{'data'}->{'scf_ok'} == 0 || $r_par->{'model'}->{'orbitals'} eq "HF") {
     $molcas_input{'NACTEL'} = [0,0,0];
     $molcas_input{'FROZEN'} = [0,0,0,0,0,0,0,0];
     $molcas_input{'INACTIVE'} = [0,0,0,0,0,0,0,0];
@@ -1409,7 +1428,7 @@ sub make_congen_mas_input {
 
   # Get the target space (and l2 space if given)
   # ==============================================
-  
+
   my @nob0 = ();
 
   my $target_space = $r_par->{'data'}{'MAS'}{'target'};
@@ -1418,7 +1437,7 @@ sub make_congen_mas_input {
   my $l2_space;
   my @total_l2_used = (0) x 8;
   if (@{$r_par->{'model'}->{'l2_MAS'}}){
-    $l2_space = $r_par->{'data'}{'MAS'}{'l2'};   
+    $l2_space = $r_par->{'data'}{'MAS'}{'l2'};
     @total_l2_used = $l2_space->total_orbitals();
   };
 
@@ -1511,7 +1530,7 @@ sub make_congen_mas_input {
     }
   }
 
-  $state_namelist{'NELECT'} = $nelectrons;  
+  $state_namelist{'NELECT'} = $nelectrons;
   $state_namelist{'NREFO'} = $nrefo;
   $state_namelist{'REFORB'} = join(",", @reforb);
   $state_namelist{'REFORB'} =~ s/(\d+,\d+,\d+,\d+,\d+,)/\1 /g; # Add spaces for better reading
@@ -1522,7 +1541,7 @@ sub make_congen_mas_input {
   # End - Taken directly from make_congen_input
   #----------------------------------------------
 
-  if ($task ne "target") { 
+  if ($task ne "target") {
     $nelectrons--;
   }
 
@@ -1541,11 +1560,11 @@ sub make_congen_mas_input {
     'PQN',      "",
     'MSHL',     "",
     'LSQUARE',   1,
-    'L2_POSITRON_FLAG',  "!",  #, "",   TODO: This should be changed when positron 
+    'L2_POSITRON_FLAG',  "!",  #, "",   TODO: This should be changed when positron
                                #        scattering is implemented in MAS.
   );
 
-  # Read &wfngrp namelist template  
+  # Read &wfngrp namelist template
   my $wfngrp_template = "";
   if(!&read_file("$r_par->{'dirs'}->{'templates'}${bs}congen.wfngrp.inp", \$wfngrp_template)) {
     &print_info("Warning: no template file for congen.wfngrp.inp !\n", $r_par);
@@ -1566,7 +1585,7 @@ sub make_congen_mas_input {
   } else {
       $wfngrp_namelist{'NELECG'} += 1;
       my $total_spinsym  = [$statespinno, $statesym];
-      # my @nob0 = @{$r_par->{'data'}->{'orbitals'}->{'target_used'}};      
+      # my @nob0 = @{$r_par->{'data'}->{'orbitals'}->{'target_used'}};
 
       my @all_target_spinsyms = ();
       for (my $i = 0; $i < $r_par->{'data'}->{'nir'}; $i++) {
@@ -1590,7 +1609,7 @@ sub make_congen_mas_input {
         $wfngrp = $wfngrp_template;
         &replace_all_in_template_with_arrays(\$wfngrp, \%updated_wfngrp, ',');
         $$r_str .= $wfngrp;
-      };      
+      };
   }
   return 1;
 }
@@ -1871,7 +1890,7 @@ sub make_congen_input {
           }
         }
       }
-        
+
       if ( $r_par->{'model'}->{'use_PCO'} ) {
         if ($r_par->{'model'}->{'model'} eq "SEP") {
           $wfngrp_namelist{'GNAME'} = "( GS^N-1 PCO^1 ) x continuum^1";
@@ -2064,7 +2083,7 @@ sub make_congen_input {
         }
         # couple all target states to appropriate symmetry
         $wfngrp_namelist{'L2_POSITRON_FLAG'} = '!';
-        $wfngrp_namelist{'LSQUARE'} = 0; 
+        $wfngrp_namelist{'LSQUARE'} = 0;
         $wfngrp_namelist{'QNTAR'} = "$mult,$sym,0";
         &add_continuum_shells($r_par, \%wfngrp_namelist, $sym, $iposit);
         $wfngrp = $wfngrp_template;
@@ -2080,7 +2099,7 @@ sub make_congen_input {
         &add_active_shells($r_par, \%wfngrp_namelist, $nactive_electrons);
         &add_virtual_shells($r_par, \%wfngrp_namelist, 1);
         $wfngrp_namelist{'L2_POSITRON_FLAG'} = '!';
-        $wfngrp_namelist{'LSQUARE'} = 1; 
+        $wfngrp_namelist{'LSQUARE'} = 1;
         $wfngrp = $wfngrp_template;
         &replace_all_in_template(\$wfngrp, \%wfngrp_namelist);
         $$r_str .= $wfngrp;
@@ -2128,7 +2147,7 @@ sub make_congen_input {
               }
             }
           }
-        }    
+        }
       }
 
       # Photoionization only
@@ -2336,8 +2355,8 @@ sub make_congen_input {
         $$r_str .= $wfngrp;
       }
       else {
-        if ($r_par->{'model'}->{'use_PCO'} == 0 and $r_par->{'model'}->{'nvirtual'} == 0) { 
-        #This if is because: if using VOs, these configurations are included in core^Nc cas^N-Nc positron-TGT-to-virtual^1 
+        if ($r_par->{'model'}->{'use_PCO'} == 0 and $r_par->{'model'}->{'nvirtual'} == 0) {
+        #This if is because: if using VOs, these configurations are included in core^Nc cas^N-Nc positron-TGT-to-virtual^1
         #                    if using PCOs, these configurations are included in core^Nc cas^N-Nc positron-TGT-to-PCO^1
           for (my $i = 0; $i < $r_par->{'data'}->{'nir'}; $i++) {
             $found = 0;
@@ -2362,7 +2381,7 @@ sub make_congen_input {
           }
         }
       }
- 
+
 
       # and finally (core+cas)^N-h x virtual^1+h if there are any virtual orbitals
       if ($r_par->{'model'}->{'nvirtual'} > 0) {
@@ -2383,7 +2402,7 @@ sub make_congen_input {
                     $wfngrp_namelist{'QNTAR'} = "$spin_multiplicity{lc($targetstatespin)},$i,0";
                     &add_virtual_shell_for_given_target_symmetry($r_par, \%wfngrp_namelist, $i);
                   }
-                  else { 
+                  else {
                     $wfngrp_namelist{'QNTAR'} = "$spin_multiplicity{lc($targetstatespin)},$i,0";
                     $wfngrp_namelist{'L2_POSITRON_FLAG'} = '';
                     &add_positron_frozact_shells($r_par, \%wfngrp_namelist, $i);
@@ -2406,7 +2425,7 @@ sub make_congen_input {
             $wfngrp = $wfngrp_template;
             &replace_all_in_template(\$wfngrp, \%wfngrp_namelist);
             $$r_str .= $wfngrp;
-          } 
+          }
           else {
             if ($r_par->{'model'}->{'use_PCO'} == 0) { #if using PCOs then these configurations are included in core^Nc cas^N-Nc positron-TGT-to-PCO^1
               for (my $i = 0; $i < $r_par->{'data'}->{'nir'}; $i++) {
@@ -2445,7 +2464,7 @@ sub make_congen_input {
             $wfngrp = $wfngrp_template;
             &replace_all_in_template(\$wfngrp, \%wfngrp_namelist);
             $$r_str .= $wfngrp;
-          } 
+          }
           else {
             for (my $i = 0; $i < $r_par->{'data'}->{'nir'}; $i++) {
               $found = 0;
@@ -2929,7 +2948,7 @@ sub make_scatci_input {
       $input_namelist{'IGHT'} = '!';
       $input_namelist{'IGH'} = 1;
     }
-    else { 
+    else {
       $input_namelist{'IGHT'} = '';
       $input_namelist{'IGH'} = $r_par->{'run'}->{'ight'};
     }
@@ -2981,7 +3000,7 @@ sub make_scatci_input {
       $input_namelist{'IGHS'} = '!';
       $input_namelist{'IGH'} = 1;
     }
-    else { 
+    else {
       $input_namelist{'IGHS'} = '';
       $input_namelist{'IGH'} = $r_par->{'run'}->{'ighs'};
     }
@@ -3273,10 +3292,10 @@ sub make_swinterf_input {
 
   if ($r_par->{'data'}->{'orbitals'}->{'virt_cont_used'}){
     for (my $i=0; $i<$r_par->{'model'}->{'ntarget_states_used'}; $i++) {
-      my $spinsym=$r_par->{'data'}->{'target'}->{'ordered_states'}->[$i]; 
+      my $spinsym=$r_par->{'data'}->{'target'}->{'ordered_states'}->[$i];
       my ($spin, $sym) = split(/\./, $spinsym);
-      $nvo[$i]= $r_par->{'data'}->{'orbitals'}->{'virtual'}->[$group_table[$sym]->[$statesym]]; 
-    } 
+      $nvo[$i]= $r_par->{'data'}->{'orbitals'}->{'virtual'}->[$group_table[$sym]->[$statesym]];
+    }
   }
 
   if (exists $r_par->{'model'}->{'ecutoff_target_states_in_outer'} && defined $r_par->{'model'}->{'ecutoff_target_states_in_outer'}) {
@@ -3284,7 +3303,7 @@ sub make_swinterf_input {
   } else {
     &replace_in_template($r_str, "ECUTOFF", -1.0);
   }
-  
+
   &replace_in_template($r_str, "MOLECULE", "e + ".$r_par->{'model'}->{'molecule'});
   &replace_in_template($r_str, "IPOSIT",   -$r_par->{'model'}->{'positron_flag'});
   &replace_in_template($r_str, "SPIN",     $statespin);
@@ -3293,7 +3312,7 @@ sub make_swinterf_input {
   &replace_in_template($r_str, "STOT",     $spin_multiplicity{lc($statespin)});
   &replace_in_template($r_str, "NTARG",    $ntarg);
   &replace_in_template($r_str, "IDTARG",   join(",", @idtarg));
-  &replace_in_template($r_str, "NVO",      join(",", @nvo)); 
+  &replace_in_template($r_str, "NVO",      join(",", @nvo));
   &replace_in_template($r_str, "RMATR",    $r_par->{'model'}->{'rmatrix_radius'});
   &replace_in_template($r_str, "RAF",      $r_par->{'model'}->{'raf'});
   &replace_in_template($r_str, "ISMAX",    $r_par->{'model'}->{'max_multipole'});
@@ -3693,7 +3712,7 @@ sub read_molpro_output {
     my $file = "$prefix.molden";
     my $point_group = $r_par->{'model'}->{'symmetry'};
     my @sorted_orbitals = MultiSpace::read_orbitals_from_molden("molpro", $file, $point_group);
-    
+
     # If MASSCF is not used allow re-ordering by energy if requested.
     if ($r_par->{'model'}->{'select_orb_by'} eq "energy"){
       if (!$r_par->{'model'}->{'use_MASSCF'}) {
@@ -3717,14 +3736,14 @@ sub read_molpro_output {
       foreach my $orb (@sorted_orbitals){
         &print_info("    $orb->{'Sym='}.$orb->{'Idx_in_sym='}    $orb->{'Occup='}    $orb->{'Ene='}\n", $r_par);
         if ($r_par->{'model'}->{'norbitals_to_print'} == $p++) { last; }
-      }      
+      }
     }
     # Read the CASSCF (or ORMASSCF) state energies for later comparison to state energies
     # produced in the target scatci run.
-    if (!($r_par->{'data'}->{'scf_ok'} == 0 || $model =~ m/^SE/ || $r_par->{'model'}->{'orbitals'} eq "HF")) { 
+    if (!($r_par->{'data'}->{'scf_ok'} == 0 || $model =~ m/^SE/ || $r_par->{'model'}->{'orbitals'} eq "HF")) {
       read_state_energies_from_molpro($r_par);
     }
-    
+
   } else {
     @sorted_orb = sort { $r_e->{$a} <=> $r_e->{$b} } keys %$r_e;
     my $r_occ = [];
@@ -3760,7 +3779,7 @@ sub read_state_energies_from_molpro{
     while( my $line = <$in>)  {
 
       if ($line =~ m/\s*Number of electrons:\s*\d+\s*Spin symmetry=\s*(\w+)\s*Space symmetry=(\d)/){
-        
+
         my $statesym = $2 - 1;
         my $statespin = $spin_multiplicity{lc($1)};
         $line = <$in>;
@@ -3772,7 +3791,7 @@ sub read_state_energies_from_molpro{
         $line = <$in>;
         if ($line =~ m/\s*Number of CSFs:\s*(\d+)\s*/){
           $nocsfs{"$statespin.$statesym"} = $1;
-        }        
+        }
       }
 
       if ($line =~ m/\s*.MCSCF STATE\s*(\d+)\.(\d+)\s*Energy\s*([\+\-]?\d+\.\d+)/){
@@ -3865,13 +3884,13 @@ sub read_psi4_output {
 
 # ------------------------- molcas --------------------------
 # TODO: If frozen orbitals are used then energies of those orbital
-#       must be taken from the scf.molden file as they are zero in the 
-#       rasscf.molden file. This is not implemented yet. 
+#       must be taken from the scf.molden file as they are zero in the
+#       rasscf.molden file. This is not implemented yet.
 #       At the moment, despite the confusing 'frozen_orbs'
 #       key name, frozen orbs as they are defined in molpro/molcas are not used
-#       in the scripts, 'frozen_orbs' infact refers to closed/inactive orbs. 
-#       However for the large calcs that will be attempted with molcas it may 
-#       be desirable to use frozen orbitals. 
+#       in the scripts, 'frozen_orbs' infact refers to closed/inactive orbs.
+#       However for the large calcs that will be attempted with molcas it may
+#       be desirable to use frozen orbitals.
 sub read_molcas_output {
   my ($r_par) = @_;
   my $nir = $r_par->{'data'}->{'nir'};
@@ -3895,7 +3914,7 @@ sub read_molcas_output {
     if ($orb->{'Occup='} > 0) {
       $r_par->{'data'}->{'target'}->{'noccupied'}++;
     }
-  }  
+  }
 
   my $subspaces;
   if ($r_par->{'model'}->{'model'} =~ /^SE/ || $r_par->{'data'}->{'scf_ok'} == 0 || $r_par->{'model'}->{'orbitals'} eq "HF") {
@@ -3909,7 +3928,7 @@ sub read_molcas_output {
   my @sorted_orb;
   foreach my $orb (@sorted_orbitals){
     push(@sorted_orb, "$orb->{'Sym='}.$orb->{'Idx_in_sym='}");
-  }  
+  }
   $r_par->{'data'}->{'MAS'}->{'sorted_orb'} = \@sorted_orb;
 
   &print_info("  Total number of orbitals for each symmetry: ".join(", ", @{$r_par->{'data'}->{'orbitals'}->{'target_all'}})."\n", $r_par);
@@ -3926,7 +3945,7 @@ sub read_molcas_output {
     foreach my $orb (@sorted_orbitals){
       &print_info("    $orb->{'Sym='}.$orb->{'Idx_in_sym='}    $orb->{'Occup='}    $orb->{'Ene='}\n", $r_par);
       if ($r_par->{'model'}->{'norbitals_to_print'} == $p++) { last; }
-    }      
+    }
   }
 
   $r_par->{'data'}->{'scf_ok'} = 1;
@@ -4147,7 +4166,7 @@ sub read_congen_output {
       if ($r_par->{'model'}->{'use_MAS'} > 0 && $task eq "target") {
         my $sym = $r_par->{'data'}->{$task}->{'symmetry'};
         my $spin = $spin_multiplicity{$r_par->{'data'}->{$task}->{'spin'}};
-        $r_par->{'data'}->{'MAS'}->{'nocsfs'}->{"$spin.$sym"} = $ncsfs;       
+        $r_par->{'data'}->{'MAS'}->{'nocsfs'}->{"$spin.$sym"} = $ncsfs;
       }
       if ($r_par->{'model'}->{'model'} =~ /(^CHF)/ && $task eq "target") {
         my $sym = $r_par->{'data'}->{$task}->{'symmetry'};
@@ -4743,7 +4762,7 @@ sub run_code {
     $r_par->{'data'}->{'outputfile'} = "$r_dirs->{'outputs'}$bs$task.denprop.out";
     $r_par->{'data'}->{'errorfile'} = "$r_dirs->{'outputs'}$bs$task.denprop.err";
   }
-  
+
   # If CONGEN, SCATCI, OUTER or TIME-DELAY are to be run then input and output files contain information about spin and symmetry
   # e.g. target.scatci.triplet.A2, or scattering.congen.doublet.B1.inp
   if ($program =~ /^(congen|scatci|cdenprop|swinterf|rsolve|eigenp|tmatrx|ixsecs|reson|time-delay)$/) {
@@ -4873,7 +4892,7 @@ sub run_code {
     if (-e "inp") { &run_system("$rm_cmd inp", $r_par); }
     if ($program eq "molcas") {
       my $prefix =  lc($r_par->{'model'}->{'molecule'});
-      if ($r_par->{'model'}->{'model'} =~ /^SE/ || $r_par->{'data'}->{'scf_ok'} == 0 || $r_par->{'model'}->{'orbitals'} eq "HF") { 
+      if ($r_par->{'model'}->{'model'} =~ /^SE/ || $r_par->{'data'}->{'scf_ok'} == 0 || $r_par->{'model'}->{'orbitals'} eq "HF") {
         &run_system("$mv_cmd target.molcas.scf.molden ".$prefix.".molden", $r_par);
         &run_system("$rm_cmd *molcas.*", $r_par);
         &run_system("$rm_cmd coord.inp pid rc.global rc.local stdin xmldump", $r_par);
@@ -4882,7 +4901,7 @@ sub run_code {
         &run_system("$rm_cmd *molcas.*", $r_par);
         &run_system("$rm_cmd CI_Iterations.txt CleanInput coord.inp pid rc.global rc.local stdin xmldump", $r_par);
       }
-    }    
+    }
 
     # save error log to output log and remove error log
     if (open(my $fout, ">>", $output) and open(my $ferr, "<", $error)) {
@@ -5013,7 +5032,7 @@ sub add_range {
 }
 
 # -- BEGIN: Added for make_conge_mas_input ----
-# Routines to insert arrays directly into the input templates with easier to 
+# Routines to insert arrays directly into the input templates with easier to
 # read spacing for pqn and mshl.
 
 sub replace_in_template_with_arrays {
@@ -5031,7 +5050,7 @@ sub replace_in_template_with_arrays {
         my @pqn = splice @pqns, 0, 3;
         $with_str .=  "$pqn[0]$sep$pqn[1]$sep$pqn[2]$sep "
       }
-    } elsif ($what eq 'GASSCF'){ 
+    } elsif ($what eq 'GASSCF'){
       foreach  (@{$with}){
         $with_str .= join($sep, @{$_});
         $with_str .= "\n";
@@ -5041,7 +5060,7 @@ sub replace_in_template_with_arrays {
     }
   } else {
     $with_str = $with;
-  }; 
+  };
   $with_str =~ s/,\s*$//; # Get rid of ',' at the end
   $$r_str =~ s/>>>$what<<</$with_str/gi;
   return 1;
@@ -5049,7 +5068,7 @@ sub replace_in_template_with_arrays {
 
 sub replace_all_in_template_with_arrays {
   my ($r_str, $r_namelist, $sep) = @_;
-  
+
   foreach my $what (keys %{$r_namelist}) {
     &replace_in_template_with_arrays($r_str, $what, $r_namelist->{$what}, $sep);
   }
@@ -5112,7 +5131,7 @@ sub gather_eigenphases {
 }
 
 # Print the energy difference between the states produced by the CASSCF quantum
-# chemistry calculation used to produce the natural orbitals and the MAS 
+# chemistry calculation used to produce the natural orbitals and the MAS
 # target states.
 sub print_mas_analysis{
   my ($r_par) = @_;
@@ -5156,7 +5175,7 @@ sub print_mas_analysis{
       $nocsf_target = sprintf("%8d", $r_par->{'data'}->{'MAS'}->{'nocsfs'}->{"$spin.$sym"});
     }
 
-    &print_info("   $idx      $spin.$sym    $curr_state_diff  $nocsf_qchem  $nocsf_target\n", $r_par); 
+    &print_info("   $idx      $spin.$sym    $curr_state_diff  $nocsf_qchem  $nocsf_target\n", $r_par);
   }
   &print_info("   ---------------------------------------------------\n", $r_par);
   # $max_diff{'state'} = sprintf("%.6e", $max_diff{'state'});

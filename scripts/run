@@ -1,0 +1,3 @@
+#!/bin/sh
+# -- only one model*.pl file sould be chose.
+perl main.pl dirs.pl config.pl model.pl geometry.pl
