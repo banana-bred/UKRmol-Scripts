@@ -119,24 +119,24 @@
   'molpro_multi_options', "",
 
   # -- array of arrays for specifying LQUANT values to states that we state-average, ordered by irrep, e.g.
-  #    'molpro_lquant', {'doublet',  [ [2,0,0], [1,1], [1,1], [0,2,0] ],
+  #    'molpro_lquant', {'doublet',  [ [2,0,2], [1,1], [1,1], [0,2,2] ],
   #                   'quartet', [ [], [], [], [] ]},
   #  corresponds to
-  #     A1: 2,0,0 (²Δ,²Σ⁺,²Σ⁺)
-  #     B1: 2,0,0 (²Π,²Π)
-  #     B2: 2,0,0 (²Π,²Π)
-  #     A2: 0,2,0 (²Σ¯,²Δ,²Σ¯)
+  #     A1: 2,0,2 (²Δ,²Σ⁺,²Δ)
+  #     B1: 1,1   (²Π,²Π)
+  #     B2: 1,1   (²Π,²Π)
+  #     A2: 0,2,2 (²Σ¯,²Δ,²Δ,)
   #   and no quartets, or at least not specifying anything for the quartets.
   # Make sure this matches the dimensions of ncasscf_states.
-  'molpro_lquant', {'doublet',  [ [2,0,0], [1,1], [1,1], [0,2,0] ]
+  'molpro_lquant', {'doublet',  [ [2,0,2], [1,1], [1,1], [0,2,2] ]
                    ,'quartet', [ [], [], [], [] ]},
 
   # Target states: for closed-shell target, specify the number of singlets, triplets, ...
   #                for   open-shell target,                       doublets, quartets, ...
   # for each symmetry (irreducible representation)
   # number of all target states which will be calculated
-  'ntarget_states', {'doublet', [2,1,1,2]},  # number of target states to calculate in each irreducible representation (IR)
-  'ntarget_states_used', "6",        # number of target states which will be actually used in scattering calculations
+  'ntarget_states', {'doublet', [3,2,2,3]},  # number of target states to calculate in each irreducible representation (IR)
+  'ntarget_states_used', "10",        # number of target states which will be actually used in scattering calculations
                                       # (chosen according to their energy from states above)
 
   # Deletion thresholds, used in  scatci_integrals for the continuum orthogonalization
