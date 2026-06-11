@@ -4855,8 +4855,7 @@ sub run_code {
       # Roman Čurík circa ~ 2025; molpro input in cwd
       # $command = "$dir$bs$program$ext_exe --no-xml-output $input --output $output 2> $error";
       &copy_file("inputs/target.molpro.inp","target.molpro.inp");
-      $command = "$dir$bs$program$ext_exe --no-xml-output target.molpro.inp --outpu
-t target.molpro.out 2> $error";
+      $command = "$dir$bs$program$ext_exe --no-xml-output target.molpro.inp --output target.molpro.out 2> $error";
     } elsif ($program eq "psi4") {
       $command = "$dir$bs$program$ext_exe --input $input --output $output 2> $error";
     } elsif ($program eq "molcas") {
