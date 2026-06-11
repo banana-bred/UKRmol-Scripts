@@ -1144,9 +1144,10 @@ sub make_molpro_input {
         # @@@
         # -- add pspace per symmetry (overrides global if set)
         if (exists($r_par->{'model'}->{'molpro_pspace'})
-            && defined($r_par->{'model'}->{'molpro_pspace'}->[$i - 1])
-            && scalar(@{$r_par->{'model'}->{'molpro_pspace'}->[$i - 1]}) > 0) {
-          $casscf_states .= sprintf("pspace,%s; ", &as_float($r_par->{'model'}->{'molpro_pspace'}->[$i - 1]->[0]))
+            && defined($r_par->{'model'}->{'molpro_pspace'}->{$statespin})
+            && defined($r_par->{'model'}->{'molpro_pspace'}->{$statespin}->[$i - 1])
+            && scalar(@{$r_par->{'model'}->{'molpro_pspace'}->{$statespin}->[$i - 1]}) > 0) {
+          $casscf_states .= sprintf("pspace,%s; ", &as_float($r_par->{'model'}->{'molpro_pspace'}->{$statespin}->[$i - 1]->[0]))
         }
         # -- add lquant
         if (exists($r_par->{'model'}->{'molpro_lquant'})
