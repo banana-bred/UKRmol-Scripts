@@ -15,14 +15,14 @@ method = '>>>METHOD<<<'  ! set to HF or CASSCF in scripts
 
 IF (method.eq.'HF') THEN
 
-{hf;
+{hf>>>HFOPTS<<<;
 >>>HFWF<<<
 orbprint,1000;
 }
 
 ELSE
 
-{hf;
+{hf>>>HFOPTS<<<;
 >>>HFWF<<<
 orbprint,-1;
 }

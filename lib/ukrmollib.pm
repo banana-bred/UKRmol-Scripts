@@ -1100,13 +1100,16 @@ sub make_molpro_input {
   }
   # -- optional extra keywords on the {multi} command line (e.g., so-sci, shiftc=..)
   my $multiopts = "";
+  my $hfopts = "";
   if ($r_par->{'model'}->{'molpro_so_sci'}) {
+    $hfopts    .= ",so-sci";
     $multiopts .= ",so-sci";
   }
   if (defined($r_par->{'model'}->{'molpro_multi_options'})
       && $r_par->{'model'}->{'molpro_multi_options'} ne "") {
     $multiopts .= ",".$r_par->{'model'}->{'molpro_multi_options'};
   }
+  &replace_in_template($r_str, "HFOPTS",    $hfopts);
   &replace_in_template($r_str, "MULTIOPTS", $multiopts);
 
   # Adding all 'wf' to MOLPRO input for which we want to optimise orbitals
