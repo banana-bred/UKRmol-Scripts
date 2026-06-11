@@ -115,6 +115,8 @@
   'ncasscf_states', {'doublet', [3,2,2,3]},
   # -- 1 -> the so-sci  option to the multi card. 0 -> doesn't
   'molpro_so_sci', 1,
+  # -- if nonempty, specify PSPACE thresholds for each symmetry
+  'molpro_pspace', [ [0.4], [5.0], [10.0], []],
   # -- free-form multi card add-ons: {multi, molpro_multi_options;...
   'molpro_multi_options', "",
 

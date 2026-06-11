@@ -1,3 +1,4 @@
 #!/bin/sh
-# -- only one model*.pl file sould be chose.
-perl main.pl dirs.pl config.pl model.pl geometry.pl
+# -- only one model*.pl file sould be chosen
+# perl main.pl dirs.pl config.pl model.pl geometry.pl
+perl main.pl dirs.pl config.pl model.2.pl geometry.pl

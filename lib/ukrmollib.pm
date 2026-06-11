@@ -610,6 +610,12 @@ sub coord_to_strings {
 
 # ================= subroutines for INPUTS ==================
 
+sub as_float {
+  my ($v) = @_;
+  $v = $v + 0; # make a number
+  return ($v == int($v) ? sprintf("%.1f", $v) : "$v")
+}
+
 # according to model settings this subroutine searches for the continuum basis file
 # if a specific file with the given L is not available, a file with the basis for higher L is used
 sub which_continuum_basis_file_to_use {
@@ -1135,6 +1141,13 @@ sub make_molpro_input {
       my $nstates = $r_par->{'model'}->{'ncasscf_states'}->{$statespin}->[$i - 1];
       if ($nstates > 0) {
         $casscf_states .= "wf,nelec=$nelec,sym=$i,spin=$spin; state,$nstates; ";
+        # @@@
+        # -- add pspace per symmetry (overrides global if set)
+        if (exists($r_par->{'model'}->{'molpro_pspace'})
+            && defined($r_par->{'model'}->{'molpro_pspace'}->[$i - 1])
+            && scalar(@{$r_par->{'model'}->{'molpro_pspace'}->[$i - 1]}) > 0) {
+          $casscf_states .= sprintf("pspace,%s; ", &as_float($r_par->{'model'}->{'molpro_pspace'}->[$i - 1]->[0]))
+        }
         # -- add lquant
         if (exists($r_par->{'model'}->{'molpro_lquant'})
             && defined($r_par->{'model'}->{'molpro_lquant'}->{$statespin})

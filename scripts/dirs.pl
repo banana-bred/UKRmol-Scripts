@@ -8,15 +8,15 @@
 
 %dirs = (
 
-  'bin_in',    "/home/alex/Code/git_repos/UKRmolp/UKRmol-in/build/bin",  # Directory where executables of UKRmol-in are
-  'bin_out',   "/home/alex/Code/git_repos/UKRmolp/UKRmol-in/build/bin",    # Directory where executables of UKRmol-out are
-  'molpro',    "/home/alex/bin",  # Directory where executables of MOLPRO are
-  'psi4',      "/opt/psi4-1.2.1/bin",  # Directory where executables of PSI4 are
-  'molcas',    "/home/alex/bin",  # Directory where executables of MOLCAS are
+  'bin_in',    "",  # Directory where executables of UKRmol-in are
+  'bin_out',   "",  # Directory where executables of UKRmol-out are
+  'molpro',    "",  # Directory where executables of MOLPRO are
+  'psi4',      "",  # Directory where executables of PSI4 are
+  'molcas',    "",  # Directory where executables of MOLCAS are
 
-  'basis',     "/home/alex/Code/git_repos/UKRmol-scripts/basis.sets",         # Directory where basis sets are - templates named 'swmol3.A.$basis' or 'molpro.A.$basis' where 'A' stands for an atom
-  'templates', "/home/alex/Code/git_repos/UKRmol-scripts/input.templates",    # Directory where input templates are - read if 'use_templates' = 1
-  'libs',      "/home/alex/Code/git_repos/UKRmol-scripts/lib",                # Directory where UKRmol-scripts libraries are (equivalent to perl -I<libs>, or use of PERL5LIB)
+  'basis',     "../basis.sets",         # Directory where basis sets are - templates named 'swmol3.A.$basis' or 'molpro.A.$basis' where 'A' stands for an atom
+  'templates', "../input.templates",    # Directory where input templates are - read if 'use_templates' = 1
+  'libs',      "../lib",                # Directory where UKRmol-scripts libraries are (equivalent to perl -I<libs>, or use of PERL5LIB)
 
   'output',    "output",                                 # Main directory for output in the working directory
 
