@@ -1113,7 +1113,7 @@ sub make_molpro_input {
   }
   if (defined($r_par->{'model'}->{'molpro_multi_options'})
       && $r_par->{'model'}->{'molpro_multi_options'} ne "") {
-    $multiopts .= ",".$r_par->{'model'}->{'molpro_multi_options'};
+    $multiopts .= ";".$r_par->{'model'}->{'molpro_multi_options'};
   }
   &replace_in_template($r_str, "HFOPTS",    $hfopts);
   &replace_in_template($r_str, "MULTIOPTS", $multiopts);
