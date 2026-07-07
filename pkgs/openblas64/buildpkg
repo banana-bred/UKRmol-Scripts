@@ -1,0 +1,57 @@
+#!/bin/bash
+# Maintainer: Felix Yan <felixonmars@archlinux.org>
+# Contributor: Giuseppe Borzi <gborzi _AT_ ieee _DOT_ org>
+_pkgname=OpenBLAS
+pkgver=0.3.33
+url="https://github.com/OpenMathLib/OpenBLAS/releases/download/v${pkgver}/${_pkgname}-${pkgver}.tar.gz"
+sha256sum_expected='6761af1d9f5d353ab4f0b7497be2643313b36c8f31caec0144bfef198e71e6ab'
+ball="${_pkgname}-${pkgver}.tar.gz"
+srcdir="${_pkgname}-${pkgver}"
+prefix="${HOME}/.local"
+
+download() {
+  [ -e "$ball" ] && return
+  curl -L -o "$ball" "$url"
+}
+
+verify() {
+  sha=$(sha256sum "$ball" | awk '{print $1}')
+  [ "$sha" != "$sha256sum_expected" ] && echo "Could not verify" && exit 1
+}
+
+extract() {
+  [ -d "$srcdir" ] && return
+  tar -xf "$ball"
+}
+
+build() {
+  cd "$srcdir"
+  ASMFLAGS=$CFLAGS FFLAGS=${CFLAGS/ -Wformat -Werror=format-security/} FC=gfortran \
+    cmake -B build64 -S . \
+    -DCMAKE_INSTALL_PREFIX="$prefix" \
+    -DBUILD_SHARED_LIBS=ON \
+    -DBUILD_TESTING=OFF \
+    -DNO_AFFINITY=ON \
+    -DUSE_OPENMP=1 \
+    -DNO_WARMUP=1 \
+    -DNUM_THREADS=64 \
+    -DDYNAMIC_ARCH=OFF \
+    -DINTERFACE64=1
+  cmake --build build64 -j"$(nproc)"
+  cd ..
+}
+
+install_local() {
+  cd "$srcdir"
+  cmake --install build64
+  cd ..
+}
+
+download
+verify
+extract
+build
+install_local
+
+echo "Done. Add ~/.local/lib to your linker paths if not already:"
+echo '  export LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"'

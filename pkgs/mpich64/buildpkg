@@ -1,0 +1,83 @@
+#!/bin/bash
+# Maintainer: banana-bred <j.forer@posteo.net>
+# Contributor: Jed Brown <jed@59A2.org>
+# Contributor: George Eleftheriou <eleftg>
+
+_name=mpich
+pkgver=5.0.1
+url="https://www.mpich.org/static/downloads/${pkgver}/${_name}-${pkgver}.tar.gz"
+sha256sum_expected='8c1832a13ddacf071685069f5fadfd1f2877a29e1a628652892c65211b1f3327'
+ball="${_name}-${pkgver}.tar.gz"
+srcdir="${_name}-${pkgver}"
+prefix="${HOME}/.local/mpich64"
+
+download() {
+  [ -e "$ball" ] && return
+  curl -L -o "$ball" "$url"
+}
+
+verify() {
+  sha=$(sha256sum "$ball" | awk '{print $1}')
+  [ "$sha" != "$sha256sum_expected" ] && echo "Could not verify" && exit 1
+}
+
+extract() {
+  [ -d "$srcdir" ] && return
+  tar -xf "$ball"
+}
+
+build() {
+  cd "$srcdir"
+
+  # -- 64-bit default Fortran integers
+  export FFLAGS="${FFLAGS:+$FFLAGS }-fdefault-integer-8"
+  export FCFLAGS="${FCFLAGS:+$FCFLAGS }-fdefault-integer-8"
+
+  # -- keep user CFLAGS etc. outside of the wrapper compilers
+  export MPICHLIB_CFLAGS="${CFLAGS}";      unset CFLAGS
+  export MPICHLIB_CXXFLAGS="${CXXFLAGS}";  unset CXXFLAGS
+  export MPICHLIB_CPPFLAGS="${CPPFLAGS}";  unset CPPFLAGS
+  export MPICHLIB_FFLAGS="${FFLAGS}"
+  export MPICHLIB_FCFLAGS="${FCFLAGS}"
+  export MPICHLIB_LDFLAGS="${LDFLAGS}";    unset LDFLAGS
+
+  mkdir -p build
+  cd build
+  ../configure \
+    --prefix="$prefix" \
+    --with-device=ch4:ucx \
+    --with-hwloc \
+    --without-java \
+    --without-ze \
+    --with-wrapper-fcflags='-fdefault-integer-8' \
+    --enable-error-checking=runtime \
+    --enable-error-messages=all \
+    CC=gcc CXX=g++ FC=gfortran
+  make -j"$(nproc)"
+  make mandoc
+  cd ../..
+}
+
+install_local() {
+  cd "$srcdir/build"
+  make install
+  ln -sf mpiexec.hydra "$prefix/bin/mpirun.hydra"
+  cd ../..
+}
+
+download
+verify
+extract
+build
+install_local
+
+cat <<the
+
+Done. MPICH (64-bit Fortran integers) installed to:
+  $prefix
+
+Add it to your environment (e.g. in ~/.bashrc):
+  export PATH="$prefix/bin:\$PATH"
+  export LD_LIBRARY_PATH="$prefix/lib:\$LD_LIBRARY_PATH"
+  export MANPATH="$prefix/share/man:\$MANPATH"
+the

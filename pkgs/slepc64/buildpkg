@@ -1,0 +1,104 @@
+#!/bin/bash
+# Maintainer: Carlos Aznarán <caznaranl@uni.pe>
+# Contributor: Michel Zou <xantares09@hotmail.com>
+# Contributor: Sigvald Marholm <marholm@marebakken.com>
+# Contributor: G S Voelker <voelker@mailbox.org>
+# Contributor: Andreas Bilke <abilke@cosy.sbg.ac.at>
+# Contributor: Myles English <mylesenglish@gmail.com>
+# Contributor: Felix Schindler <aur dot felixschindler dot net>
+# Contributor: Lucas H. Gabrielli <heitzmann@gmail.com>
+# Adapted from the AUR package
+
+_pkgname=slepc
+pkgver=3.25.1
+url="https://slepc.upv.es/download/distrib/${_pkgname}-${pkgver}.tar.gz"
+sha256sum_expected='906ddbe15a20774c23ddcdf13a5054889d00a26c3c37463447ee593c757d03ee'
+
+ball="${_pkgname}-${pkgver}.tar.gz"
+srcdir="${_pkgname}-${pkgver}"
+
+mpi_home="${HOME}/.local/mpich"
+petsc_dir="${HOME}/.local/petsc64"
+prefix="${HOME}/.local/slepc64"
+
+workdir="${HOME}/pkg/slepc64"
+mkdir -p "$workdir"
+cd "$workdir"
+
+export PATH="$mpi_home/bin:$PATH"
+export LD_LIBRARY_PATH="$mpi_home/lib:${HOME}/.local/lib:${petsc_dir}/lib:$LD_LIBRARY_PATH"
+
+# -- SLEPc reads PETSc from PETSC_DIR, PETSC_ARCH is not used
+export PETSC_DIR="${petsc_dir}"
+unset PETSC_ARCH
+
+download() {
+  [ -e "$ball" ] && return
+  curl -L -o "$ball" "$url"
+}
+
+verify() {
+  [ -z "$sha256sum_expected" ] && echo "NOTE: sha empty, skipping verify" && return
+  sha=$(sha256sum "$ball" | awk '{print $1}')
+  [ "$sha" != "$sha256sum_expected" ] && echo "Could not verify" && exit 1
+}
+
+extract() {
+  [ -d "$srcdir" ] && return
+  tar -xf "$ball"
+}
+
+build() {
+  cd "$workdir/$srcdir"
+  export SLEPC_DIR="$workdir/$srcdir"
+
+  # -- make sure that we're actually using an ILP64 PETSc, because
+  #    otherwise what's the point
+  if ! grep -q "PETSC_USE_64BIT_INDICES 1" "${petsc_dir}/include/petscconf.h" 2>/dev/null; then
+    echo "WARNING: ${petsc_dir} is not a 64-bit-indices PETSc, or PETSc is not even installed there at all. Maybe stop ?"
+    sleep 2
+  fi
+
+  ./configure --prefix="${prefix}" --with-clean
+
+  make SLEPC_DIR="$SLEPC_DIR" PETSC_DIR="${petsc_dir}"
+  make SLEPC_DIR="$SLEPC_DIR" PETSC_DIR="${petsc_dir}" install
+}
+
+check() {
+  cd "$workdir/$srcdir"
+  if [ -z "$(ldconfig -p 2>/dev/null | grep libcuda.so.1)" ]; then
+    export OMPI_MCA_opal_warn_on_missing_libcuda=0
+  fi
+  # -- installed path
+  export SLEPC_DIR="${prefix}"
+  make SLEPC_DIR="${prefix}" PETSC_DIR="${petsc_dir}" PETSC_ARCH="" check || echo "WARNING: SLEPc make check reported issues"
+}
+
+download
+verify
+set -e
+extract
+build
+set +e
+[ "$1" == nocheck ] || check
+
+cat <<EOF
+
+============================================================================
+Done. SLEPc (ILP64, inherited from ${petsc_dir}) installed to:
+  ${prefix}
+
+Confirm library names:
+  ls ${prefix}/lib ${petsc_dir}/lib
+
+Add to your environment:
+  export PETSC_DIR="${petsc_dir}"
+  export SLEPC_DIR="${prefix}"
+  export LD_LIBRARY_PATH="${petsc_dir}/lib:${prefix}/lib:\$LD_LIBRARY_PATH"
+
+Tell UKRmol+ about it (adjust the names to what the above ls shows):
+  -D SLEPC_INCLUDE_DIRS="${petsc_dir}/include;${prefix}/include"
+  -D SLEPC_LIBRARIES="${prefix}/lib/libslepc.so;${petsc_dir}/lib/libpetsc.so"
+============================================================================
+EOF
