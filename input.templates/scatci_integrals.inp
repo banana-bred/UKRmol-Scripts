@@ -21,7 +21,7 @@
   mixed_ints_method = 1      ! Applicable only when using B-spline continuum. Always use mixed_ints_method = 1
   max_l_legendre_1el = >>>MAXL_LEGENDRE_1EL<<<   !Applicable only when using B-spline continuum. Maximum L to use in Legendre expansion for Nuclear attraction integrals.
   max_l_legendre_2el = >>>MAXL_LEGENDRE_2EL<<<   !Applicable only when using B-spline continuum. Maximum L to use in Legendre expansion for 2-electron integrals.
-  calc_radial_densities = .false.
+  calc_radial_densities = .true.
   delta_r1 = >>>DELTAR1<<<
   molecular_2el_algorithm = >>>INTEGRAL_TRANS_ALG<<<
 /
