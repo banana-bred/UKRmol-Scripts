@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# -- every variable can be overridden from the environment, e.g.,
+#
+#      PETSC_PFX=/scratch/me/petsc ./build.sh
+
+: "${UKRMOL_ROOT:=${HOME}/.local}"
+[ -n "$UKRMOL_ROOT" ] || { echo "prefixes.sh: UKRMOL_ROOT empty" >&2; return 1 2>/dev/null || exit 1; }
+
+# -- installation prefixes
+: "${MPICH_PFX:=${UKRMOL_ROOT}/mpich}"
+: "${OPENBLAS_PFX:=${UKRMOL_ROOT}}"
+: "${SCALAPACK_PFX:=${UKRMOL_ROOT}/scalapack64}"
+: "${PETSC_PFX:=${UKRMOL_ROOT}/petsc64}"
+: "${SLEPC_PFX:=${UKRMOL_ROOT}/slepc64}"
+: "${UKRMOL_IN_PFX:=${UKRMOL_ROOT}/ukrmol-in}"
+: "${UKRMOL_OUT_PFX:=${UKRMOL_ROOT}/ukrmol-out}"
+
+# -- variables used by the installation scripts, can also be overridden
+: "${MPI_HOME:=${MPICH_PFX}}"
+: "${OPENBLAS_LIB:=${OPENBLAS_PFX}/lib}"
+: "${OPENBLAS_INC:=${OPENBLAS_PFX}/include}"
+: "${SCALAPACK_LIB:=${SCALAPACK_PFX}/lib/libscalapack.so}"
+: "${GBTO_INC:=${UKRMOL_IN_PFX}/include/ukrmol-in/gbtolib}"
+: "${GBTO_LIB:=${UKRMOL_IN_PFX}/lib/ukrmol-in/libGBTO.a}"
+
+: "${CMAKE:=cmake}"
+
+# -- export them all
+export UKRMOL_ROOT
+export MPICH_PFX
+export OPENBLAS_PFX
+export SCALAPACK_PFX
+export PETSC_PFX
+export SLEPC_PFX
+export UKRMOL_IN_PFX
+export UKRMOL_OUT_PFX
+export MPI_HOME
+export OPENBLAS_LIB
+export OPENBLAS_INC
+export SCALAPACK_LIB
+export GBTO_INC
+export GBTO_LIB
+export CMAKE

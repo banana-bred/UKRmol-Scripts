@@ -2,34 +2,32 @@
 # Maintainer: banana-bred <j.forer@posteo.net>
 # #!/bin/bash
 
+# -- source the prefixes
+here="$(cd "$(dirname "$0")" && pwd)"
+. "${here}/../prefixes" || exit 1
+cd "$here" || exit 1
+
 _pkgname=ukrmol-out
 repo='https://github.com/banana-bred/Ukrmol-out.git'
-branch='main'    
+branch='main'
 _minCmake="3.10"
 
 srcdir="${_pkgname}"
-prefix="${HOME}/.local/ukrmol-out"
-
-# -- ikp64/fint64 stuff
-mpi_home="${HOME}/.local/mpich"
-openblas_lib="${HOME}/.local/lib"
-scalapack_lib="${HOME}/.local/scalapack64/lib/libscalapack.so"
-
-# ukrmol-in outputs (GBTOlib) — confirm these paths/names with: ls ~/.local/ukrmol-in/...
-gbto_inc="${HOME}/.local/ukrmol-in/include/ukrmol-in/gbtolib"
-gbto_lib="${HOME}/.local/ukrmol-in/lib/ukrmol-in/libGBTO.a"
+prefix="${UKRMOL_OUT_PFX}"
 
 clone() {
   if [ -d "$srcdir" ]; then
-    git -C "$srcdir" fetch --all
+    git -C "$srcdir" fetch --all || exit 1
     # -- if a branch is specified above, check it out. Stay on default otherwiser
-    [ -n "$branch" ] && git -C "$srcdir" checkout "$branch"
-    git -C "$srcdir" pull --ff-only || true
+    if [ -n "$branch" ] ; then
+      git -C "$srcdir" checkout "$branch" || exit 1
+    fi
+    git -C "$srcdir" pull --ff-only || exit 1
   else
     if [ -n "$branch" ]; then
-      git clone --branch "$branch" "$repo" "$srcdir"
+      git clone --branch "$branch" "$repo" "$srcdir" || exit 1
     else
-      git clone "$repo" "$srcdir"
+      git clone "$repo" "$srcdir" || exit 1
     fi
   fi
 }
@@ -45,7 +43,7 @@ prepare() {
   cd ..
 }
 
-path_prepend() { 
+path_prepend() {
  case ":${!2}:" in  # current value of 2
   *":$1:"*) ;;  # 1 is in !2, do not prepend
   *) export "$2"="$1${!2:+:${!2}}";;  # if 1 is not in 2, do prepend
@@ -53,35 +51,35 @@ path_prepend() {
 }
 
 build() {
-  cd "$srcdir"
+  cd "$srcdir" || exit 1
 
   # -- make sure the libraries are visible
-  path_prepend "${openblas_lib}" LD_LIBRARY_PATH
-  path_prepend "${mpi_home}/lib" LD_LIBRARY_PATH
-  path_prepend "${HOME}/.local/scalapack64/lib" LD_LIBRARY_PATH
+  path_prepend "${OPENBLAS_LIB}" LD_LIBRARY_PATH
+  path_prepend "${MPI_HOME}/lib" LD_LIBRARY_PATH
+  path_prepend "$SCALAPACK_PFX"  LD_LIBRARY_PATH
 
   local _cmakeOptions=(
-    -D CMAKE_EXE_LINKER_FLAGS="-Wl,-z,noexecstack,-z,relro,-z,now,--as-needed -Wl,-rpath,$openblas_lib:$mpi_home/lib:${HOME}/.local/scalapack64/lib"
+    -D CMAKE_EXE_LINKER_FLAGS="-Wl,-z,noexecstack,-z,relro,-z,now,--as-needed -Wl,-rpath,${OPENBLAS_LIB}:${MPI_HOME}/lib:${SCALAPACK_PFX}/lib"
     -D CMAKE_SHARED_LINKER_FLAGS='-Wl,-z,noexecstack'
     -D CMAKE_POLICY_VERSION_MINIMUM="${_minCmake}"
-    -D CMAKE_C_COMPILER="$mpi_home/bin/mpicc"
-    -D CMAKE_CXX_COMPILER="$mpi_home/bin/mpicxx"
-    -D CMAKE_Fortran_COMPILER="$mpi_home/bin/mpifort"
-    -D CMAKE_Fortran_FLAGS="-fdefault-integer-8 -I$gbto_inc"
-    -D LAPACK_LIBRARIES="-L$openblas_lib -lopenblas_64"
-    -D BLAS_LIBRARIES="-L$openblas_lib -lopenblas_64"
-    -D MPIEXEC_EXECUTABLE="$mpi_home/bin/mpiexec"
-    -D GBTOLIB_INCLUDE_DIRS="$gbto_inc"
-    -D GBTOLIB_LIBRARIES="$gbto_lib"
-    -D SCALAPACK_LIBRARIES="$scalapack_lib"
+    -D CMAKE_C_COMPILER="${MPI_HOME}/bin/mpicc"
+    -D CMAKE_CXX_COMPILER="${MPI_HOME}/bin/mpicxx"
+    -D CMAKE_Fortran_COMPILER="${MPI_HOME}/bin/mpifort"
+    -D CMAKE_Fortran_FLAGS="-fdefault-integer-8 -I${GBTO_INC}"
+    -D LAPACK_LIBRARIES="-L${OPENBLAS_LIB} -lopenblas_64"
+    -D BLAS_LIBRARIES="-L${OPENBLAS_LIB} -lopenblas_64"
+    -D MPIEXEC_EXECUTABLE="${MPI_HOME}/bin/mpiexec"
+    -D GBTOLIB_INCLUDE_DIRS="${GBTO_INC}"
+    -D GBTOLIB_LIBRARIES="${GBTO_LIB}"
+    -D SCALAPACK_LIBRARIES="$SCALAPACK_LIB"
   )
-  cmake "${_cmakeOptions[@]}" .
-  make -j"$(nproc)"
+  "$CMAKE" "${_cmakeOptions[@]}" . || exit 1
+  make -j"$(nproc)" || exit 1
   cd ..
 }
 
 check() {
-  cd "$srcdir"
+  cd "$srcdir" || return 1
   if ctest -N 2>/dev/null | grep -q 'Test #'; then
     ctest --output-on-failure || echo "WARNING: tests reported failures"
   fi
@@ -89,22 +87,20 @@ check() {
 }
 
 install_local() {
-  cd "$srcdir"
-  install -d "$prefix/bin"
-  install -d "$prefix/lib/${_pkgname}"
-  install -d "$prefix/share/doc/${_pkgname}"
-  install -Dm755 bin/*   "$prefix/bin/"
+  cd "$srcdir" || exit 1
+  install -d "$prefix/bin" || exit 1
+  install -d "$prefix/lib/${_pkgname}" || exit 1
+  install -d "$prefix/share/doc/${_pkgname}" || exit 1
+  install -Dm755 bin/*   "$prefix/bin/" || exit 1
   install -Dm644 lib/*.a "$prefix/lib/${_pkgname}/" 2>/dev/null || true
   install -Dm644 doc/*   "$prefix/share/doc/${_pkgname}/" 2>/dev/null || true
   cd ..
 }
 
-set -e
 clone
 prepare
 build
-set +e
-check
+[ "$1" == nocheck ] || check
 install_local
 
 cat <<EOF
@@ -112,6 +108,6 @@ cat <<EOF
 Done. UKRmol-out (fint64) installed to:
   $prefix
 
-The whole family is in ready (I think). Source the environment file to use it in a shell:
-  source ~/.local/ukrmol-env
+The whole family is ready (I think). Source the environment file to use it in a shell:
+  source ${UKRMOL_ROOT}/ukrmolenv
 EOF

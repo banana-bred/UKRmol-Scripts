@@ -4,9 +4,11 @@
 # Builds Reference-ScaLAPACK 2.2.3 with ILP64 (8-byte integers) throughout:
 #   - Fortran side via -fdefault-integer-8
 #   - C/BLACS side via -DInt=long (as documented in upstream README)
-# Links against the matching fint64 BLAS/LAPACK/MPI stack.
 
-CMAKE="/home/david.hvizdos/pkg/cmake/cmake-4.4.0-rc1-linux-x86_64/bin/cmake"
+# -- source the prefixes
+here="$(cd "$(dirname "$0")" && pwd)"
+. "${here}/../prefixes" || exit 1
+cd "$here" || exit 1
 
 _srcname=scalapack
 pkgver=2.2.3
@@ -14,21 +16,20 @@ url="https://github.com/Reference-ScaLAPACK/scalapack/archive/v${pkgver}/${_srcn
 sha512sum_expected='08c6073f8d1295df4f7f2a2449f189a2afb0ce30e94f2bc55613a94fc6404bb60ee5179ecba02641bff8bd4a088a3f621698e03347fddc6b0895bf14a87ca88a'
 ball="${_srcname}-${pkgver}.tar.gz"
 srcdir="${_srcname}-${pkgver}"
-prefix="${HOME}/.local/scalapack64"
-
-# Locations of the fint64 stack you already built
-mpi_home="${HOME}/.local/mpich"
-openblas_lib="${HOME}/.local/lib"
-openblas_inc="${HOME}/.local/include"
+prefix="$SCALAPACK_PFX"
 
 download() {
   [ -e "$ball" ] && return
-  curl -L -o "$ball" "$url"
+  curl -fL -o "$ball" "$url"
 }
 
 verify() {
+  local sha
   sha=$(sha512sum "$ball" | awk '{print $1}')
-  [ "$sha" != "$sha512sum_expected" ] && echo "Could not verify" && exit 1
+  if [ "$sha" != "$sha512sum_expected" ] ; then
+    echo "Could not verify"
+    exit 1
+  fi
 }
 
 extract() {
@@ -37,7 +38,7 @@ extract() {
 }
 
 prepare() {
-  sed -i 's/cmake_minimum_required(VERSION 2.8)/cmake_minimum_required(VERSION 3.6)/g' "${srcdir}/BLACS/INSTALL/CMakeLists.txt"
+  sed -i 's/cmake_minimum_required(VERSION 2.8)/cmake_minimum_required(VERSION 3.6)/g' "${srcdir}/BLACS/INSTALL/CMakeLists.txt" || exit 1
 }
 
 build() {
@@ -46,32 +47,31 @@ build() {
     -D CMAKE_INSTALL_PREFIX:PATH="$prefix" \
     -D BUILD_SHARED_LIBS:BOOL=ON \
     -D SCALAPACK_BUILD_TESTS:BOOL=OFF \
-    -D CMAKE_C_COMPILER="${mpi_home}/bin/mpicc" \
-    -D CMAKE_Fortran_COMPILER="${mpi_home}/bin/mpifort" \
+    -D CMAKE_C_COMPILER="${MPI_HOME}/bin/mpicc" \
+    -D CMAKE_Fortran_COMPILER="${MPI_HOME}/bin/mpifort" \
     -D CMAKE_BUILD_TYPE:STRING=Release \
     -D CMAKE_Fortran_FLAGS:STRING="$FCFLAGS -fdefault-integer-8 -fallow-argument-mismatch" \
     -D CMAKE_C_FLAGS:STRING="$CFLAGS -DInt=long -Wno-implicit-function-declaration" \
     -D CMAKE_C_STANDARD:STRING="17" \
-    -D BLAS_LIBRARIES="-L$openblas_lib -lopenblas_64" \
-    -D LAPACK_LIBRARIES="-L$openblas_lib -lopenblas_64" \
-    -D MPI_C_COMPILER="${mpi_home}/bin/mpicc" \
-    -D MPI_Fortran_COMPILER="${mpi_home}/bin/mpifort" \
-    -D MPI_HOME="$mpi_home" \
-    -D MPIEXEC_EXECUTABLE="${mpi_home}/bin/mpiexec"
-  make -C build -j"$(nproc)"
+    -D BLAS_LIBRARIES="-L$OPENBLAS_LIB -lopenblas_64" \
+    -D LAPACK_LIBRARIES="-L$OPENBLAS_LIB -lopenblas_64" \
+    -D MPI_C_COMPILER="${MPI_HOME}/bin/mpicc" \
+    -D MPI_Fortran_COMPILER="${MPI_HOME}/bin/mpifort" \
+    -D MPI_HOME="$MPI_HOME" \
+    -D MPIEXEC_EXECUTABLE="${MPI_HOME}/bin/mpiexec" || exit 1
+  make -C build -j"$(nproc)" || exit 1
 }
 
 install_local() {
-  "$CMAKE" --install build
+  "$CMAKE" --install build || exit 1
   # -- headers (PBLAS + BLACS)
-  install -m 755 -d "$prefix/include"
-  install -m 644 "$srcdir/PBLAS/SRC/"*.h "$prefix/include/"
-  install -m 644 "$srcdir/BLACS/SRC/"*.h "$prefix/include/"
+  install -m 755 -d "$prefix/include" || exit 1
+  install -m 644 "$srcdir/PBLAS/SRC/"*.h "$prefix/include/" || exit 1
+  install -m 644 "$srcdir/BLACS/SRC/"*.h "$prefix/include/" || exit 1
 }
 
-download
+download || exit 1
 verify
-set -e 
 extract
 prepare
 build

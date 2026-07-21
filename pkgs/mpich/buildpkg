@@ -3,20 +3,26 @@
 # Contributor: Jed Brown <jed@59A2.org>
 # Contributor: George Eleftheriou <eleftg>
 
+# -- source the prefixes
+here="$(cd "$(dirname "$0")" && pwd)"
+. "${here}/../prefixes" || exit 1
+cd "$here" || exit 1
+
 _name=mpich
 pkgver=5.0.1
 url="https://www.mpich.org/static/downloads/${pkgver}/${_name}-${pkgver}.tar.gz"
 sha256sum_expected='8c1832a13ddacf071685069f5fadfd1f2877a29e1a628652892c65211b1f3327'
 ball="${_name}-${pkgver}.tar.gz"
 srcdir="${_name}-${pkgver}"
-prefix="${HOME}/.local/mpich"
+prefix="$MPICH_PFX"
 
 download() {
-  [ -e "$ball" ] && return
-  curl -L -o "$ball" "$url"
+  [ -e "$ball" ] && return 0
+  curl -fL -o "$ball" "$url"
 }
 
 verify() {
+  local sha
   sha=$(sha256sum "$ball" | awk '{print $1}')
   [ "$sha" != "$sha256sum_expected" ] && echo "Could not verify" && exit 1
 }
@@ -27,7 +33,7 @@ extract() {
 }
 
 build() {
-  cd "$srcdir"
+  cd "$srcdir" || exit 1
 
   # -- keep user CFLAGS etc. outside of the wrapper compilers
   export MPICHLIB_CFLAGS="${CFLAGS}";      unset CFLAGS
@@ -38,7 +44,7 @@ build() {
   export MPICHLIB_LDFLAGS="${LDFLAGS}";    unset LDFLAGS
 
   mkdir -p build
-  cd build
+  cd build || exit 1
   ../configure \
     --prefix="$prefix" \
     --with-device=ch4:ucx \
@@ -47,10 +53,10 @@ build() {
     --without-ze \
     --enable-error-checking=runtime \
     --enable-error-messages=all \
-    CC=gcc CXX=g++ FC=gfortran
-  make -j"$(nproc)"
-  make mandoc
-  cd ../..
+    CC=gcc CXX=g++ FC=gfortran || exit 1
+  make -j"$(nproc)" || exit 1
+  make mandoc || exit 1
+  cd ../.. || exit 1
 }
 
 install_local() {
@@ -60,15 +66,15 @@ install_local() {
   cd ../..
 }
 
-download
+download || exit 1
 verify
-extract
+extract || exit 1
 build
 install_local
 
 cat <<the
 
-Done. MPICH (default 32-bit Fortran integers) installed to:
+Done. MPICH (default 32-bit Fortran MPI integers) installed to:
   $prefix
 
 Add it to your environment (e.g. in ~/.bashrc):

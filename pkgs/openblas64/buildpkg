@@ -7,16 +7,25 @@ url="https://github.com/OpenMathLib/OpenBLAS/releases/download/v${pkgver}/${_pkg
 sha256sum_expected='6761af1d9f5d353ab4f0b7497be2643313b36c8f31caec0144bfef198e71e6ab'
 ball="${_pkgname}-${pkgver}.tar.gz"
 srcdir="${_pkgname}-${pkgver}"
-prefix="${HOME}/.local"
+prefix="$OPENBLAS_PFX"
+
+# -- source the prefixes
+here="$(cd "$(dirname "$0")" && pwd)"
+. "${here}/../prefixes" || exit 1
+cd "$here" || exit 1
 
 download() {
   [ -e "$ball" ] && return
-  curl -L -o "$ball" "$url"
+  curl -fL -o "$ball" "$url"
 }
 
 verify() {
+  local sha
   sha=$(sha256sum "$ball" | awk '{print $1}')
-  [ "$sha" != "$sha256sum_expected" ] && echo "Could not verify" && exit 1
+  if [ "$sha" != "$sha256sum_expected" ]; then
+    echo "Could not verify $ball" >&2
+    exit 1
+  fi
 }
 
 extract() {
@@ -25,9 +34,9 @@ extract() {
 }
 
 build() {
-  cd "$srcdir"
+  cd "$srcdir" || exit 1
   ASMFLAGS=$CFLAGS FFLAGS=${CFLAGS/ -Wformat -Werror=format-security/} FC=gfortran \
-    cmake -B build64 -S . \
+    "$CMAKE" -B build64 -S . \
     -DCMAKE_INSTALL_PREFIX="$prefix" \
     -DBUILD_SHARED_LIBS=ON \
     -DBUILD_TESTING=OFF \
@@ -36,22 +45,28 @@ build() {
     -DNO_WARMUP=1 \
     -DNUM_THREADS=64 \
     -DDYNAMIC_ARCH=OFF \
-    -DINTERFACE64=1
-  cmake --build build64 -j"$(nproc)"
-  cd ..
+    -DINTERFACE64=1 || exit 1
+  "$CMAKE" --build build64 -j"$(nproc)" || exit 1
+  cd .. || exit 1
 }
 
 install_local() {
-  cd "$srcdir"
+  cd "$srcdir" || exit 1
   cmake --install build64
-  cd ..
+  cd .. || exit 1
 }
 
-download
+download || exit 1
 verify
-extract
+extract || exit 1
 build
 install_local
 
-echo "Done. Add ~/.local/lib to your linker paths if not already:"
-echo '  export LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"'
+cat <<the
+
+Done. OpenBLAS (ILP64) installed to:
+  $prefix
+
+Add to your environment if not already there:
+  export LD_LIBRARY_PATH="${OPENBLAS_LIB}:\$LD_LIBRARY_PATH"
+the

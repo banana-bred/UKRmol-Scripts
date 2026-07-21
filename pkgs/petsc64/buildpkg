@@ -9,6 +9,11 @@
 # Contributor: Lucas H. Gabrielli <heitzmann@gmail.com>
 # Adapted from the AUR package
 
+# -- source the prefixes
+here="$(cd "$(dirname "$0")" && pwd)"
+. "${here}/../prefixes" || exit 1
+cd "$here" || exit 1
+
 _pkgname=petsc
 pkgver=3.25.2
 url="https://web.cels.anl.gov/projects/petsc/download/release-snapshots/${_pkgname}-${pkgver}.tar.gz"
@@ -16,29 +21,25 @@ sha256sum_expected='03fbcfb72e28dbd92eac042faf7a4ba7e75e602fd1c9af0676f78e0a7624
 ball="${_pkgname}-${pkgver}.tar.gz"
 srcdir="${_pkgname}-${pkgver}"
 
-# -- ILP64 stuff
-mpi_home="${HOME}/.local/mpich"
-openblas_lib="${HOME}/.local/lib"
-prefix="${HOME}/.local/petsc64"
+prefix="$PETSC_PFX"
+export PATH="$MPI_HOME/bin:$PATH"
+export LD_LIBRARY_PATH="$MPI_HOME/lib:${OPENBLAS_LIB}:$LD_LIBRARY_PATH"
 
-workdir="${HOME}/pkg/petsc64"
-mkdir -p "$workdir"
-cd "$workdir"
-
-export PATH="$mpi_home/bin:$PATH"
-export LD_LIBRARY_PATH="$mpi_home/lib:${openblas_lib}:$LD_LIBRARY_PATH"
-
-export PETSC_DIR="$workdir/$srcdir"
+export PETSC_DIR="${here}/${srcdir}"
 export PETSC_ARCH=ilp64
 
 download() {
   [ -e "$ball" ] && return
-  curl -L -o "$ball" "$url"
+  curl -fL -o "$ball" "$url"
 }
 
 verify() {
+  local sha
   sha=$(sha256sum "$ball" | awk '{print $1}')
-  [ "$sha" != "$sha256sum_expected" ] && echo "Could not verify" && exit 1
+  if [ "$sha" != "$sha256sum_expected" ] ; then
+    echo "Could not verify"
+    exit 1
+  fi
 }
 
 extract() {
@@ -47,8 +48,7 @@ extract() {
 }
 
 build() {
-  cd "$workdir/$srcdir"
-  export PETSC_DIR="$workdir/$srcdir"
+  cd "${here}/${srcdir}" || exit 1
 
   # -- we only want MPICH64 and OpenBLAS64
   # --with-64-bit-indices=1       --> PetscInt is 64-bit (needed for slepc)
@@ -61,49 +61,47 @@ build() {
     --with-precision=double \
     --with-scalar-type=real \
     --with-fortran-bindings=1 \
-    --with-mpi-dir="${mpi_home}" \
-    --with-blaslapack-lib="${openblas_lib}/libopenblas_64.so" \
+    --with-mpi-dir="${MPI_HOME}" \
+    --with-blaslapack-lib="${OPENBLAS_LIB}/libopenblas_64.so" \
     --with-shared-libraries=1 \
     --with-debugging=0 \
-    COPTFLAGS="-O2" CXXOPTFLAGS="-O2" FOPTFLAGS="-O2"
+    COPTFLAGS="-O2" CXXOPTFLAGS="-O2" FOPTFLAGS="-O2" || exit 1
 
-  make PETSC_DIR="$workdir/$srcdir" PETSC_ARCH="$PETSC_ARCH" all -d
+  make PETSC_DIR="$PETSC_DIR" PETSC_ARCH="$PETSC_ARCH" all -d || exit 1
 }
 
 install_local() {
-  cd "$workdir/$srcdir"
-  make PETSC_DIR="$workdir/$srcdir" PETSC_ARCH="$PETSC_ARCH" install
+  cd "${here}/${srcdir}" || return 1
+  make PETSC_DIR="$PETSC_DIR" PETSC_ARCH="$PETSC_ARCH" install
 }
 
 check() {
-  cd "$workdir/$srcdir"
+  cd "${here}/${srcdir}"
   make PETSC_DIR="${prefix}" PETSC_ARCH="" check \
     || echo "WARNING: PETSc make check reported issues"
 }
 
-download
+download || exit 1
 verify
-set -e
 extract
 build
 install_local
-set +e
 [ "$1" == nocheck ] || check
 
-cat <<EOF
+cat <<the
 
 ============================================================================
 Done. PETSc (ILP64, 64-bit indices) installed to:
   ${prefix}
 
-Verify it really is 64-bit indices (SLEPc's sanity check greps this):
+Verify it really is 64-bit indices:
   grep PETSC_USE_64BIT_INDICES ${prefix}/include/petscconf.h
 
-Confirm it linked YOUR OpenBLAS(64), not a downloaded one:
+Confirm it linked YOUR OpenBLAS(64), not another (system?) one:
   ldd ${prefix}/lib/libpetsc.so | grep -i openblas
 
 Add to your environment:
   export PETSC_DIR="${prefix}"
   export LD_LIBRARY_PATH="${prefix}/lib:\$LD_LIBRARY_PATH"
 ============================================================================
-EOF
+the

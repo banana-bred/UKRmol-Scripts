@@ -1,6 +1,10 @@
 #!/bin/bash
 # Maintainer: banana-bred <j.forer@posteo.net>
-#!/bin/bash
+
+# -- source the prefixes
+here="$(cd "$(dirname "$0")" && pwd)"
+. "${here}/../prefixes" || exit 1
+cd "$here" || exit 1
 
 _pkgname=ukrmol-in
 repo='https://github.com/banana-bred/Ukrmol-in.git'
@@ -8,58 +12,49 @@ branch='3.3.0-patches'
 _minCmake="3.10"
 
 srcdir="${_pkgname}"
-prefix="${HOME}/.local/ukrmol-in"
-
-# -- fortran ilp64 locations
-mpi_home="${HOME}/.local/mpich"
-slepc_home="${HOME}/.local/slepc64"
-petsc_home="${HOME}/.local/petsc64"
-scalapack_home="${HOME}/.local/scalapack64"
-openblas_lib="${HOME}/.local/lib"
-scalapack_lib="${scalapack_home}/lib/libscalapack.so"
+prefix="$UKRMOL_IN_PFX"
 
 clone() {
   if [ -d "$srcdir" ]; then
-    git -C "$srcdir" fetch --all
-    git -C "$srcdir" checkout "$branch"
-    git -C "$srcdir" pull --ff-only
+    git -C "$srcdir" fetch --all || exit 1
+    git -C "$srcdir" checkout "$branch" || exit 1
+    git -C "$srcdir" pull --ff-only || exit 1
   else
-    git clone --branch "$branch" "$repo" "$srcdir"
+    git clone --branch "$branch" "$repo" "$srcdir" || exit 1
   fi
 }
 
 prepare() {
-  cd "$srcdir"
+  cd "$srcdir" || exit 1
   shopt -s globstar nullglob
   local files=(**/CMakeLists.txt **/TestDriver.cmake)
   local file
   for file in "${files[@]}"; do
-    sed -E -i "s/cmake_minimum.*/cmake_minimum_required(VERSION ${_minCmake})/" "$file"
+    sed -E -i "s/cmake_minimum.*/cmake_minimum_required(VERSION ${_minCmake})/" "$file" || exit 1
   done
-  cd ..
+  cd .. || exit 1
 }
 
 build() {
-  cd "$srcdir"
-  export LD_LIBRARY_PATH="$HOME/.local/lib:${mpi_home}/lib:${scalapack_home}/lib:$LD_LIBRARY_PATH"
+  cd "$srcdir" || exit 1
+  export LD_LIBRARY_PATH="${OPENBLAS_LIB}:${MPI_HOME}/lib:${SCALAPACK_PFX}/lib:$LD_LIBRARY_PATH"
   local _cmakeOptions=(
     -D CMAKE_POLICY_VERSION_MINIMUM="${_minCmake}"
-    -D CMAKE_C_COMPILER="${mpi_home}/bin/mpicc"
-    -D CMAKE_CXX_COMPILER="${mpi_home}/bin/mpicxx"
-    -D CMAKE_Fortran_COMPILER="$mpi_home/bin/mpifort"
-    -D CMAKE_Fortran_FLAGS="-fdefault-integer-8 -Dblas64bit -cpp -I${petsc_home}/include -I${slepc_home}/include"
-    -D CMAKE_Fortran_FLAGS="-fdefault-integer-8 -Dblas64bit -cpp -I${petsc_home}/include -I${petsc_home}/include/petsc -I${slepc_home}/include -I${slepc_home}/include/slepc"
+    -D CMAKE_C_COMPILER="${MPI_HOME}/bin/mpicc"
+    -D CMAKE_CXX_COMPILER="${MPI_HOME}/bin/mpicxx"
+    -D CMAKE_Fortran_COMPILER="$MPI_HOME/bin/mpifort"
+    -D CMAKE_Fortran_FLAGS="-fdefault-integer-8 -Dblas64bit -cpp -I${PETSC_PFX}/include -I${PETSC_PFX}/include/petsc -I${SLEPC_PFX}/include -I${SLEPC_PFX}/include/slepc"
     -D WITH_SCALAPACK=ON
-    -D BLAS_LIBRARIES="-L$openblas_lib -lopenblas_64"
-    -D LAPACK_LIBRARIES="-L$openblas_lib -lopenblas_64"
-    -D SCALAPACK_LIBRARIES="$scalapack_lib"
-    -D MPIEXEC_EXECUTABLE="$mpi_home/bin/mpiexec"
-    -D SLEPC_INCLUDE_DIRS="${slepc_home}/include;${petsc_home}/include"
-    -D SLEPC_LIBRARIES="${slepc_home}/lib/libslepc.so;${petsc_home}/lib/libpetsc.so"
+    -D BLAS_LIBRARIES="-L$OPENBLAS_LIB -lopenblas_64"
+    -D LAPACK_LIBRARIES="-L$OPENBLAS_LIB -lopenblas_64"
+    -D SCALAPACK_LIBRARIES="$SCALAPACK_LIB"
+    -D MPIEXEC_EXECUTABLE="$MPI_HOME/bin/mpiexec"
+    -D SLEPC_INCLUDE_DIRS="${SLEPC_PFX}/include;${PETSC_PFX}/include"
+    -D SLEPC_LIBRARIES="${SLEPC_PFX}/lib/libslepc.so;${PETSC_PFX}/lib/libpetsc.so"
   )
-  cmake "${_cmakeOptions[@]}" .
-  make -j"$(nproc)"
-  cd ..
+ "$CMAKE" "${_cmakeOptions[@]}" . || exit 1
+  make -j"$(nproc)" || exit 1
+  cd .. || exit 1
 }
 
 check() {
@@ -72,26 +67,24 @@ check() {
 }
 
 install_local() {
-  cd "$srcdir"
-  install -d "$prefix/bin"
-  install -d "$prefix/lib/${_pkgname}"
-  install -d "$prefix/share/doc/${_pkgname}"
-  install -d "$prefix/include/${_pkgname}/gbtolib"
+  cd "$srcdir" || exit 1
+  install -d "$prefix/bin" || exit 1
+  install -d "$prefix/lib/${_pkgname}" || exit 1
+  install -d "$prefix/share/doc/${_pkgname}" || exit 1
+  install -d "$prefix/include/${_pkgname}/gbtolib" || exit 1
 
-  install -Dm755 bin/* "$prefix/bin/"
-  install -Dm644 lib/*.a "$prefix/lib/${_pkgname}/"
+  install -Dm755 bin/* "$prefix/bin/" || exit 1
+  install -Dm644 lib/*.a "$prefix/lib/${_pkgname}/" || exit 1
   # -- outer-region codes will need the GBTO (s)mod files
-  install -Dm644 source/gbtolib/mod/*.mod  "$prefix/include/${_pkgname}/gbtolib/"
-  install -Dm644 source/gbtolib/mod/*.smod "$prefix/include/${_pkgname}/gbtolib/"
+  install -Dm644 source/gbtolib/mod/*.mod  "$prefix/include/${_pkgname}/gbtolib/" || exit 1
+  install -Dm644 source/gbtolib/mod/*.smod "$prefix/include/${_pkgname}/gbtolib/" || exit 1
   install -Dm644 doc/* "$prefix/share/doc/${_pkgname}/" 2>/dev/null || true
-  cd ..
+  cd .. || exit 1
 }
 
-set -e
 clone
 prepare
 build
-set +e
 [ "$1" == nocheck ] || check
 install_local
 
@@ -102,5 +95,5 @@ Done. UKRmol-in (fint64) installed to:
 
 Add to your environment:
   export PATH="$prefix/bin:\$PATH"
-  export LD_LIBRARY_PATH="$mpi_home/lib:$openblas_lib:${HOME}/.local/scalapack64/lib:\$LD_LIBRARY_PATH"
+  export LD_LIBRARY_PATH="${MPI_HOME}/lib:${OPENBLAS_LIB}:${SCALAPACK_PFX}/lib:\$LD_LIBRARY_PATH"
 EOF
