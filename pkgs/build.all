@@ -12,12 +12,63 @@ here="$(cd "$(dirname "$0")" && pwd)"
 # -- installation order. Some of these commute
 order=(mpich openblas64 scalapack64 petsc64 slepc64 ukrmol-in ukrmol-out)
 
+PROGRAM="${0##*/}"
+
+usage() {
+  cat <<EOF
+Usage: $PROGRAM [options] [package ...]
+
+Build the UKRmol+ stack in dependency order. With no packages given,
+build everything. Packages are always built in dependency order,
+regardless of the order given on the command line.
+
+You can skip building certain pacakges, but if you choose to do so, it is important that
+the envrionmental variables (see 'prefixes') be properly set. If you already have an
+MPI implementation (doesn't even have to be MPICH), then make sure to set MPI_HOME, otherwise
+it defaults to a subdirectory of UKRMOL_ROOT.
+
+Packages (in build order):
+  ${order[*]}
+
+Options:
+  -h, --help            show this message and do nothing
+  nocheck               skip the 'check' step of each package's build script (if it has one)
+  --exclude PKG[,PKG..] skip the given package(s)
+  --exclude=PKG[,PKG..] skip the given package(s)
+
+Examples:
+  $PROGRAM                                 # everything, with checks
+  $PROGRAM nocheck                         # everything, skipping checks
+  $PROGRAM petsc64 slepc64                 # just these two
+  $PROGRAM --exclude mpich                 # everything except mpich (e.g., using your cluster MPI)
+  $PROGRAM nocheck --exclude=mpich,petsc64 # no check, exclude mpich and petsc64, build the rest
+EOF
+}
+
 # -- split args into flags
 flags=() ; want=()
 for arg in "$@"; do
   case "$arg" in
-    nocheck) flags+=("$arg") ;;
-    *)       want=("${want[@]}" "$arg") ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    nocheck)
+      flags+=("$arg")
+      ;;
+    --exclude=*)
+      IFS=',' read -r -a _x <<< "${1#--exclude=}"
+      exclude=("${exclude[@]}" "${_x[@]}")
+      ;;
+    --exclude)
+      [ -z "$2" ] && echo "--exclude requires a package name" >&2 && exit 1
+      IFS=',' read -r -a _x <<< "$2"
+      exclude=("${exclude[@]}" "${_x[@]}")
+      shift
+      ;;
+    *)
+      want=("${want[@]}" "$arg")
+      ;;
   esac
 done
 
