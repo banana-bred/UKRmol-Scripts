@@ -23,7 +23,7 @@ srcdir="${_pkgname}-${pkgver}"
 
 prefix="$PETSC_PFX"
 export PATH="$MPI_HOME/bin:$PATH"
-export LD_LIBRARY_PATH="$MPI_HOME/lib:${OPENBLAS_LIB}:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="${OPENBLAS_LIB}:${MPI_HOME}/lib:${SCALAPACK_PFX}/${LIBDIR}:$LD_LIBRARY_PATH"
 
 export PETSC_DIR="${here}/${srcdir}"
 export PETSC_ARCH=ilp64

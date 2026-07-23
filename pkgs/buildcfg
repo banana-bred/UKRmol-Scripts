@@ -17,13 +17,14 @@
 : "${UKRMOL_OUT_PFX:=${UKRMOL_ROOT}/ukrmol-out}"
 
 # -- variables used by the installation scripts, can also be overridden
-: "${MAKEJOBS:=$(nprocs)}" # so we dont always use nprocs (e.g., on login nodes)
+: "${MAKEJOBS:=$(nproc)}" # so we dont always use nprocs (e.g., on login nodes)
 : "${MPI_HOME:=${MPICH_PFX}}"
-: "${OPENBLAS_LIB:=${OPENBLAS_PFX}/lib}"
 : "${OPENBLAS_INC:=${OPENBLAS_PFX}/include}"
-: "${SCALAPACK_LIB:=${SCALAPACK_PFX}/lib/libscalapack.so}"
 : "${GBTO_INC:=${UKRMOL_IN_PFX}/include/ukrmol-in/gbtolib}"
 : "${GBTO_LIB:=${UKRMOL_IN_PFX}/lib/ukrmol-in/libGBTO.a}"
+: "${LIBDIR:=lib}" # <-- install libdir name. Some cmakes default to lib64, others to lib
+: "${OPENBLAS_LIB:=${OPENBLAS_PFX}/${LIBDIR}}"
+: "${SCALAPACK_LIB:=${SCALAPACK_PFX}/${LIBDIR}/libscalapack.so}"
 
 : "${CMAKE:=cmake}"
 
@@ -54,3 +55,4 @@ export MPICXX
 export MPIFORT
 export MPIEXEC
 export MAKEJOBS
+export LIBDIR
