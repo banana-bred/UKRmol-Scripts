@@ -9,7 +9,7 @@ TOP-LEVEL FILES
     ./build.all petsc64 slepc64         # just these, check included
     ./build.all nocheck petsc64 slepc64 # just these, check excluded
 
-  prefixes: Environmental variables used by the build scripts.
+  buildcfg: Environmental variables used by the build scripts.
     Each variable can be overwritten, e.g.,
 
       UKRMOL_ROOT=/opt/ ./build.all           # relocate all packages

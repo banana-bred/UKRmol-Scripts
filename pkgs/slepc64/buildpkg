@@ -9,9 +9,9 @@
 # Contributor: Lucas H. Gabrielli <heitzmann@gmail.com>
 # Adapted from the AUR package
 
-# -- source the prefixes
+# -- source the buildcfg
 here="$(cd "$(dirname "$0")" && pwd)"
-. "${here}/../prefixes" || exit 1
+. "${here}/../buildcfg" || exit 1
 cd "$here" || exit 1
 
 _pkgname=slepc

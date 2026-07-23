@@ -9,9 +9,9 @@ ball="${_pkgname}-${pkgver}.tar.gz"
 srcdir="${_pkgname}-${pkgver}"
 prefix="$OPENBLAS_PFX"
 
-# -- source the prefixes
+# -- source the buildcfg
 here="$(cd "$(dirname "$0")" && pwd)"
-. "${here}/../prefixes" || exit 1
+. "${here}/../buildcfg" || exit 1
 cd "$here" || exit 1
 
 download() {
@@ -46,13 +46,13 @@ build() {
     -DNUM_THREADS=64 \
     -DDYNAMIC_ARCH=OFF \
     -DINTERFACE64=1 || exit 1
-  "$CMAKE" --build build64 -j"$(nproc)" || exit 1
+  "$CMAKE" --build build64 -j"$MAKEJOBS" || exit 1
   cd .. || exit 1
 }
 
 install_local() {
   cd "$srcdir" || exit 1
-  cmake --install build64
+  "$CMAKE" --install build64
   cd .. || exit 1
 }
 

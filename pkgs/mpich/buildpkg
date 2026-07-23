@@ -3,9 +3,9 @@
 # Contributor: Jed Brown <jed@59A2.org>
 # Contributor: George Eleftheriou <eleftg>
 
-# -- source the prefixes
+# -- source the buildcfg
 here="$(cd "$(dirname "$0")" && pwd)"
-. "${here}/../prefixes" || exit 1
+. "${here}/../buildcfg" || exit 1
 cd "$here" || exit 1
 
 _name=mpich
@@ -54,7 +54,7 @@ build() {
     --enable-error-checking=runtime \
     --enable-error-messages=all \
     CC=gcc CXX=g++ FC=gfortran || exit 1
-  make -j"$(nproc)" || exit 1
+  make -j"$MAKEJOBS" || exit 1
   make mandoc || exit 1
   cd ../.. || exit 1
 }

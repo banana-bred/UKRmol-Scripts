@@ -2,9 +2,9 @@
 # Maintainer: banana-bred <j.forer@posteo.net>
 # #!/bin/bash
 
-# -- source the prefixes
+# -- source the buildcfg
 here="$(cd "$(dirname "$0")" && pwd)"
-. "${here}/../prefixes" || exit 1
+. "${here}/../buildcfg" || exit 1
 cd "$here" || exit 1
 
 _pkgname=ukrmol-out
@@ -54,27 +54,27 @@ build() {
   cd "$srcdir" || exit 1
 
   # -- make sure the libraries are visible
-  path_prepend "${OPENBLAS_LIB}" LD_LIBRARY_PATH
-  path_prepend "${MPI_HOME}/lib" LD_LIBRARY_PATH
-  path_prepend "$SCALAPACK_PFX"  LD_LIBRARY_PATH
+  path_prepend "${OPENBLAS_LIB}"     LD_LIBRARY_PATH
+  path_prepend "${MPI_HOME}/lib"     LD_LIBRARY_PATH
+  path_prepend "$SCALAPACK_PFX/lib"  LD_LIBRARY_PATH
 
   local _cmakeOptions=(
     -D CMAKE_EXE_LINKER_FLAGS="-Wl,-z,noexecstack,-z,relro,-z,now,--as-needed -Wl,-rpath,${OPENBLAS_LIB}:${MPI_HOME}/lib:${SCALAPACK_PFX}/lib"
     -D CMAKE_SHARED_LINKER_FLAGS='-Wl,-z,noexecstack'
     -D CMAKE_POLICY_VERSION_MINIMUM="${_minCmake}"
-    -D CMAKE_C_COMPILER="${MPI_HOME}/bin/mpicc"
-    -D CMAKE_CXX_COMPILER="${MPI_HOME}/bin/mpicxx"
-    -D CMAKE_Fortran_COMPILER="${MPI_HOME}/bin/mpifort"
+    -D CMAKE_C_COMPILER="$MPICC"
+    -D CMAKE_CXX_COMPILER="$MPICXX"
+    -D CMAKE_Fortran_COMPILER="$MPIFORT"
     -D CMAKE_Fortran_FLAGS="-fdefault-integer-8 -I${GBTO_INC}"
     -D LAPACK_LIBRARIES="-L${OPENBLAS_LIB} -lopenblas_64"
     -D BLAS_LIBRARIES="-L${OPENBLAS_LIB} -lopenblas_64"
-    -D MPIEXEC_EXECUTABLE="${MPI_HOME}/bin/mpiexec"
+    -D MPIEXEC_EXECUTABLE="$MPIEXEC"
     -D GBTOLIB_INCLUDE_DIRS="${GBTO_INC}"
     -D GBTOLIB_LIBRARIES="${GBTO_LIB}"
     -D SCALAPACK_LIBRARIES="$SCALAPACK_LIB"
   )
   "$CMAKE" "${_cmakeOptions[@]}" . || exit 1
-  make -j"$(nproc)" || exit 1
+  make -j"$MAKEJOBS" || exit 1
   cd ..
 }
 

@@ -1,13 +1,10 @@
 #!/bin/bash
 
 # -- build the whole UKRmol+ stack in dependency order.
-#      ./build.all                         # everything, with checks
-#      ./build.all nocheck                 # everything, skipping checks
-#      ./build.all mpich openblas64        # just these two, in the order given by the 'order' array
-#      ./build.all nocheck petsc64 slepc64 # just these two, in the order given by the 'order' array, no checks
+#      ./build.all  --help  # script help
 
 here="$(cd "$(dirname "$0")" && pwd)"
-. "${here}/prefixes" || exit 1
+. "${here}/buildcfg" || exit 1
 
 # -- installation order. Some of these commute
 order=(mpich openblas64 scalapack64 petsc64 slepc64 ukrmol-in ukrmol-out)
@@ -23,7 +20,7 @@ build everything. Packages are always built in dependency order,
 regardless of the order given on the command line.
 
 You can skip building certain pacakges, but if you choose to do so, it is important that
-the envrionmental variables (see 'prefixes') be properly set. If you already have an
+the envrionmental variables (see 'buildcfg') be properly set. If you already have an
 MPI implementation (doesn't even have to be MPICH), then make sure to set MPI_HOME, otherwise
 it defaults to a subdirectory of UKRMOL_ROOT.
 
@@ -32,16 +29,16 @@ Packages (in build order):
 
 Options:
   -h, --help            show this message and do nothing
-  nocheck               skip the 'check' step of each package's build script (if it has one)
+  --nocheck             skip the 'check' step of each package's build script (if it has one)
   --exclude PKG[,PKG..] skip the given package(s)
   --exclude=PKG[,PKG..] skip the given package(s)
 
 Examples:
-  $PROGRAM                                 # everything, with checks
-  $PROGRAM nocheck                         # everything, skipping checks
-  $PROGRAM petsc64 slepc64                 # just these two
-  $PROGRAM --exclude mpich                 # everything except mpich (e.g., using your cluster MPI)
-  $PROGRAM nocheck --exclude=mpich,petsc64 # no check, exclude mpich and petsc64, build the rest
+  $PROGRAM                                   # everything, with checks
+  $PROGRAM --nocheck                         # everything, skipping checks
+  $PROGRAM petsc64 slepc64                   # just these two
+  $PROGRAM --exclude mpich                   # everything except mpich (e.g., using your cluster MPI)
+  $PROGRAM --nocheck --exclude=mpich,petsc64 # no check, exclude mpich and petsc64, build the rest
 EOF
 }
 
@@ -53,8 +50,8 @@ while [ "$#" -gt 0 ]; do
       usage
       exit 0
       ;;
-    nocheck)
-      flags+=("$1")
+    --nocheck|nocheck)
+      flags+=(nocheck)
       ;;
     --exclude=*)
       IFS=',' read -r -a _x <<< "${1#--exclude=}"

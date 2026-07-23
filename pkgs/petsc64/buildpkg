@@ -9,9 +9,9 @@
 # Contributor: Lucas H. Gabrielli <heitzmann@gmail.com>
 # Adapted from the AUR package
 
-# -- source the prefixes
+# -- source the buildcfg
 here="$(cd "$(dirname "$0")" && pwd)"
-. "${here}/../prefixes" || exit 1
+. "${here}/../buildcfg" || exit 1
 cd "$here" || exit 1
 
 _pkgname=petsc
@@ -61,7 +61,9 @@ build() {
     --with-precision=double \
     --with-scalar-type=real \
     --with-fortran-bindings=1 \
-    --with-mpi-dir="${MPI_HOME}" \
+    --with-cc="$MPICC" \
+    --with-cxx="$MPICXX" \
+    --with-fc=$MPIFORT \
     --with-blaslapack-lib="${OPENBLAS_LIB}/libopenblas_64.so" \
     --with-shared-libraries=1 \
     --with-debugging=0 \

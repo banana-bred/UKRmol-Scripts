@@ -5,9 +5,9 @@
 #   - Fortran side via -fdefault-integer-8
 #   - C/BLACS side via -DInt=long (as documented in upstream README)
 
-# -- source the prefixes
+# -- source the buildcfg
 here="$(cd "$(dirname "$0")" && pwd)"
-. "${here}/../prefixes" || exit 1
+. "${here}/../buildcfg" || exit 1
 cd "$here" || exit 1
 
 _srcname=scalapack
@@ -47,19 +47,18 @@ build() {
     -D CMAKE_INSTALL_PREFIX:PATH="$prefix" \
     -D BUILD_SHARED_LIBS:BOOL=ON \
     -D SCALAPACK_BUILD_TESTS:BOOL=OFF \
-    -D CMAKE_C_COMPILER="${MPI_HOME}/bin/mpicc" \
-    -D CMAKE_Fortran_COMPILER="${MPI_HOME}/bin/mpifort" \
+    -D CMAKE_C_COMPILER="$MPICC" \
+    -D CMAKE_Fortran_COMPILER="$MPIFORT" \
     -D CMAKE_BUILD_TYPE:STRING=Release \
     -D CMAKE_Fortran_FLAGS:STRING="$FCFLAGS -fdefault-integer-8 -fallow-argument-mismatch" \
     -D CMAKE_C_FLAGS:STRING="$CFLAGS -DInt=long -Wno-implicit-function-declaration" \
     -D CMAKE_C_STANDARD:STRING="17" \
     -D BLAS_LIBRARIES="-L$OPENBLAS_LIB -lopenblas_64" \
     -D LAPACK_LIBRARIES="-L$OPENBLAS_LIB -lopenblas_64" \
-    -D MPI_C_COMPILER="${MPI_HOME}/bin/mpicc" \
-    -D MPI_Fortran_COMPILER="${MPI_HOME}/bin/mpifort" \
-    -D MPI_HOME="$MPI_HOME" \
-    -D MPIEXEC_EXECUTABLE="${MPI_HOME}/bin/mpiexec" || exit 1
-  make -C build -j"$(nproc)" || exit 1
+    -D MPI_C_COMPILER="$MPICC" \
+    -D MPI_Fortran_COMPILER="$MPIFORT" \
+    -D MPIEXEC_EXECUTABLE="$MPIEXEC" || exit 1
+  make -C build -j"$MAKEJOBS" || exit 1
 }
 
 install_local() {

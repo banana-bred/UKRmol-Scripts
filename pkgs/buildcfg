@@ -5,7 +5,7 @@
 #      PETSC_PFX=/scratch/me/petsc ./build.sh
 
 : "${UKRMOL_ROOT:=${HOME}/.local}"
-[ -n "$UKRMOL_ROOT" ] || { echo "prefixes.sh: UKRMOL_ROOT empty" >&2; return 1 2>/dev/null || exit 1; }
+[ -n "$UKRMOL_ROOT" ] || { echo "buildcfg: UKRMOL_ROOT empty" >&2; return 1 2>/dev/null || exit 1; }
 
 # -- installation prefixes
 : "${MPICH_PFX:=${UKRMOL_ROOT}/mpich}"
@@ -17,6 +17,7 @@
 : "${UKRMOL_OUT_PFX:=${UKRMOL_ROOT}/ukrmol-out}"
 
 # -- variables used by the installation scripts, can also be overridden
+: "${MAKEJOBS:=$(nprocs)}" # so we dont always use nprocs (e.g., on login nodes)
 : "${MPI_HOME:=${MPICH_PFX}}"
 : "${OPENBLAS_LIB:=${OPENBLAS_PFX}/lib}"
 : "${OPENBLAS_INC:=${OPENBLAS_PFX}/include}"
@@ -25,6 +26,12 @@
 : "${GBTO_LIB:=${UKRMOL_IN_PFX}/lib/ukrmol-in/libGBTO.a}"
 
 : "${CMAKE:=cmake}"
+
+# -- compilation commands (can be overridden)
+: "${MPICC:=$MPI_HOME/bin/mpicc}"
+: "${MPICXX:=$MPI_HOME/bin/mpicxx}"
+: "${MPIFORT:=$MPI_HOME/bin/mpifort}"
+: "${MPIEXEC:=$MPI_HOME/bin/mpiexec}"
 
 # -- export them all
 export UKRMOL_ROOT
@@ -42,3 +49,8 @@ export SCALAPACK_LIB
 export GBTO_INC
 export GBTO_LIB
 export CMAKE
+export MPICC
+export MPICXX
+export MPIFORT
+export MPIEXEC
+export MAKEJOBS
