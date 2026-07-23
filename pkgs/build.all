@@ -72,17 +72,26 @@ for arg in "$@"; do
   esac
 done
 
-# -- reject unknown package names and crash
-for w in "${want[@]}"; do
-  known=0
+# -- reject unknown package names and crash, skip excluded
+check_known() {
+  local w="$1" pkg
   for pkg in "${order[@]}"; do
-    [ "$pkg" = "$w" ] && known=1 && break
+    [ "$pkg" = "$w" ] && return 0
   done
-  if [ "$known" -eq 0 ]; then
-    echo "Unknown package: '$w'. Valid: ${order[*]}" >&2
-    exit 1
-  fi
-done
+  echo "Unknown package: '$w'. Valid: ${order[*]}" >&2
+  usage >&2
+  exit 1
+}
+for w in "${want[@]}";    do check_known "$w"; done
+for w in "${exclude[@]}"; do check_known "$w"; done
+
+is_excluded() {
+  local pkg="$1" x
+  for x in "${exclude[@]}"; do
+    [ "$pkg" = "$x" ] && return 0
+  done
+  return 1
+}
 
 run() {
   local pkg="$1"
@@ -107,7 +116,10 @@ else
   # honor dependency order regardless of the order the user typed
   for pkg in "${order[@]}"; do
     for w in "${want[@]}"; do
-      [ "$pkg" = "$w" ] && run "$pkg"
+      if [ "$pkg" = "$w" ]; then
+        is_excluded "$pkg" && { echo "== Skipping (excluded): $pkg"; continue; }
+        run "$pkg"
+      fi
     done
   done
 
