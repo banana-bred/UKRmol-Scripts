@@ -65,7 +65,7 @@ build() {
     -D CMAKE_C_COMPILER="$MPICC"
     -D CMAKE_CXX_COMPILER="$MPICXX"
     -D CMAKE_Fortran_COMPILER="$MPIFORT"
-    -D CMAKE_Fortran_FLAGS="-fdefault-integer-8 -I${GBTO_INC}"
+    -D CMAKE_Fortran_FLAGS="-fdefault-integer-8 -fallow-argument-mismatch -I${GBTO_INC}"
     -D LAPACK_LIBRARIES="-L${OPENBLAS_LIB} -lopenblas_64"
     -D BLAS_LIBRARIES="-L${OPENBLAS_LIB} -lopenblas_64"
     -D MPIEXEC_EXECUTABLE="$MPIEXEC"

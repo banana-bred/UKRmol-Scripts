@@ -43,7 +43,7 @@ build() {
     -D CMAKE_C_COMPILER="$MPICC"
     -D CMAKE_CXX_COMPILER="$MPICXX"
     -D CMAKE_Fortran_COMPILER="$MPIFORT"
-    -D CMAKE_Fortran_FLAGS="-fdefault-integer-8 -Dblas64bit -cpp -I${PETSC_PFX}/include -I${PETSC_PFX}/include/petsc -I${SLEPC_PFX}/include -I${SLEPC_PFX}/include/slepc"
+    -D CMAKE_Fortran_FLAGS="-fdefault-integer-8 -fallow-argument-mismatch -Dblas64bit -cpp -I${PETSC_PFX}/include -I${PETSC_PFX}/include/petsc -I${SLEPC_PFX}/include -I${SLEPC_PFX}/include/slepc"
     -D WITH_SCALAPACK=ON
     -D BLAS_LIBRARIES="-L$OPENBLAS_LIB -lopenblas_64"
     -D LAPACK_LIBRARIES="-L$OPENBLAS_LIB -lopenblas_64"
