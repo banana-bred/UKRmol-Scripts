@@ -1,0 +1,4 @@
+*
+!buildpkg
+!test
+!test.f90
