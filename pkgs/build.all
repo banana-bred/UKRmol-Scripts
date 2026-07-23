@@ -46,15 +46,15 @@ EOF
 }
 
 # -- split args into flags
-flags=() ; want=()
-for arg in "$@"; do
-  case "$arg" in
+flags=() ; want=() ; exclude=()
+while [ "$#" -gt 0 ]; do
+  case "$1" in
     -h|--help)
       usage
       exit 0
       ;;
     nocheck)
-      flags+=("$arg")
+      flags+=("$1")
       ;;
     --exclude=*)
       IFS=',' read -r -a _x <<< "${1#--exclude=}"
@@ -66,10 +66,16 @@ for arg in "$@"; do
       exclude=("${exclude[@]}" "${_x[@]}")
       shift
       ;;
+    -*)
+      echo "Unknown option: '$1'" >&2
+      usage >&2
+      exit 1
+      ;;
     *)
-      want=("${want[@]}" "$arg")
+      want=("${want[@]}" "$1")
       ;;
   esac
+  shift
 done
 
 # -- reject unknown package names and crash, skip excluded
@@ -108,6 +114,7 @@ run() {
 if [ "${#want[@]}" -eq 0 ]; then
 
   for pkg in "${order[@]}"; do
+    is_excluded "$pkg" && { echo "== Skipping (excluded): $pkg"; continue; }
     run "$pkg"
   done
 
