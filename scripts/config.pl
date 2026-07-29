@@ -63,21 +63,24 @@
   # For very special run to get bound states of e + target without running scattering
   #   gaustail is skipped, thus integrals are not limited to the R-matrix sphere and scatci calculates regular eigenstates, not R-matrix poles
   # set this option to 1 if you want to calculate bound states
-  'bound',           0,  
+  'bound',           0,
+
+  # calculate radial densities in scatci_integrals ?
+  'calc_radial_densities',   1,
 
   # EXPERT SETTING:
   # Force use of cdenprop for target calculation.
   'use_cdenprop', 0,
 
   # EXPERT SETTING:
-  # Set a value for igh. ight = for target-scatci, ighs = for scattering-scatci. 
+  # Set a value for igh. ight = for target-scatci, ighs = for scattering-scatci.
   # 2 = Auto select (default), -1 = Arpack, 0 = Davidson, 1 = Givens-Householder
   'ight', 2,
   'ighs', 2,
 
-  # EXPERT SETTING: 
+  # EXPERT SETTING:
   # If set to 1 the amplitudes and channel data saved from a previous run (using the options 'save_channels' and 'save_rmat_amp')
-  # will be used instead of running SWINTERF to generate them. This is useful in case the inner region data (e.g.fort.25) have 
+  # will be used instead of running SWINTERF to generate them. This is useful in case the inner region data (e.g.fort.25) have
   # not been saved only a rerun of the outer region is needed e.g. with a different energy grid or using a different set of programs.
   'use_saved_ramps', 0,
 
