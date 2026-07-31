@@ -1401,9 +1401,9 @@ sub make_scatci_integrals_input {
   &replace_in_template($r_str, "MAXL_LEGENDRE_1EL", $r_par->{'model'}->{'maxl_legendre_1el'});
   &replace_in_template($r_str, "MAXL_LEGENDRE_2EL", $r_par->{'model'}->{'maxl_legendre_2el'});
   if ($r_par->{'run'}->{'skip_radden'} eq 0){
-    &replace_in_template($r_str, "CAL_RADIAL_DENSITIES", ".true.");
+    &replace_in_template($r_str, "CALC_RADIAL_DENSITIES", ".true.");
   } else {
-    &replace_in_template($r_str, "CAL_RADIAL_DENSITIES", ".false.");
+    &replace_in_template($r_str, "CALC_RADIAL_DENSITIES", ".false.");
   }
 
   return 1;
