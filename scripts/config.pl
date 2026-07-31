@@ -19,7 +19,7 @@
   'photoionization', 0,  # calculate photoionization cross sections of the (N+1)-electron system instead of electron scattering cross sections
   'rmt_interface',   0,  # form the RMT molecular input file (rmt_interface and photoionization are mutually exclusive options)
   # Ocassionally, you may want to tun these parts of the calculation too
-  'skip_radden',     1,  # skip calculating radial densities
+  'skip_radden',     0,  # skip calculating radial densities
   # Options to keep or delete files
   'gather_data',     1,  # gather eigenphase sums, cross sections, energies ...
   'clean',           1,  # removing fort.* etc (except moints with molecular integrals)
@@ -64,9 +64,6 @@
   #   gaustail is skipped, thus integrals are not limited to the R-matrix sphere and scatci calculates regular eigenstates, not R-matrix poles
   # set this option to 1 if you want to calculate bound states
   'bound',           0,
-
-  # calculate radial densities in scatci_integrals ?
-  'calc_radial_densities',   1,
 
   # EXPERT SETTING:
   # Force use of cdenprop for target calculation.
