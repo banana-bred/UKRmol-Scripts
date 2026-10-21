@@ -9,9 +9,9 @@ here="$(cd "$(dirname "$0")" && pwd)"
 cd "$here" || exit 1
 
 _name=mpich
-pkgver=5.0.1
+pkgver=5.0.2
 url="https://www.mpich.org/static/downloads/${pkgver}/${_name}-${pkgver}.tar.gz"
-sha256sum_expected='8c1832a13ddacf071685069f5fadfd1f2877a29e1a628652892c65211b1f3327'
+sha256sum_expected='928c2f18d350a91443fe8024ad01ce2c6009e9c551e0a73e797fc567f119137d'
 ball="${_name}-${pkgver}.tar.gz"
 srcdir="${_name}-${pkgver}"
 prefix="$MPICH_PFX"
@@ -49,11 +49,11 @@ build() {
     --prefix="$prefix" \
     --with-device=ch4:ucx \
     --with-hwloc \
-    --without-java \
     --without-ze \
     --enable-error-checking=runtime \
-    --enable-error-messages=all \
     CC=gcc CXX=g++ FC=gfortran || exit 1
+    # --enable-error-messages=all \
+    # --without-java \
   make -j"$MAKEJOBS" || exit 1
   make mandoc || exit 1
   cd ../.. || exit 1

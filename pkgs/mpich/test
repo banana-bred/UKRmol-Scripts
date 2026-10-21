@@ -1,11 +1,13 @@
 #!/bin/bash
 
 # -- compile test
-~/.local/mpich64/bin/mpifort test.f90 
+~/.local/mpich/bin/mpifort test.f90 || { echo "ERROR COMPILING TEST"; exit 1; }
 
 # -- test test
 for i in 1 2 5 10 32 ; do
-	~/.local/mpich64/bin/mpirun -n "$i" ./a.out
+  (( $i > $(nproc) )) && continue
+  echo ""
+	~/.local/mpich/bin/mpirun -n "$i" ./a.out || echo "ERROR RUNNING TEST FOR $i JOBS"
 done
 
-rm a.out
+[[ -e a.out ]] && rm a.out
